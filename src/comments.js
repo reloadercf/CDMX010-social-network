@@ -1,0 +1,1 @@
+export const comments = () => `<h1>Comments</h1>`;
