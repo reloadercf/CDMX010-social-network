@@ -47,3 +47,13 @@ linkId.addEventListener( 'click', () =>{
     onNavigate(PathName); return false;
 })
 }
+
+// NAVBAR
+
+let desplegar = document.getElementById("menu");
+
+desplegar.onclick = function () {
+
+    var navbar = document.getElementById("nav");      
+    navbar.classList.toggle("show");
+};
