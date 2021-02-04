@@ -4,5 +4,9 @@ export const login = `<div>Imagen de usuario</div>
 </div>
 <div><button> Iniciar Sesión</button></div>
 <div><a href="#">Recuperar contraseña</a></div>
+<<<<<<< HEAD
 <div></div>
+=======
+<di>
+>>>>>>> alejandra
 `
