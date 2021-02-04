@@ -1,18 +1,17 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
-import {home} from './home.js';
-import {login} from './login.js';
-import {perfil} from './perfil.js';
-import {account} from './account.js';
+
+import { home } from './home.js';
+import { login } from './login.js';
+import { perfil } from './perfil.js';
+import { account } from './account.js';
 //Router
 
 const routes = {
-    '/' : home,
-    '/login' :login,
-    '/account' : account,
-    '/perfil' : perfil
-};
+    '/': home,
+    '/login': login,
+    '/account': account,
+    '/perfil': perfil};
 
 console.log(routes);
 const rootDiv = document.getElementById('root');
