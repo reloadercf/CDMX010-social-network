@@ -26,3 +26,4 @@ export const login = `<div class="container-login">
 </div>
 
 </div>`
+
