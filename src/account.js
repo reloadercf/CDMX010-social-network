@@ -11,25 +11,25 @@ export const account = `
         <p class="A-title">Registro</p>
         <br>
         <br>
-        <input id="A-input-nameUser" class="A-input-1" type="text" placeholder="Nombre de usuario">
+        <input id="A-input-nameUser" class="A-input-1" type="text" maxlength=30 placeholder="Nombre de usuario">
         <br>
         <br>
-        <input id="A-input-mail" class="A-input-1" type="text" placeholder="Correo electrónico">
+        <input id="A-input-mail" class="A-input-1" type="email" maxlength=50 placeholder="Correo electrónico">
         <br>
         <br>
-        <input id="A-input-password" class="A-input-1" type="text" placeholder="Contraseña">
+        <input id="A-input-password" class="A-input-1" type="password" maxlength=16 placeholder="Contraseña">
         <br>
         <br>
-        <input id="A-input-password-confirm" class="A-input-1" type="text" placeholder="Confirmar contraseña">
+        <input id="A-input-password-confirm" class="A-input-1" type="password" maxlength=16 placeholder="Confirmar contraseña">
         <br>
         <br>
         <label class="A-label-aboutUser">La siguiente información aparecerá en tu perfil</label>
         <br>
-        <input class="A-input-1" type="text" placeholder="Sobre mi" máx=20 >
+        <input id="A-input-aboutMe" class="A-input-1" type="text" placeholder="Sobre mi" maxlength=140 >
         <br>
         <br>
         <br>
-        <button class="account-button">Crear cuenta</button>
+        <button id="A-createAcount-button" class="account-button">Crear cuenta</button>
         <br>
         <br>
         <br>
