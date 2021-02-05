@@ -22,35 +22,31 @@ body{
     padding: 10px 0px 10px 0;
 }
 .input-login input{
-    Width:200px;
-    Height:20px;
+    Width:300px;
+    Height:30px;
     border-radius: .10px; 
-}
-.icon-email{
-    width:  20px;
-    color:#F3A623;
-    padding-right: 5px;
-}
-.icon-password{
-    width:  20px;    
-    padding-right: 5px;
 }
 .check-login{
     display: flex;
     justify-content: center;
 }
-.button-login button{
-    width:200px;
-    height:34px;
-    border-radius: 6px;
-    background-color: #F3A623;
+.check-login {
+    font-size: small;
 }
+
 .button-login{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center; 
     padding: 20px 0px 20px 0;
+}
+.button-login button{      
+    Width:300px;
+    Height:30px; 
+}
+.button-login a{
+    font-size: small;
 }
 .socialNet-login{
     display: flex;
@@ -67,6 +63,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size:small;
 }
 .background{
     background-size: cover;
