@@ -199,12 +199,9 @@ body{
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 #A-root{
-    background-image: url(./images/fondo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 @media (max-width: 800px) {
     #A-root{
@@ -263,12 +260,7 @@ body{
     text-align: center;
 }
 
-#A-input-password{
-    background-image: url(./images/passwordIcon.png);
-    background-repeat: no-repeat;
-    text-align: center;
-}
-#A-input-password-confirm{
+#A-input-password, #A-input-password-confirm{
     background-image: url(./images/passwordIcon.png);
     background-repeat: no-repeat;
     text-align: center;
