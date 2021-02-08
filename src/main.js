@@ -1,67 +1,24 @@
 // Este es el punto de entrada de tu aplicacion
+import { routes, getRouter } from "./routing.js";
 
-import { home } from './home.js';
-import { login, loginWithMail } from './login.js';
-import { perfil } from './perfil.js';
-import { account, createAccount } from './account.js';
-
-//Router
-
-const routes = {
-    '/': home,
-    '/login': login,
-    '/account': account,
-    '/perfil': perfil
-};
-
-// console.log(routes);
+//RESNDERIZAR "Home" en el div "root" POR DEFAULT AL INICIAR LA PÁGINA//
 const rootDiv = document.getElementById('root');
-
 rootDiv.innerHTML = routes[window.location.pathname];
 
-//Indicamos la ruta a la que queremos acceder y la renderizamos
-const onNavigate =(pathname)=>{
-    window.history.pushState(
-        {},
-        pathname,
-        window.location.origin + pathname
-    )
-    rootDiv.innerHTML= routes[pathname];
-    if(routes[pathname]== login){
-        console.log('Ingresar')
-        loginWithMail();
-    }else if(routes[pathname]== account){
-        console.log('Registrarse');
-        createAccount();
-    } else{
-        console.log('Es diferente');
-    }
-}
-
+//ENLACES PARA ACCEDER A LAS SECCIONES//
 let loginLink= document.getElementById('log');
-let loginPathName= '/login'; 
 let accountLink= document.getElementById('acc');
-let accountPathName= '/account';
 let homeLink= document.getElementById('hom');
-let homePathName= '/';
 let perfilLink= document.getElementById('per');
-let perfilPathName= '/perfil';
 
-getRouter(loginLink, loginPathName);
-getRouter(accountLink, accountPathName);
-getRouter(homeLink, homePathName);
-getRouter(perfilLink, perfilPathName);
+//FUNCIONES QUE RENDERIZAR CADA SECCIÓN// 
+getRouter(loginLink, '/login');
+getRouter(accountLink, '/account');
+getRouter(homeLink, '/');
+getRouter(perfilLink, '/perfil');
 
-function getRouter(linkId,PathName){
-linkId.addEventListener( 'click', () =>{
-    onNavigate(PathName); return false;
-})
-}
-
-// NAVBAR
-
+//NAVBAR
 let desplegar = document.getElementById("menu");
-
 desplegar.onclick = function () {
 
     var navbar = document.getElementById("nav");      

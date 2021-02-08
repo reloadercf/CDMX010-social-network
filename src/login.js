@@ -1,9 +1,11 @@
+import { onNavigate } from "./routing.js";
+
 export const login = `<div class="container-login">
 <div class="logo-login">
 <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
 </div>
 
-<form class="input-section" id="input-section">
+<form class="input-section" id="input-section-login">
 <div class="input-login">
     <input id="login-mail-input" class="A-input-mail" type="email" maxlength=50 placeholder="Email" required></input><br>
 </div>
@@ -38,7 +40,7 @@ export const login = `<div class="container-login">
 
 export const loginWithMail= ()=>{
     // PARA DETENER LA ACCIÓN DEL FORM///
-    let singupForm = document.getElementById('input-section');
+    let singupForm = document.getElementById('input-section-login');
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
@@ -54,8 +56,15 @@ export const loginWithMail= ()=>{
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
-                    console.log('inicio de sesión')
-                    alert('¡Hola de nuevo! BIENVENIDA')
+                    console.log('inicio de sesión');
+                    alert('¡Hola de nuevo! BIENVENIDA');
+                    onNavigate('/');
                 })
-        })
+                .cathc(function (error) {
+                    let errorCode = error.code;
+                    let errorMessage = error.message;
+
+                    console.log(errorCode, errorMessage)
+                })
+        });
 }
