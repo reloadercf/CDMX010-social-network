@@ -6,15 +6,19 @@ body{
 }
 
 .logo-login{
+    /* margin-top: 5px; */
     display: flex;
     justify-content: center;
-    padding: 10px 0px 30px 0;
+    padding: 5px 0px 30px 0;
 }
 .logo-login img{
-     width: 15%;
+    width: 15%;
     height: 15%;
 }
-.input-login{
+.input-section{
+    margin-top: 5px;
+}
+.input-login{    
     display: flex;
     align-items: center;    
     justify-content: center;
@@ -27,19 +31,28 @@ body{
     border-radius: .10px; 
 }
 .check-login{
+    margin-top: 6px;
+    margin-right: 193px;
     display: flex;
-    justify-content: center;
+    justify-content: center;    
+}
+.checkin{
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .check-login {
     font-size: small;
 }
 
 .button-login{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
     padding: 20px 0px 20px 0;
+}
+.account-button:hover{
+    cursor: pointer;
 }
 .button-login button{      
     Width:300px;
@@ -48,9 +61,22 @@ body{
 .button-login a{
     font-size: small;
 }
-.socialNet-login{
+.socialNet-login{    
+    justify-content: center;
+}
+.singin{
     display: flex;
     justify-content: center;
+    margin-top: 10px;    
+}
+.users{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.social{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .socialNet-login img{
@@ -60,10 +86,16 @@ body{
     padding: 0px 10px 0px 10px;
 }
 .register-login{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size:small;
+}
+.beUser{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
 }
 .background{
     background-size: cover;
@@ -73,60 +105,151 @@ body{
     background-position: center;
 }
 
+/* PERFIL */
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+.flex-menu{
+    display: flex;
+    flex-direction: column;
+    width: 30%;       
+}
+.subject{
+    background-color: #F4AD22;
+    width: 200px;
+    
+}
+.menu1{
+    color: black;
+    margin-left: 15px;
+    padding: 7px;
+    font-weight: bold;
+    width: 150px;
+}
+
+.Flex-perfil{
+    display: flex;
+    flex-direction: column;
+    width: 30%;   
+}
+.flex-noticias{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 30%;    
+    margin-left: 50px;
+}
+.title{
+    font-weight: bold;
+    font-size: 18px;
+}
+.notice{
+    width: 30%;    
+}
+
 .container{
     background-color: transparent;
-	border-radius: 20px;
-	/* box-shadow: 0 3px 10px rgba(100, 100, 100, 0.5); */
-	margin: 10px;
-	padding: 20px;
+	border-radius: 20px;	
+	margin-top: 10px;	
 	text-align: center;
+    justify-content: center;
+}
+.container-home{
+    background-color: transparent;
+	border-radius: 20px;	
+	margin-top: 10px;   
+	/* text-align: center;
+    justify-content: center; */
+}
+.image-home{
+    margin-right: 20px;
+    border-radius: 60%;
+    display: flex;    
+    width: 30%;
+    height: 30%;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.imgContainer-home{
+    display: flex;
+    margin-right: 150px;
+    /* flex-direction: row; */
+    justify-content: center;
+}
+.info-home{
+    margin-top: 13px;
+}
+.newPost-home{
+    margin-top: 30px;
+    height: 80px;    
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    border:1px #C3BEBE solid;
+    outline: none; 
+    font-size: 15px; 
+    padding-left: 13px;  
+    width: 500px; 
+    margin-left: 40px;
+   
 }
 
 .imgContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 
 .image{
+    margin-left: 230px;
     border-radius: 60%;
     display: flex;
-    width: 30%;
-    height: 30%;
+    width: 25%;
+    height: 25%;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
 .info{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    margin-left: 50px;
 }
 
 .userName{
-    padding-left: 25px;
+    margin-top: 5px;    
     font-size: 23px;
-    font-weight: bold;
+    font-weight: bold; 
 }
 
 .about{
-    padding-left: 11px;
+    margin-top: 5px;    
     font-size: 14px;
     color: #828282;
 }
 
 .post{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+}
+.content{
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
 }
 
 .newPost{
-    margin-top: 40px;
-    height: 70px;    
+    margin-top: 45px;
+    height: 80px;    
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     border:1px #C3BEBE solid;
     outline: none; 
     font-size: 15px; 
-    padding-left: 13px;    
+    padding-left: 13px;  
+    width: 500px; 
+    margin-left: 40px;
+   
 }
 
 .enter{    
@@ -137,11 +260,12 @@ body{
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     height: 20px;
-    font-size: 10px;
-    width: 80px;
+    font-size: 12px;
+    width: 110px;
+    height: 30px;
     color: white;
-    margin-left: 328px;
-    margin-bottom: 25px;
+    margin-left: 447px;
+    margin-bottom: 50px;
 }
 
 .enter:hover{
@@ -149,22 +273,25 @@ body{
 }
 
 .activity{   
+    width: 510px;
     background-color:white;
 	border-radius: 4px;
-	box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);	
-	padding: 20px;
-	text-align: center;
+	box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+	margin-left: 43px;
+	text-align: center;   
 }
 
 .point{
-    margin-left: 350px;
-    width: 19px;
+    margin-left: 450px;
+    margin-top: 20px;
+    width: 23px;
     height: 7px;     
 }
 
 .name{
     display: flex;
     font-weight: bold;
+    margin-left: 15px;
 }
 
 .publication{
@@ -175,20 +302,49 @@ body{
     display: flex;
     font-size: 10px;
     margin-top: 40px;
-    justify-content: space-between;
-
+    /* justify-content: space-between; */
+}
+.picture{
+    width: 4%;
+    height: 4%;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+.coment{
+    width: 4%;
+    height: 4%;
+    margin-left: 200px;
+}
+.coment-num{
+    margin-top: 3px;
+    margin-left: 4px;
+}
+.like{
+    width: 4%;
+    height: 4%;
+    margin-left: 30px;
+}
+.like-num{
+    margin-top: 4px;
+    margin-left: 4px;
+}
+.next{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .nextPost{
-    margin-top: 10px;
-    height: 30px;   
-    width: 96%; 
+    margin-top: 9px;
+    height: 40px;    
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     border:1px #C3BEBE solid;
     outline: none; 
-    font-size: 15px; 
-    padding-left: 13px;     
+    font-size: 12px; 
+    padding-left: 9px;  
+    width: 496px; 
+    margin-left: 45px;
 }
 
 /* //REGISTRO USUARIOS */
@@ -211,12 +367,16 @@ body{
 }
 
 #A-logo{
-    max-width: 55%;
+    /* max-width: 55%; */
+    width: 15%;
+    height: 15%;
+    margin-top: 30px;
 }
 
 #A-logo-container{
     display: flex;
     justify-content: center;
+    
 }
 
 #A-form-container{
@@ -231,36 +391,87 @@ body{
     width: 100%;
     height: 34px;
     border-color: #F3A623;
+    outline: none;    
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.new-password{
+    margin-top: 8px;
+    margin-right: 164px;
+    color: #7B7B7B;
 }
 
-.A-input-1{
+::placeholder {
+    color: #828282;
+}
+.A-input-nameUser{
     width: 100%;
     height: 25px;
     border-radius: 3%;
     border: 1px solid  #C3BEBE;
     box-shadow: 0px 1px #88888879;
     font-size: 12px;
-}
-
-::placeholder {
-    color: #828282;
-}
-#A-input-nameUser{
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    outline: none; 
     background-image: url(./images/userIcon.png);
     background-repeat: no-repeat;
-    text-align: center;
+    text-align: center; 
 }
 
-#A-input-mail{
+.A-input-mail{
+    width: 100%;
+    height: 25px;
+    border-radius: 3%;
+    border: 1px solid  #C3BEBE;
+    box-shadow: 0px 1px #88888879;
+    font-size: 12px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    outline: none; 
     background-image: url(./images/mailIcon.png);
     background-repeat: no-repeat;
     text-align: center;
 }
 
-#A-input-password, #A-input-password-confirm{
+.A-input-password-confirm{
+    width: 100%;
+    height: 25px;
+    border-radius: 3%;
+    border: 1px solid  #C3BEBE;
+    box-shadow: 0px 1px #88888879;
+    font-size: 12px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    outline: none; 
     background-image: url(./images/passwordIcon.png);
     background-repeat: no-repeat;
     text-align: center;
+}
+.A-input-password{
+    width: 100%;
+    height: 25px;
+    border-radius: 3%;
+    border: 1px solid  #C3BEBE;
+    box-shadow: 0px 1px #88888879;
+    font-size: 12px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    outline: none; 
+    background-image: url(./images/passwordIcon.png);
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.A-input-aboutme{
+    width: 100%;
+    height: 25px;
+    border-radius: 3%;
+    border: 1px solid  #C3BEBE;
+    box-shadow: 0px 1px #88888879;
+    font-size: 12px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    outline: none;  
+}
+
+.aboutUser{
+    margin-top: 10px;
+    font-size: small;
 }
 
 .A-label-aboutUser{
@@ -276,8 +487,8 @@ body{
 header{
     display: inline-block;
     width: 100%;
-    height: 70px;   
-    margin: 0px; 
+    height: 50px;   
+    /* margin: 0px;  */
     /* padding: 0px 20px; */
     background-color: #F3A623;
     position: relative;   
@@ -290,7 +501,8 @@ nav{
 
 nav ul li{
     display: inline-block;
-    padding: 10px 25px;
+    /* padding-top: 2px; */
+    padding-right: 25px;
 }
 
 nav ul li a{
@@ -337,6 +549,120 @@ nav ul li a{
     }
     nav ul li a{
         color: black;
+    }
+    .container{
+        background-color: transparent;
+        border-radius: 20px;
+        /* box-shadow: 0 3px 10px rgba(100, 100, 100, 0.5); */
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+    .imgContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .image{
+        border-radius: 60%;
+        display: flex;
+        width: 30%;
+        height: 30%;
+    }
+    .info{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    
+    .userName{
+        padding-left: 25px;
+        font-size: 23px;
+        font-weight: bold;
+    }
+    
+    .about{
+        padding-left: 11px;
+        font-size: 14px;
+        color: #828282;
+    }
+    
+    .post{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .newPost{
+        margin-top: 40px;
+        height: 70px;    
+        border-radius: 4px;
+        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        border:1px #C3BEBE solid;
+        outline: none; 
+        font-size: 15px; 
+        padding-left: 13px;    
+    }
+    
+    .enter{    
+        margin-top: 15px;
+        background-color: #F3A623;
+        border-color: #F3A623;
+        outline: none; 
+        border-radius: 4px;
+        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        height: 20px;
+        font-size: 10px;
+        width: 80px;
+        color: white;
+        margin-left: 328px;
+        margin-bottom: 25px;
+    }
+    
+    .enter:hover{
+        cursor: pointer;
+    }
+    
+    .activity{   
+        background-color:white;
+        border-radius: 4px;
+        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);	
+        padding: 20px;
+        text-align: center;
+    }
+    .point{
+        margin-left: 350px;
+        width: 19px;
+        height: 7px;     
+    }
+    
+    .name{
+        display: flex;
+        font-weight: bold;
+    }
+    
+    .publication{
+        margin-top: 30px;
+    }
+    
+    .interaction{
+        display: flex;
+        font-size: 10px;
+        margin-top: 40px;
+        justify-content: space-between;
+    
+    }
+    
+    .nextPost{
+        margin-top: 10px;
+        height: 30px;   
+        width: 96%; 
+        border-radius: 4px;
+        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        border:1px #C3BEBE solid;
+        outline: none; 
+        font-size: 15px; 
+        padding-left: 13px;     
     }
 }
 
