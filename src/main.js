@@ -1,9 +1,9 @@
 // Este es el punto de entrada de tu aplicacion
 
 import { home } from './home.js';
-import { login } from './login.js';
+import { login, loginWithMail } from './login.js';
 import { perfil } from './perfil.js';
-import { account } from './account.js';
+import { account, createAccount } from './account.js';
 
 //Router
 
@@ -26,7 +26,16 @@ const onNavigate =(pathname)=>{
         pathname,
         window.location.origin + pathname
     )
-    rootDiv.innerHTML= routes[pathname]
+    rootDiv.innerHTML= routes[pathname];
+    if(routes[pathname]== login){
+        console.log('Ingresar')
+        loginWithMail();
+    }else if(routes[pathname]== account){
+        console.log('Registrarse');
+        createAccount();
+    } else{
+        console.log('Es diferente');
+    }
 }
 
 let loginLink= document.getElementById('log');
@@ -59,7 +68,7 @@ desplegar.onclick = function () {
     navbar.classList.toggle("show");
 };
 
-// ENTRAR EN LA  (Login)
+/*// ENTRAR EN LA  (Login)
 
 let singupForm = document.getElementById('input-section');
 
@@ -80,8 +89,7 @@ singupForm.addEventListener('submit', (e) => {
     })
     auth.catch(userCredential => {
         console.log('404 PAGE NOT FOUND ):')
-    })
-
-})
+    }) 
+})*/
 
 
