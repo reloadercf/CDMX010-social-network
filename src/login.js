@@ -101,8 +101,13 @@ export const loginWithMail= ()=>{
     const btnFacebook = document.getElementById('facebook-login');
     btnFacebook.addEventListener('click', e =>{
         console.log('facebook login');
+<<<<<<< HEAD
       const provider = new firebase.auth.FacebookAuthProvider(); 
       auth.signInWithPopup(provider)
+=======
+      const privider = new firebase.auth.FacebookAuthProvider(); 
+      auth.signInWithPopup(privider)
+>>>>>>> 1a0d0ca (cambio no relevante)
           .then(result =>{
             console.log(result);
             alert('¡Hola de nuevo! BIENVENIDA');
