@@ -4,6 +4,7 @@ import { loginVisibility } from "./loginVisibility.js"
 import { openModal, closeModal } from "./modal.js"
 import { loginGithub } from "./loginGithub.js";
 import { onNavigate, getRouter } from "./routing.js";
+import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 // import {openModal, closeModal} from "./modal.js"
 
 export const login = `<div class="container-login">
@@ -41,6 +42,7 @@ export const login = `<div class="container-login">
 </div>
 </div>`
 
+
 export const loginWithMail = () => {
     // PARA DETENER LA ACCIÓN DEL FORM///
     let singupForm = document.getElementById('input-section-login');
@@ -48,10 +50,8 @@ export const loginWithMail = () => {
         e.preventDefault();
     });
     //ENLACE DE 'REGISTRO' LLEVA A LA SECCIÓN ACCOUNT PARA REGISTRO///
-    let accountLink= document.getElementById('accountLink');
-    getRouter(accountLink, '/account');
-    //LINK 'LOGOUT' DEL NAV//
-    let logoutLink=document.getElementById('logout'); 
+    let accountLinkLogin= document.getElementById('accountLink');
+    getRouter(accountLinkLogin, '/account');
     //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
     let submitAccountButton= document.getElementById('login-mail-button');
         submitAccountButton.addEventListener ('click', () => {
@@ -60,15 +60,14 @@ export const loginWithMail = () => {
             let loginPassword= document.getElementById('login-password-input').value;
             console.log(loginMail);
             console.log(loginPassword);         
-
             //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
                     console.log('inicio de sesión');
                     alert('¡Hola de nuevo! BIENVENIDA');
-                    logoutLink.style.display="block";
-                    onNavigate('/');
+                    navLinkVisibilityLogin()
+                    onNavigate('/home');
                 })   
                 .catch(userCredential =>{                    
                     // console.log('Usuario sin registro');
@@ -80,15 +79,10 @@ export const loginWithMail = () => {
 
     //Visualizar contraseña
     loginVisibility();
-   
     //GOOGLE LOGIN
     loginGoogle();   
-
     //FACEBOOK LOGIN
     loginFacebook();
-    
     //GITHUB LOGIN
     loginGithub();
 }
-
-    

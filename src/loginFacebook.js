@@ -1,7 +1,4 @@
-//LINK 'LOGOUT' DEL NAV//
-let logoutLink=document.getElementById('logout');
-
-//FUNCIÓN 
+import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 export const loginFacebook = () => {
     const btnFacebook = document.getElementById('facebook-login');
     btnFacebook.addEventListener('click', e =>{
@@ -11,8 +8,8 @@ export const loginFacebook = () => {
             .then(result =>{
             console.log(result);
             alert('¡Hola de nuevo! BIENVENIDA');
-            logoutLink.style.display="block";
-            onNavigate('/');
+            navLinkVisibilityLogin();
+            onNavigate('/home');
             })
             .catch(err =>{
                 console.log(err);

@@ -1,5 +1,4 @@
-//LINK 'LOGOUT' DEL NAV//
-let logoutLink=document.getElementById('logout');
+import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 
 export const loginGithub = ()=>{
     const btnGithub = document.getElementById('github-login');
@@ -11,8 +10,8 @@ export const loginGithub = ()=>{
             .then((result) => {
                 console.log('inicio de sesión con Github');
                 alert('¡Hola de nuevo! BIENVENIDA');
-                logoutLink.style.display="block";
-                onNavigate('/');
+                navLinkVisibilityLogin();
+                onNavigate('/home');
                 // ...
             }).catch((error) => {
                 alert('inténtalo de nuevo');
