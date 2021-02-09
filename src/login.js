@@ -1,3 +1,4 @@
+import { loginGithub } from "./loginGithub.js";
 import { onNavigate, getRouter } from "./routing.js";
 // import {openModal, closeModal} from "./modal.js"
 
@@ -114,4 +115,6 @@ export const loginWithMail= ()=>{
               console.log(err);
           });
     });
+
+    loginGithub();
 }
