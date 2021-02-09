@@ -2,7 +2,8 @@ import { onNavigate } from "./routing.js";
 import { loginFacebook } from "./loginFacebook.js"
 import { loginGoogle } from "./loginGoogle.js"
 import { loginVisibility } from "./loginVisibility.js"
-import { openModal, closeModal } from "./modal.js"
+import { openModal } from "./modal.js"
+import { closeModal } from "./modal.js"
 
 export const login = `<div class="container-login">
 <div class="logo-login">

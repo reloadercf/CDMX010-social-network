@@ -381,6 +381,7 @@ body{
 }
 
 .modal{
+    margin-top: 25px;
     width: 40%;
     height: 50%;
     background: white;
@@ -403,7 +404,7 @@ body{
 .close{
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 10px;
     display: inline-block;
     width: 25px;
     height: 25px;

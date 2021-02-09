@@ -1,20 +1,24 @@
 // Tache para cerrar el modal
 let close = document.getElementById("close");
-// let open = document.getElementById("modal-open");
 let modal = document.querySelectorAll(".modal")[0];
 let modalContainer = document.getElementById("modal-container");
 
-export const openModal = (e) =>{
-    // e.preventDefault();
+export const openModal = () =>{
+   
     // visibilidad de la transparencia del modal
     modalContainer.style.opacity = "1";
     modalContainer.style.visibility = "visible";
-    // toggle, quita o pone la clase "closemodal"
-    modal.classList.toggle = (close);
+    // toggle, quita o pone la clase "modal-close"
+    modal.classList.toggle ("modal-close");   
+    
 };
 
 export const closeModal = () =>{
-    modal.classList.toggle(close);
-    modalContainer.style.opacity = "0";
-    modalContainer.style.visibility = "hidden";
+    close.addEventListener("click", function (){
+        modal.classList.toggle ("modal-close");
+        modalContainer.style.opacity = "0";
+        modalContainer.style.visibility = "hidden";
+    })
 };
+
+
