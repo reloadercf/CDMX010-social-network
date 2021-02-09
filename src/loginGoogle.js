@@ -1,3 +1,6 @@
+//LINK 'LOGOUT' DEL NAV//
+let logoutLink=document.getElementById('logout');
+
 export const loginGoogle = () =>{
   const btnGoogle=document.getElementById('google-login');
   btnGoogle.addEventListener('click', e =>{
@@ -6,6 +9,7 @@ export const loginGoogle = () =>{
       .then(result =>{
           console.log('inicio de sesión con google');
           alert('¡Hola de nuevo! BIENVENIDA');
+          logoutLink.style.display="block";
           onNavigate('/');
       })
       .catch(err =>{
