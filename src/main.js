@@ -25,6 +25,28 @@ desplegar.onclick = function () {
     navbar.classList.toggle("show");
 };
 
+//MODAL
+
+// let closeModal = document.getElementById("close");
+// let openModal = document.getElementById("modal-open");
+// let modal = document.querySelectorAll(".modal")[0];
+// let modalContainer = document.getElementById("modal-container");
+
+// openModal.addEventListener("click", function (e){
+//     e.preventDefault();
+//     // visibilidad de la transparencia del modal
+//     modalContainer.style.opacity = "1";
+//     modalContainer.style.visibility = "visible";
+//     // toggle, quita o pone la clase "closemodal"
+//     modal.classList.toggle = ("closeModal");
+// });
+
+// closeModal.addEventListener("click", function(){
+//     modal.classList.toggle("closeModal");
+//     modalContainer.style.opacity = "0";
+//     modalContainer.style.visibility = "hidden";
+// })
+
 /*// ENTRAR EN LA  (Login)
 
 let singupForm = document.getElementById('input-section');

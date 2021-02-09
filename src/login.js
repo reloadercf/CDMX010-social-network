@@ -1,4 +1,5 @@
 import { onNavigate } from "./routing.js";
+// import {openModal, closeModal} from "./modal.js"
 
 export const login = `<div class="container-login">
 <div class="logo-login">
@@ -51,20 +52,20 @@ export const loginWithMail= ()=>{
             let loginMail=document.getElementById('login-mail-input').value;
             let loginPassword= document.getElementById('login-password-input').value;
             console.log(loginMail);
-            console.log(loginPassword);
+            console.log(loginPassword);          
+
             //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
                     console.log('inicio de sesión');
-                    alert('¡Hola de nuevo! BIENVENIDA');
+                    // alert('¡Hola de nuevo! BIENVENIDA');
                     onNavigate('/');
-                })
-                .cathc(function (error) {
-                    let errorCode = error.code;
-                    let errorMessage = error.message;
-
-                    console.log(errorCode, errorMessage)
-                })
+                })   
+                .catch(userCredential =>{                    
+                    console.log('Usuario sin registro');
+                    // openModal();
+                    onNavigate('/account');
+                })             
         });
 }
