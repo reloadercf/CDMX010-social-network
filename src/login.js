@@ -101,10 +101,10 @@ export const loginWithMail= ()=>{
     const btnFacebook = document.getElementById('facebook-login');
     btnFacebook.addEventListener('click', e =>{
         console.log('facebook login');
-      const privader = new firebase.auth.FacebookAuthPrivader(); 
-      auth.signInWithPopup(privader)
+      const provider = new firebase.auth.FacebookAuthProvider(); 
+      auth.signInWithPopup(provider)
           .then(result =>{
-            console.log('inicio de sesión con facebook');
+            console.log(result);
             alert('¡Hola de nuevo! BIENVENIDA');
              onNavigate('/');
           })
