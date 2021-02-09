@@ -1,4 +1,4 @@
-import { onNavigate } from "./routing.js";
+import { onNavigate, getRouter } from "./routing.js";
 // import {openModal, closeModal} from "./modal.js"
 
 export const login = `<div class="container-login">
@@ -36,7 +36,7 @@ export const login = `<div class="container-login">
 </div> 
 </div>
 <div class="register-login">
-<p>¿No tienes cuenta? <a href="#" class="beUser">Regístrate</a></p>
+<p>¿No tienes cuenta? <a href="#" id="accountLink" class="beUser">Regístrate</a></p>
 </div>
 </div>`
 
@@ -46,6 +46,9 @@ export const loginWithMail= ()=>{
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
+    //ENLACE DE 'REGISTRO' LLEVA A LA SECCIÓN ACCOUNT PARA REGISTRO///
+    let accountLink= document.getElementById('accountLink');
+    getRouter(accountLink, '/account');
     //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
     let submitAccountButton= document.getElementById('login-mail-button');
         submitAccountButton.addEventListener('click', ()=>{
@@ -112,7 +115,4 @@ export const loginWithMail= ()=>{
               console.log(err);
           });
     });
-
-
 }
-

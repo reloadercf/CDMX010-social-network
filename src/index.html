@@ -15,40 +15,7 @@
 
 <body>
 
-<!-- ESTRUCTURA GENERAL -->
-
-  <header>
-    <div class="toogle-btn" id="menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <nav id="nav">
-      <ul>
-        <li><a href="#" id="log">Login</a></li>
-        <li><a href="#" id="acc">Account</a></li>
-        <li><a href="#" id="hom">Home</a></li>
-        <li><a href="#" id="per">Perfil</a></li>
-      </ul>
-    </nav>
-    </header>
-
-  <div id="root"></div>
-
-  <div class="modal-container" id="modal-container">
-    <div class="modal modal-close">
-      <p class="close" id="close">X</p>
-      <img src="./images/denided.svg" alt="">
-      <div class="modal-textos">
-        <h2>¡Bienvenida de nuevo!</h2>
-        <p>bla bla bla bla</p>
-        <a href="#" class="modal-open" id="modal-open">Abrir modal</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FIREBASE -->
+<!-- FIREBASE -->
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
@@ -76,6 +43,27 @@
   // *****DEFINIMOS UNA CONSTANTE, DONDE ESTAREMOS LLAMANDO EN CADA MOMENTO AL OBJETO "AUTH" AL UTILIZAR EL SERVICIO, PARA QUE EL EMAIL Y LA CONTRASEÑA SEA VALIDADA CON LA BASE DE DATOS*****
   let auth = firebase.auth();
 </script>
+
+<!-- ESTRUCTURA GENERAL -->
+
+  <header>
+    <div class="toogle-btn" id="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="nav">
+      <ul>
+        <li><a href="#" id="log">Login</a></li>
+        <li><a href="#" id="acc">Account</a></li>
+        <li><a href="#" id="hom">Home</a></li>
+        <li><a href="#" id="per">Perfil</a></li>
+      </ul>
+    </nav>
+    </header>
+
+  <div id="root"></div>
 
   <script type="module" src="main.js"></script>
 </body>
