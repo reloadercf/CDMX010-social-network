@@ -1,3 +1,5 @@
+import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
+
 export const loginGoogle = () =>{
   const btnGoogle=document.getElementById('google-login');
   btnGoogle.addEventListener('click', e =>{
@@ -6,7 +8,8 @@ export const loginGoogle = () =>{
       .then(result =>{
           console.log('inicio de sesión con google');
           alert('¡Hola de nuevo! BIENVENIDA');
-          onNavigate('/');
+          navLinkVisibilityLogin();
+          onNavigate('/home');
       })
       .catch(err =>{
           console.log(err);

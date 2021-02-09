@@ -5,8 +5,8 @@ import { account, createAccount } from './account.js';
 
 //OBJETO QUE TIENE LOS PATHNAMES DE LAS SECCIONES//
 export const routes = {
-    '/': home,
-    '/login': login,
+    '/home': home,
+    '/': login,
     '/account': account,
     '/perfil': perfil
 };

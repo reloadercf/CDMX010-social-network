@@ -33,6 +33,7 @@ export const account = `<div class="container-login">
     </form>
 </div>`
 
+
 //FUNCIÓN PARA REGISTRARSE CON CORREO ELECTRÓNICO Y CONTRASEÑA//
 export const createAccount= ()=>{
     // PARA DETENER LA ACCIÓN DEL FORM///
@@ -48,43 +49,18 @@ export const createAccount= ()=>{
             let createPassword= document.getElementById('A-input-password').value;
             console.log(newMail);
             console.log(createPassword);
-            //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
-            auth
-                .createUserWithEmailAndPassword(newMail, createPassword)
-                .then(userCredential =>{
-                    console.log('¡Registro exitoso!')
-                    alert('¡Registro exitoso!')
-                    onNavigate('/login');
-                })               
+            let inputConfirmPassword= document.getElementById('A-input-password-confirm').value;
+            if(createPassword==inputConfirmPassword){
+                //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
+                auth
+                    .createUserWithEmailAndPassword(newMail, createPassword)
+                    .then(userCredential =>{
+                        console.log('¡Registro exitoso!')
+                        alert('¡Registro exitoso!')
+                        onNavigate('/home');
+                    })
+            }else{
+                alert('Las contraseñas no coinciden');
+            }              
         });
-
-        //Visualizar contraseñas
-    const btnEye = document.getElementById('eye');
-    const inputPassword = document.getElementById('A-input-password');
-   
-    btnEye.addEventListener('click', function showPassword() {
-        if (inputPassword.type === 'password'){
-            inputPassword.type = 'text';
-            btnEye.src='./images/visibility_off.png';
-        } else{
-            inputPassword.type = 'password';
-            btnEye.src='./images/visibility.png';
-        }
-    });
-
-    const btnEyeC = document.getElementById('ojo');
-    const inputConfirm = document.getElementById('A-input-password-confirm');
-
-    btnEyeC.addEventListener('click', function showPassword() {
-        if (inputConfirm.type === 'password'){
-            inputConfirm.type = 'text';
-            btnEyeC.src='./images/visibility_off.png';
-        } else{
-            inputConfirm.type = 'password';
-            btnEyeC.src='./images/visibility.png';
-        }
-    });
 }
-
-
-

@@ -1,9 +1,11 @@
-import { onNavigate } from "./routing.js";
 import { loginFacebook } from "./loginFacebook.js"
 import { loginGoogle } from "./loginGoogle.js"
 import { loginVisibility } from "./loginVisibility.js"
-import { openModal } from "./modal.js"
-import { closeModal } from "./modal.js"
+import { openModal, closeModal } from "./modal.js"
+import { loginGithub } from "./loginGithub.js";
+import { onNavigate, getRouter } from "./routing.js";
+import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
+// import {openModal, closeModal} from "./modal.js"
 
 export const login = `<div class="container-login">
 <div class="logo-login">
@@ -36,9 +38,10 @@ export const login = `<div class="container-login">
 </div> 
 </div>
 <div class="register-login">
-<p>¿No tienes cuenta? <a href="#" class="beUser">Regístrate</a></p>
+<p>¿No tienes cuenta? <a href="#" id="accountLink" class="beUser">Regístrate</a></p>
 </div>
 </div>`
+
 
 export const loginWithMail = () => {
     // PARA DETENER LA ACCIÓN DEL FORM///
@@ -46,10 +49,10 @@ export const loginWithMail = () => {
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
-   
+    //ENLACE DE 'REGISTRO' LLEVA A LA SECCIÓN ACCOUNT PARA REGISTRO///
+    let accountLinkLogin= document.getElementById('accountLink');
+    getRouter(accountLinkLogin, '/account');
     //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
-    
-    let logoutLink=document.getElementById('logout'); 
     let submitAccountButton= document.getElementById('login-mail-button');
         submitAccountButton.addEventListener ('click', () => {
             //SE OBTIENEN LOS VALORES DE LOS INPUTS//
@@ -57,15 +60,14 @@ export const loginWithMail = () => {
             let loginPassword= document.getElementById('login-password-input').value;
             console.log(loginMail);
             console.log(loginPassword);         
-
             //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
                     console.log('inicio de sesión');
                     alert('¡Hola de nuevo! BIENVENIDA');
-                    logoutLink.style.display="block";
-                    onNavigate('/');
+                    navLinkVisibilityLogin()
+                    onNavigate('/home');
                 })   
                 .catch(userCredential =>{                    
                     // console.log('Usuario sin registro');
@@ -77,10 +79,10 @@ export const loginWithMail = () => {
 
     //Visualizar contraseña
     loginVisibility();
-   
     //GOOGLE LOGIN
     loginGoogle();   
-
     //FACEBOOK LOGIN
     loginFacebook();
-};
+    //GITHUB LOGIN
+    loginGithub();
+}
