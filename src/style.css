@@ -72,6 +72,7 @@ body{
 .users{
     margin-left: 10px;
     margin-right: 10px;
+    cursor: pointer;
 }
 .social{
     display: flex;
@@ -104,6 +105,12 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+#visibility{
+    cursor: pointer;
+    margin-left: -20px;
+    width: auto;
+}
+
 
 /* PERFIL */
 
