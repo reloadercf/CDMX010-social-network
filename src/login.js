@@ -11,6 +11,7 @@ export const login = `<div class="container-login">
 </div>
 <div class="input-login">
     <input id="login-password-input" class="A-input-password" type="password" maxlength=16 placeholder="Password" required></input>
+    <img src="./images/visibility.png" id="visibility">
 </div>
 
 <div class="check-login">
@@ -28,9 +29,9 @@ export const login = `<div class="container-login">
 <a>Ingresar con:</a>
 </div>
 <div class="social">
- <img src="./images/fb.png" class="users">
- <img src="./images/github.png" class="users">
- <img src="./images/google.png" class="users">
+ <img src="./images/fb.png" class="users" id="facebook-login">
+ <img src="./images/github.png" class="users" id="github-login">
+ <img src="./images/google.png" class="users" id="google-login">
 </div> 
 </div>
 <div class="register-login">
@@ -67,4 +68,50 @@ export const loginWithMail= ()=>{
                     console.log(errorCode, errorMessage)
                 })
         });
+
+    //Visualizar contraseña
+    const btnVisibility = document.getElementById('visibility');
+    const inputPassword = document.getElementById('login-password-input');
+    btnVisibility.addEventListener('click',function showPassword() {
+            if (inputPassword.type === "password") {
+                inputPassword.type = "text";
+                btnVisibility.src="./images/visibility_off.png";       
+            }else{
+            inputPassword.type = "password";
+            btnVisibility.src="./images/visibility.png";
+            }
+    });
+    //GOOGLE LOGIN
+    const btnGoogle=document.getElementById('google-login');
+    btnGoogle.addEventListener('click', e =>{
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider)
+        .then(result =>{
+            console.log('inicio de sesión con google');
+            alert('¡Hola de nuevo! BIENVENIDA');
+             onNavigate('/');
+        })
+        .catch(err =>{
+            console.log(err);
+        });
+    });
+
+    //FACEBOOK LOGIN
+    const btnFacebook = document.getElementById('facebook-login');
+    btnFacebook.addEventListener('click', e =>{
+        console.log('facebook login');
+      const privader = new firebase.auth.FacebookAuthPrivader(); 
+      auth.signInWithPopup(privader)
+          .then(result =>{
+            console.log('inicio de sesión con facebook');
+            alert('¡Hola de nuevo! BIENVENIDA');
+             onNavigate('/');
+          })
+          .catch(err =>{
+              console.log(err);
+          });
+    });
+
+
 }
+
