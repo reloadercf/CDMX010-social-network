@@ -44,13 +44,18 @@ export const createAccount= ()=>{
             let createPassword= document.getElementById('A-input-password').value;
             console.log(newMail);
             console.log(createPassword);
-            //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
-            auth
-                .createUserWithEmailAndPassword(newMail, createPassword)
-                .then(userCredential =>{
-                    console.log('¡Registro exitoso!')
-                    alert('¡Registro exitoso!')
-                    onNavigate('/login');
-                })               
+            let inputConfirmPassword= document.getElementById('A-input-password-confirm').value;
+            if(createPassword==inputConfirmPassword){
+                //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
+                auth
+                    .createUserWithEmailAndPassword(newMail, createPassword)
+                    .then(userCredential =>{
+                        console.log('¡Registro exitoso!')
+                        alert('¡Registro exitoso!')
+                        onNavigate('/login');
+                    })
+            }else{
+                alert('Las contraseñas no coinciden');
+            }              
         });
 }
