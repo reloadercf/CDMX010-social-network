@@ -15,7 +15,6 @@ let accountLink= document.getElementById('acc');
 let homeLink= document.getElementById('hom');
 let perfilLink= document.getElementById('per');
 let logooutLink=document.getElementById('logout');
-
 //FUNCIONES QUE RENDERIZAR CADA SECCIÓN// 
 getRouter(loginLink, '/');
 getRouter(accountLink, '/account');

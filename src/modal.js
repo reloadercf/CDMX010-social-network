@@ -1,3 +1,5 @@
+// import { onNavigate } from './routing.js'
+
 // Tache para cerrar el modal
 let close = document.getElementById("close");
 let modal = document.querySelectorAll(".modal")[0];
@@ -21,4 +23,8 @@ export const closeModal = () =>{
     })
 };
 
+// let otherUserLogin= document.getElemenById('otherUser');
 
+// otherUserLogin.addEventListener('click', () => {
+//     onNavigate('/account')
+// })

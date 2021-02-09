@@ -5,7 +5,6 @@ import { openModal, closeModal } from "./modal.js"
 import { loginGithub } from "./loginGithub.js";
 import { onNavigate, getRouter } from "./routing.js";
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
-// import {openModal, closeModal} from "./modal.js"
 
 export const login = `<div class="container-login">
 <div class="logo-login">
@@ -65,7 +64,7 @@ export const loginWithMail = () => {
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
                     console.log('inicio de sesión');
-                    alert('¡Hola de nuevo! BIENVENIDA');
+                    // alert('¡Hola de nuevo! BIENVENIDA');
                     navLinkVisibilityLogin()
                     onNavigate('/home');
                 })   
