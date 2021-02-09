@@ -1,5 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 import { routes, getRouter } from "./routing.js";
+import {logoutfunction} from "./logout.js";
 
 //RESNDERIZAR "Home" en el div "root" POR DEFAULT AL INICIAR LA PÁGINA//
 const rootDiv = document.getElementById('root');
@@ -10,12 +11,15 @@ let loginLink= document.getElementById('log');
 let accountLink= document.getElementById('acc');
 let homeLink= document.getElementById('hom');
 let perfilLink= document.getElementById('per');
+let logooutLink=document.getElementById('logout');
 
 //FUNCIONES QUE RENDERIZAR CADA SECCIÓN// 
 getRouter(loginLink, '/login');
 getRouter(accountLink, '/account');
 getRouter(homeLink, '/');
 getRouter(perfilLink, '/perfil');
+logoutfunction();
+logooutLink.style.display="none";
 
 //NAVBAR
 let desplegar = document.getElementById("menu");

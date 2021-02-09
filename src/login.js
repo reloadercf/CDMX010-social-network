@@ -46,21 +46,25 @@ export const loginWithMail= ()=>{
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
+   
     //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
+    
+    let logoutLink=document.getElementById('logout'); 
     let submitAccountButton= document.getElementById('login-mail-button');
         submitAccountButton.addEventListener('click', ()=>{
             //SE OBTIENEN LOS VALORES DE LOS INPUTS//
             let loginMail=document.getElementById('login-mail-input').value;
             let loginPassword= document.getElementById('login-password-input').value;
             console.log(loginMail);
-            console.log(loginPassword);          
+            console.log(loginPassword);         
 
             //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
                     console.log('inicio de sesión');
-                    // alert('¡Hola de nuevo! BIENVENIDA');
+                    alert('¡Hola de nuevo! BIENVENIDA');
+                    logoutLink.style.display="block";
                     onNavigate('/');
                 })   
                 .catch(userCredential =>{                    
@@ -90,6 +94,7 @@ export const loginWithMail= ()=>{
         .then(result =>{
             console.log('inicio de sesión con google');
             alert('¡Hola de nuevo! BIENVENIDA');
+            logoutLink.style.display="block";
              onNavigate('/');
         })
         .catch(err =>{
@@ -106,12 +111,14 @@ export const loginWithMail= ()=>{
           .then(result =>{
             console.log(result);
             alert('¡Hola de nuevo! BIENVENIDA');
+            logoutLink.style.display="block";
              onNavigate('/');
           })
           .catch(err =>{
               console.log(err);
           });
     });
+
 
 
 }
