@@ -1,5 +1,4 @@
-//LINK 'LOGOUT' DEL NAV//
-let logoutLink=document.getElementById('logout');
+import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 
 export const loginGoogle = () =>{
   const btnGoogle=document.getElementById('google-login');
@@ -9,8 +8,8 @@ export const loginGoogle = () =>{
       .then(result =>{
           console.log('inicio de sesión con google');
           alert('¡Hola de nuevo! BIENVENIDA');
-          logoutLink.style.display="block";
-          onNavigate('/');
+          navLinkVisibilityLogin();
+          onNavigate('/home');
       })
       .catch(err =>{
           console.log(err);

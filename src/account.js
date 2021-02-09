@@ -33,6 +33,7 @@ export const account = `<div class="container-login">
     </form>
 </div>`
 
+
 //FUNCIÓN PARA REGISTRARSE CON CORREO ELECTRÓNICO Y CONTRASEÑA//
 export const createAccount= ()=>{
     // PARA DETENER LA ACCIÓN DEL FORM///
@@ -56,7 +57,7 @@ export const createAccount= ()=>{
                     .then(userCredential =>{
                         console.log('¡Registro exitoso!')
                         alert('¡Registro exitoso!')
-                        onNavigate('/login');
+                        onNavigate('/home');
                     })
             }else{
                 alert('Las contraseñas no coinciden');
