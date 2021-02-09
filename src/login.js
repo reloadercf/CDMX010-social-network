@@ -1,8 +1,10 @@
-import { onNavigate } from "./routing.js";
 import { loginFacebook } from "./loginFacebook.js"
 import { loginGoogle } from "./loginGoogle.js"
 import { loginVisibility } from "./loginVisibility.js"
 import { openModal, closeModal } from "./modal.js"
+import { loginGithub } from "./loginGithub.js";
+import { onNavigate, getRouter } from "./routing.js";
+// import {openModal, closeModal} from "./modal.js"
 
 export const login = `<div class="container-login">
 <div class="logo-login">
@@ -35,7 +37,7 @@ export const login = `<div class="container-login">
 </div> 
 </div>
 <div class="register-login">
-<p>¿No tienes cuenta? <a href="#" class="beUser">Regístrate</a></p>
+<p>¿No tienes cuenta? <a href="#" id="accountLink" class="beUser">Regístrate</a></p>
 </div>
 </div>`
 
@@ -45,10 +47,12 @@ export const loginWithMail = () => {
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
-   
-    //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
-    
+    //ENLACE DE 'REGISTRO' LLEVA A LA SECCIÓN ACCOUNT PARA REGISTRO///
+    let accountLink= document.getElementById('accountLink');
+    getRouter(accountLink, '/account');
+    //LINK 'LOGOUT' DEL NAV//
     let logoutLink=document.getElementById('logout'); 
+    //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
     let submitAccountButton= document.getElementById('login-mail-button');
         submitAccountButton.addEventListener ('click', () => {
             //SE OBTIENEN LOS VALORES DE LOS INPUTS//
@@ -82,4 +86,9 @@ export const loginWithMail = () => {
 
     //FACEBOOK LOGIN
     loginFacebook();
-};
+    
+    //GITHUB LOGIN
+    loginGithub();
+}
+
+    
