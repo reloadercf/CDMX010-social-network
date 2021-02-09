@@ -57,13 +57,12 @@ export const loginWithMail= ()=>{
             let loginPassword= document.getElementById('login-password-input').value;
             console.log(loginMail);
             console.log(loginPassword);          
-
             //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential =>{
                     console.log('inicio de sesión');
-                    // alert('¡Hola de nuevo! BIENVENIDA');
+                    alert('¡Hola de nuevo! BIENVENIDA');
                     onNavigate('/');
                 })   
                 .catch(userCredential =>{                    
