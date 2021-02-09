@@ -13,9 +13,13 @@ export const account = `<div class="container-login">
         </div>
         <div class="input-login">
             <input id="A-input-password" class="A-input-password" type="password" maxlength=16 placeholder="Contraseña" required></input>
+            <img src="./images/visibility.png" id="eye">
+            
         </div>
         <div class="input-login">
             <input id="A-input-password-confirm" class="A-input-password-confirm" type="password" maxlength=16 placeholder="Confirmar contraseña" required></input>
+            <img src="./images/visibility.png" id="ojo">
+            
         </div>
         <div class="singin">
             <a class="aboutUser">La siguiente información aparecerá en tu perfil:</a>
@@ -53,4 +57,34 @@ export const createAccount= ()=>{
                     onNavigate('/login');
                 })               
         });
+
+        //Visualizar contraseñas
+    const btnEye = document.getElementById('eye');
+    const inputPassword = document.getElementById('A-input-password');
+   
+    btnEye.addEventListener('click', function showPassword() {
+        if (inputPassword.type === 'password'){
+            inputPassword.type = 'text';
+            btnEye.src='./images/visibility_off.png';
+        } else{
+            inputPassword.type = 'password';
+            btnEye.src='./images/visibility.png';
+        }
+    });
+
+    const btnEyeC = document.getElementById('ojo');
+    const inputConfirm = document.getElementById('A-input-password-confirm');
+
+    btnEyeC.addEventListener('click', function showPassword() {
+        if (inputConfirm.type === 'password'){
+            inputConfirm.type = 'text';
+            btnEyeC.src='./images/visibility_off.png';
+        } else{
+            inputConfirm.type = 'password';
+            btnEyeC.src='./images/visibility.png';
+        }
+    });
 }
+
+
+

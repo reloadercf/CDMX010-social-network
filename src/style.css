@@ -110,7 +110,16 @@ body{
     margin-left: -20px;
     width: auto;
 }
-
+#eye{
+    cursor: pointer;
+    margin-left: -20px;
+    width: auto;
+}
+#ojo{
+    cursor: pointer;
+    margin-left: -20px;
+    width: auto;
+}
 
 /* PERFIL */
 
@@ -355,7 +364,7 @@ body{
 }
 
 /* MODAL */
-
+/* Opacidad */
 .modal-container{
     opacity: 0;
     visibility: hidden;
@@ -374,15 +383,21 @@ body{
 .modal{
     width: 40%;
     height: 50%;
-    background: #fff;
+    background: white;
+    /* overflow: hidden; */
     text-align: center;
     display: flex;
     flex-direction: column;
+    /* espacio equitativo entre los elementos */
     justify-content: space-evenly;
     position: relative;
     transition: transform 1s;
     transform: translateY(0%);
     border-radius: 10px;
+}
+
+.modal > img{
+    height: 50%
 }
 
 .close{
@@ -401,10 +416,6 @@ body{
 
 .modal-close{
     transform: translateY(-200%);
-}
-
-.modal > img{
-    height: 50%
 }
 
 /* //REGISTRO USUARIOS */

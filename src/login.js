@@ -1,11 +1,13 @@
 import { onNavigate } from "./routing.js";
-// import {openModal, closeModal} from "./modal.js"
+import { loginFacebook } from "./loginFacebook.js"
+import { loginGoogle } from "./loginGoogle.js"
+import { loginVisibility } from "./loginVisibility.js"
+import { openModal, closeModal } from "./modal.js"
 
 export const login = `<div class="container-login">
 <div class="logo-login">
 <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
 </div>
-
 <form class="input-section" id="input-section-login">
 <div class="input-login">
     <input id="login-mail-input" class="A-input-mail" type="email" maxlength=50 placeholder="Email" required></input><br>
@@ -14,7 +16,6 @@ export const login = `<div class="container-login">
     <input id="login-password-input" class="A-input-password" type="password" maxlength=16 placeholder="Password" required></input>
     <img src="./images/visibility.png" id="visibility">
 </div>
-
 <div class="check-login">
 <br>
 <input type="checkbox" class="checkin">  &nbsp; Recordar usuario</input></div>
@@ -22,9 +23,7 @@ export const login = `<div class="container-login">
 <button class="account-button" id="login-mail-button"> Iniciar Sesión</button>
 <a href="#" class="new-password">Recuperar contraseña</a>
 </div>
-
 </form>
-
 <div class="socialNet-login">
 <div class="singin">
 <a>Ingresar con:</a>
@@ -40,7 +39,7 @@ export const login = `<div class="container-login">
 </div>
 </div>`
 
-export const loginWithMail= ()=>{
+export const loginWithMail = () => {
     // PARA DETENER LA ACCIÓN DEL FORM///
     let singupForm = document.getElementById('input-section-login');
     singupForm.addEventListener('submit', (e) => {
@@ -48,7 +47,7 @@ export const loginWithMail= ()=>{
     });
     //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE LOGIN///
     let submitAccountButton= document.getElementById('login-mail-button');
-        submitAccountButton.addEventListener('click', ()=>{
+        submitAccountButton.addEventListener ('click', () => {
             //SE OBTIENEN LOS VALORES DE LOS INPUTS//
             let loginMail=document.getElementById('login-mail-input').value;
             let loginPassword= document.getElementById('login-password-input').value;
@@ -64,55 +63,19 @@ export const loginWithMail= ()=>{
                     onNavigate('/');
                 })   
                 .catch(userCredential =>{                    
-                    console.log('Usuario sin registro');
-                    // openModal();
-                    onNavigate('/account');
+                    // console.log('Usuario sin registro');
+                    openModal();
+                    closeModal();
+                    // onNavigate('/account');
                 })             
         });
 
     //Visualizar contraseña
-    const btnVisibility = document.getElementById('visibility');
-    const inputPassword = document.getElementById('login-password-input');
-    btnVisibility.addEventListener('click',function showPassword() {
-            if (inputPassword.type === "password") {
-                inputPassword.type = "text";
-                btnVisibility.src="./images/visibility_off.png";       
-            }else{
-            inputPassword.type = "password";
-            btnVisibility.src="./images/visibility.png";
-            }
-    });
+    loginVisibility();
+   
     //GOOGLE LOGIN
-    const btnGoogle=document.getElementById('google-login');
-    btnGoogle.addEventListener('click', e =>{
-      const provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithPopup(provider)
-        .then(result =>{
-            console.log('inicio de sesión con google');
-            alert('¡Hola de nuevo! BIENVENIDA');
-             onNavigate('/');
-        })
-        .catch(err =>{
-            console.log(err);
-        });
-    });
+    loginGoogle();   
 
     //FACEBOOK LOGIN
-    const btnFacebook = document.getElementById('facebook-login');
-    btnFacebook.addEventListener('click', e =>{
-        console.log('facebook login');
-      const provider = new firebase.auth.FacebookAuthProvider(); 
-      auth.signInWithPopup(provider)
-          .then(result =>{
-            console.log(result);
-            alert('¡Hola de nuevo! BIENVENIDA');
-             onNavigate('/');
-          })
-          .catch(err =>{
-              console.log(err);
-          });
-    });
-
-
-}
-
+    loginFacebook();
+};
