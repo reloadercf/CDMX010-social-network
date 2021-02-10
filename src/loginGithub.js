@@ -14,7 +14,8 @@ export const loginGithub = ()=>{
                 navLinkVisibilityLogin();
                 onNavigate('/home');
                 // ...
-            }).catch((error) => {
+            })
+            .catch((error) => {
                 alert('inténtalo de nuevo');
             });
     })
