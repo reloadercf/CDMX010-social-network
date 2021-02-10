@@ -1,5 +1,5 @@
-export const home =`
-<div class="flex-container">
+export const home =
+`<div class="flex-container">
     <div class="flex-menu">
         <div class="subject">
         <p class="menu1">Perfil</p>
@@ -53,5 +53,4 @@ export const home =`
         <p>Noticia 3</p>
         <img src="./images/picture.png" class="notice"> 
     </div>
-</div>
-`
+</div>`

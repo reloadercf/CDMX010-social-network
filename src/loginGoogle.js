@@ -1,9 +1,10 @@
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { onNavigate } from "./routing.js";
 
-export const loginGoogle = () =>{
+export const loginGoogle = () => {  
   const btnGoogle=document.getElementById('google-login');
-  btnGoogle.addEventListener('click', e =>{
+
+  btnGoogle.addEventListener('click', e => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
       .then(result =>{
@@ -14,6 +15,6 @@ export const loginGoogle = () =>{
       })
       .catch(err =>{
           console.log(err);
-      });
+      })
   });
 };

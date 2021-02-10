@@ -10,11 +10,12 @@ console.log('Ingresar')
 loginWithMail();
 
 //ENLACES PARA ACCEDER A LAS SECCIONES//
-let loginLink= document.getElementById('log');
-let accountLink= document.getElementById('acc');
-let homeLink= document.getElementById('hom');
-let perfilLink= document.getElementById('per');
-let logooutLink=document.getElementById('logout');
+let loginLink = document.getElementById('log');
+let accountLink = document.getElementById('acc');
+let homeLink = document.getElementById('hom');
+let perfilLink = document.getElementById('per');
+let logooutLink =document.getElementById('logout');
+
 //FUNCIONES QUE RENDERIZAR CADA SECCIÓN// 
 getRouter(loginLink, '/');
 getRouter(accountLink, '/account');
@@ -25,12 +26,12 @@ logooutLink.style.display="none";
 
 //NAVBAR
 let desplegar = document.getElementById("menu");
-desplegar.onclick = function () {
 
-    var navbar = document.getElementById("nav");      
+desplegar.onclick = function () {
+    var navbar = document.getElementById("nav"); 
+         
     navbar.classList.toggle("show");
 };
-
 //MODAL
 
 // let closeModal = document.getElementById("close");

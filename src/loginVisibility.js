@@ -1,5 +1,6 @@
 export const loginVisibility = (btnVisibility, inputPassword ) => {
-    btnVisibility.addEventListener('click',function showPassword() {
+
+    btnVisibility.addEventListener('click', function showPassword() {
             if (inputPassword.type === "password") {
                 inputPassword.type = "text";
                 btnVisibility.src="./images/visibility_off.png";       
@@ -8,4 +9,4 @@ export const loginVisibility = (btnVisibility, inputPassword ) => {
             btnVisibility.src="./images/visibility.png";
             }
     });
-}
+};

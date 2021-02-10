@@ -1,6 +1,8 @@
 import { onNavigate } from "./routing.js";
 import { loginVisibility } from "./loginVisibility.js"
-export const account = `<div class="container-login">
+
+export const account =
+`<div class="container-login">
     <div class="logo-login">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
     </div>
@@ -13,13 +15,11 @@ export const account = `<div class="container-login">
         </div>
         <div class="input-login">
             <input id="A-input-password" class="A-input-password" type="password" maxlength=16 placeholder="Contraseña" required></input>
-            <img src="./images/visibility.png" class="visibility" id="visibility-account-password">
-            
+            <img src="./images/visibility.png" class="visibility" id="visibility-account-password">            
         </div>
         <div class="input-login">
             <input id="A-input-password-confirm" class="A-input-password-confirm" type="password" maxlength=16 placeholder="Confirmar contraseña" required></input>
-            <img src="./images/visibility.png" class="visibility" id="visibility-confirm-password">
-            
+            <img src="./images/visibility.png" class="visibility" id="visibility-confirm-password">            
         </div>
         <div class="singin">
             <a class="aboutUser">La siguiente información aparecerá en tu perfil:</a>
@@ -33,28 +33,31 @@ export const account = `<div class="container-login">
     </form>
 </div>`
 
-
 //FUNCIÓN PARA REGISTRARSE CON CORREO ELECTRÓNICO Y CONTRASEÑA//
-export const createAccount= ()=>{
-    // PARA DETENER LA ACCIÓN DEL FORM///
+export const createAccount = () => {    
+
     let accountForm = document.getElementById('input-section-account');
+    // Para detener la acción del fotm///
     accountForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
-    //SE ASIGNA EL EVENTO CLICK AL BOTÓN DE REGISTRO///
+
+    //Se asigna el evento "Click" al botón de registro///
     let submitAccountButton= document.getElementById('A-createAcount-button');
-        submitAccountButton.addEventListener('click', ()=>{
-            //SE OBTIENEN LOS VALORES DE LOS INPUTS//
-            let newMail=document.getElementById('A-input-mail').value;
-            let createPassword= document.getElementById('A-input-password').value;
+
+        submitAccountButton.addEventListener('click', () => {
+            //Se obtienen los valores de los inputs/
+            let newMail = document.getElementById('A-input-mail').value;
+            let createPassword = document.getElementById('A-input-password').value;
             console.log(newMail);
             console.log(createPassword);
-            let inputConfirmPassword= document.getElementById('A-input-password-confirm').value;
-            if(createPassword==inputConfirmPassword){
-                //SE LLAMA A LA VARIABE 'auth' PARA APLICAR LOS MÉTODOS DE FIREBASE
+            let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
+
+            if(createPassword == inputConfirmPassword){
+                //Se llama la variable 'auth' para aplicar los métodos de Firebase
                 auth
                     .createUserWithEmailAndPassword(newMail, createPassword)
-                    .then(userCredential =>{
+                    .then(userCredential => {
                         console.log('¡Registro exitoso!')
                         alert('¡Registro exitoso!')
                         onNavigate('/');
@@ -63,10 +66,12 @@ export const createAccount= ()=>{
                 alert('Las contraseñas no coinciden');
             }              
         });
+        
         const showAccountPassword = document.getElementById('visibility-account-password');
         const accountPasswordInput = document.getElementById('A-input-password')
         const showConfirmPassword = document.getElementById('visibility-confirm-password');
         const confirmPasswordInput = document.getElementById('A-input-password-confirm')
+        //Se ejecuta la función de visibility//
         loginVisibility(showAccountPassword, accountPasswordInput);
         loginVisibility(showConfirmPassword, confirmPasswordInput);
-}
+};
