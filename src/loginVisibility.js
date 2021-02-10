@@ -1,6 +1,4 @@
-export const loginVisibility = () => {
-    const btnVisibility = document.getElementById('visibility');
-    const inputPassword = document.getElementById('login-password-input');
+export const loginVisibility = (btnVisibility, inputPassword ) => {
     btnVisibility.addEventListener('click',function showPassword() {
             if (inputPassword.type === "password") {
                 inputPassword.type = "text";
