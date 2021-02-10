@@ -1,5 +1,5 @@
 import { onNavigate } from "./routing.js";
-
+import { loginVisibility } from "./loginVisibility.js"
 export const account = `<div class="container-login">
     <div class="logo-login">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
@@ -13,12 +13,12 @@ export const account = `<div class="container-login">
         </div>
         <div class="input-login">
             <input id="A-input-password" class="A-input-password" type="password" maxlength=16 placeholder="Contraseña" required></input>
-            <img src="./images/visibility.png" id="eye">
+            <img src="./images/visibility.png" class="visibility" id="visibility-account-password">
             
         </div>
         <div class="input-login">
             <input id="A-input-password-confirm" class="A-input-password-confirm" type="password" maxlength=16 placeholder="Confirmar contraseña" required></input>
-            <img src="./images/visibility.png" id="ojo">
+            <img src="./images/visibility.png" class="visibility" id="visibility-confirm-password">
             
         </div>
         <div class="singin">
@@ -63,4 +63,10 @@ export const createAccount= ()=>{
                 alert('Las contraseñas no coinciden');
             }              
         });
+        const showAccountPassword = document.getElementById('visibility-account-password');
+        const accountPasswordInput = document.getElementById('A-input-password')
+        const showConfirmPassword = document.getElementById('visibility-confirm-password');
+        const confirmPasswordInput = document.getElementById('A-input-password-confirm')
+        loginVisibility(showAccountPassword, accountPasswordInput);
+        loginVisibility(showConfirmPassword, confirmPasswordInput);
 }

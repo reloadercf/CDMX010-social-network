@@ -16,7 +16,7 @@ export const login = `<div class="container-login">
 </div>
 <div class="input-login">
     <input id="login-password-input" class="A-input-password" type="password" maxlength=16 placeholder="Password" required></input>
-    <img src="./images/visibility.png" id="visibility">
+    <img src="./images/visibility.png" class="visibility" id="visibility-login-password">
 </div>
 <div class="check-login">
 <br>
@@ -77,7 +77,9 @@ export const loginWithMail = () => {
         });
 
     //Visualizar contraseña
-    loginVisibility();
+    const showLoginPassword = document.getElementById('visibility-login-password');
+    const loginPasswordInput = document.getElementById('login-password-input')
+    loginVisibility(showLoginPassword, loginPasswordInput);
     //GOOGLE LOGIN
     loginGoogle();   
     //FACEBOOK LOGIN
