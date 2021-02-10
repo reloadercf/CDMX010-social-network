@@ -1,4 +1,6 @@
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
+import { onNavigate } from "./routing.js";
+
 export const loginFacebook = () => {
     const btnFacebook = document.getElementById('facebook-login');
     btnFacebook.addEventListener('click', e =>{

@@ -1,4 +1,5 @@
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
+import { onNavigate } from "./routing.js";
 
 export const loginGoogle = () =>{
   const btnGoogle=document.getElementById('google-login');

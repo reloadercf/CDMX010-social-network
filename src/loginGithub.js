@@ -1,4 +1,5 @@
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
+import { onNavigate } from "./routing.js";
 
 export const loginGithub = ()=>{
     const btnGithub = document.getElementById('github-login');
