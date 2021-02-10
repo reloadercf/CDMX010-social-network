@@ -57,7 +57,7 @@ export const createAccount= ()=>{
                     .then(userCredential =>{
                         console.log('¡Registro exitoso!')
                         alert('¡Registro exitoso!')
-                        onNavigate('/login');
+                        onNavigate('/');
                     })
             }else{
                 alert('Las contraseñas no coinciden');
