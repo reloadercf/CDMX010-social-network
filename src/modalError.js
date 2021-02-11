@@ -2,8 +2,8 @@ export const ErrorLoginMail=`
 <p class="close" id="close">X</p>
       <img src="./images/denided.svg" alt="">
       <div class="modal-textos" >
-        <h2>¡Alto, aún no esta regsitrada!</h2>
-        <p> Forma parte de nuestra comunidad, registrate <a href="#" id="otherUser">Aquí</a></p>        
+        <h2>¡Correo o contraseña inválida, verificalos!</h2>
+        <p> Si aún no formas parte de nuestra comunidad, registrate <a href="#" id="otherUser">Aquí</a></p>        
       </div>`        
 
 export const ErrorLoginFacebook=`
