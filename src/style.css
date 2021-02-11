@@ -111,18 +111,6 @@ body{
     width: auto;
 }
 
-.A-error-input{
-    color: red;
-    font-size: 12px;
-    display: none;
-}
-.error-input-container{
-    display: flex;
-    justify-content: center;
-    padding: 0%;
-    margin: 0%;
-}
-
 /* PERFIL */
 
 .flex-container{
@@ -739,5 +727,3 @@ nav ul li a{
         padding-left: 13px;     
     }
 }
-
-
