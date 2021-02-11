@@ -27,3 +27,11 @@ export const ErrorLoginGithub=`
       <h2>¡Error al iniciar con Facebook!</h2>       
       </div>
 `
+export const ErrorAccount=`
+<p class="close" id="close">X</p>
+      <img src="./images/denided.svg" alt="">
+      <div class="modal-textos" >
+            <h2>¡Error en el registro!</h2>
+            <p>Este correo electrónico es inválido o ya fue registrado antes.</p>
+            <p>Intenta <a href="#" id="modalErrorLogin-link">iniciar sesión</a> o <a href="#" id="modalErrorAccount-link">resgístrate</a> con otro correo electrónico</p>        
+      </div>`

@@ -1,5 +1,7 @@
 import { onNavigate } from "./routing.js";
 import { loginVisibility } from "./loginVisibility.js"
+import { openModal } from "./modal.js";
+import { ErrorAccount} from "./modalError.js"
 
 export const account =
 `<div class="container-login">
@@ -8,19 +10,22 @@ export const account =
     </div>
     <form class="input-section" id="input-section-account">
         <div class="input-login">
-            <input id="A-input-nameUser" class="A-input-nameUser" type="text" maxlength=30 placeholder="Nombre de usuario" required></input><br>
+            <input id="A-input-nameUser" class="A-input-nameUser" type="text" maxlength=30 placeholder="Nombre de usuario" required></input>
+            <br>
         </div>
         <div class="input-login">
             <input id="A-input-mail" class="A-input-mail" type="email" maxlength=50 placeholder="Correo electrónico" required></input>
         </div>
         <div class="input-login">
             <input id="A-input-password" class="A-input-password" type="password" maxlength=16 placeholder="Contraseña" required></input>
-            <img src="./images/visibility.png" class="visibility" id="visibility-account-password">            
+            <img src="./images/visibility.png" class="visibility" id="visibility-account-password">          
         </div>
+        <div class="error-input-container"><p class="A-error-input" id="A-error-password">La contraseña debe tener al menos 8 caracteres</p></div>
         <div class="input-login">
             <input id="A-input-password-confirm" class="A-input-password-confirm" type="password" maxlength=16 placeholder="Confirmar contraseña" required></input>
-            <img src="./images/visibility.png" class="visibility" id="visibility-confirm-password">            
+            <img src="./images/visibility.png" class="visibility" id="visibility-confirm-password"> 
         </div>
+        <div class="error-input-container"><p class="A-error-input" id="A-error-confirmPassworrd">Las contraseñas no coinciden</p></div>
         <div class="singin">
             <a class="aboutUser">La siguiente información aparecerá en tu perfil:</a>
         </div>
@@ -52,9 +57,13 @@ export const createAccount = () => {
             console.log(newMail);
             console.log(createPassword);
             let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
-
-            if(createPassword == inputConfirmPassword){
-                //Se llama la variable 'auth' para aplicar los métodos de Firebase
+            let nameUser = document.getElementById('A-input-nameUser');
+            let aboutUser = document.getElementById('A-input-aboutme');
+            document.getElementById('A-error-password').style.display='none';
+            document.getElementById('A-error-confirmPassworrd').style.display='none';
+            if(nameUser!='' && createPassword.length>=8){
+                if(createPassword == inputConfirmPassword){
+                    //Se llama la variable 'auth' para aplicar los métodos de Firebase
                 auth
                     .createUserWithEmailAndPassword(newMail, createPassword)
                     .then(userCredential => {
@@ -62,9 +71,18 @@ export const createAccount = () => {
                         alert('¡Registro exitoso!')
                         onNavigate('/');
                     })
-            }else{
-                alert('Las contraseñas no coinciden');
-            }              
+                    .catch(userCredential => {                    
+                        // console.log('Usuario sin registro');
+                        openModal(ErrorAccount);
+                        // onNavigate('/account');
+                    })
+                }else{
+                    //alert('Las contraseñas no coinciden');
+                    document.getElementById('A-error-confirmPassworrd').style.display='block';
+                } 
+            }else if(createPassword.length<8){
+                document.getElementById('A-error-password').style.display='block';
+            }           
         });
         
         const showAccountPassword = document.getElementById('visibility-account-password');
