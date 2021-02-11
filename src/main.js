@@ -22,7 +22,11 @@ getRouter(accountLink, '/account');
 getRouter(homeLink, '/home');
 getRouter(perfilLink, '/perfil');
 logoutfunction();
+
+//Lo que se ve del navbar al principio de la página.
 logooutLink.style.display="none";
+homeLink.style.display='none';
+perfilLink.style.display='none';
 
 //NAVBAR
 let desplegar = document.getElementById("menu");

@@ -2,6 +2,7 @@ import { onNavigate } from "./routing.js";
 import { loginVisibility } from "./loginVisibility.js"
 import { openModal } from "./modal.js";
 import { ErrorAccount} from "./modalError.js"
+import { SuccessAccount } from "./modalError.js"
 
 export const account =
 `<div class="container-login">
@@ -67,8 +68,8 @@ export const createAccount = () => {
                 auth
                     .createUserWithEmailAndPassword(newMail, createPassword)
                     .then(userCredential => {
-                        console.log('¡Registro exitoso!')
-                        alert('¡Registro exitoso!')
+                        // console.log('¡Registro exitoso!')
+                        openModal(SuccessAccount)
                         onNavigate('/');
                     })
                     .catch(userCredential => {                    

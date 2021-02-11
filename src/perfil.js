@@ -17,7 +17,7 @@ export const perfil =
                 <img src="./images/user.png" class="image">
                 <div class="info">
                     <div class="userName">Nombre de usuario</div>
-                    div class="about">Información sobre el usuario</div>
+                    <div class="about">Información sobre el usuario</div>
                 </div>
             </div>
         <div class="content">       

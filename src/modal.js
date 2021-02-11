@@ -14,6 +14,7 @@ export const openModal = (mensajeError) => {
     modal.classList.toggle ("modal-close");
     modalAlert.innerHTML= mensajeError;
     closeModal();
+    
     if(mensajeError == ErrorLoginMail){
         let otherUserLogin = document.getElementById('otherUser');
         otherUserLogin.addEventListener('click', () => {
@@ -29,8 +30,7 @@ export const openModal = (mensajeError) => {
             onNavigate('/account');
             closeModalLink();
         });  
-    }
-    
+    }    
 }
 
 export function closeModal (){
@@ -43,4 +43,4 @@ function closeModalLink () {
     modal.classList.toggle ("modal-close");
     modalContainer.style.opacity = "0";
     modalContainer.style.visibility = "hidden";
-}
+};

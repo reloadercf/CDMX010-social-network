@@ -6,6 +6,7 @@ import { loginGithub } from "./loginGithub.js";
 import { onNavigate, getRouter } from "./routing.js";
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { ErrorLoginMail } from "./modalError.js"
+
 export const login =
 `<div class="container-login">
     <div class="logo-login">
@@ -51,7 +52,6 @@ export const loginWithMail = () => {
 
     //Enlace de 'REGISTRO' que lleva a la sección 'ACCOUNT´para el registro//
     let accountLinkLogin = document.getElementById('accountLink');
-
     getRouter(accountLinkLogin, '/account');
 
     //Se asigna el evento 'click' al botón de LOGIN//
@@ -67,16 +67,13 @@ export const loginWithMail = () => {
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential => {
-                    console.log('inicio de sesión');
-                    // alert('¡Hola de nuevo! BIENVENIDA');
-                    navLinkVisibilityLogin()
+                    console.log('inicio de sesión');                    
+                    navLinkVisibilityLogin();
                     onNavigate('/home');
                 })   
-                .catch(userCredential => {                    
-                    // console.log('Usuario sin registro');
+                .catch(userCredential => {                   
                     openModal(ErrorLoginMail);
-                    closeModal();
-                    // onNavigate('/account');
+                    closeModal();                    
                 })             
         });
     
