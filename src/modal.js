@@ -1,7 +1,7 @@
 import { onNavigate } from "./routing.js";
 import { ErrorLoginMail } from "./modalError.js"
 // Tache para cerrar el modal
-let close = document.getElementById("close");
+
 let modal = document.querySelectorAll(".modal")[0];
 let modalContainer = document.getElementById("modal-container");
 let modalAlert= document.getElementById('modal-alert');
@@ -13,18 +13,21 @@ export const openModal = (mensajeError) => {
     modalContainer.style.visibility = "visible";
     // toggle, quita o pone la clase "modal-close"
     modal.classList.toggle ("modal-close");
+    
     modalAlert.innerHTML= mensajeError;
     if(mensajeError == ErrorLoginMail){
         let otherUserLogin = document.getElementById('otherUser');
         otherUserLogin.addEventListener('click', () => {
         onNavigate('/account'); 
         modalContainer.style.display="none";
+        closeModal();
         });  
     }
     closeModal();
 }
 
-export const closeModal = () => {
+export function closeModal (){
+    let close = document.getElementById("close");
     close.addEventListener("click", function () {
         modal.classList.toggle ("modal-close");
         modalContainer.style.opacity = "0";
