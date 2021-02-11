@@ -1,7 +1,7 @@
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { onNavigate } from "./routing.js";
 import { ErrorLoginFacebook } from "./modalError.js"
-import { openModal, closeModal } from "./modal.js"
+import { openModal} from "./modal.js"
 
 
 const errorFb= 'Error al iniciar sesión con Facebook'
@@ -21,7 +21,6 @@ export const loginFacebook = () => {
             .catch(err => {
                 console.log(err);
                 openModal(ErrorLoginFacebook);
-                closeModal();
             })
     });
 };
