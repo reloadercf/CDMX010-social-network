@@ -24,7 +24,7 @@ export const ErrorLoginGithub=`
 <p class="close" id="close">X</p>
       <img src="./images/denided.svg" alt="">
       <div class="modal-textos" >
-      <h2>¡Error al iniciar con Facebook!</h2>       
+      <h2>¡Error al iniciar con Github!</h2>       
       </div>
 `
 export const ErrorAccount=`
