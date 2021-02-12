@@ -73,7 +73,9 @@ export const createAccount = () => {
                         onNavigate('/');
                     })
                     .catch(userCredential => {                    
+                        // console.log('Usuario sin registro');
                         openModal(ErrorAccount);
+                        // onNavigate('/account');
                     })
                 }else{
                     //alert('Las contraseñas no coinciden');
