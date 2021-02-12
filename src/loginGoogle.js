@@ -1,6 +1,5 @@
 import { openModal } from "./modal.js";
 import { ErrorLoginGoogle } from "./modalError.js";
-import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { onNavigate } from "./routing.js";
 
 export const loginGoogle = () => {  

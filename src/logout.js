@@ -1,4 +1,3 @@
-import { navLinkVisibilityWithoutLogin } from "./NavdisplayVisibilityFunctions.js";
 import { onNavigate } from "./routing.js";
 
 export const logoutfunction = () => {
