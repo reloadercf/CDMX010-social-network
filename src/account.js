@@ -6,7 +6,7 @@ import { SuccessAccount } from "./modalError.js"
 
 export const account =
 `<div class="container-login">
-    <div class="logo-login">
+    <div id="A-logo-container">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
     </div>
     <form class="input-section" id="input-section-account">
