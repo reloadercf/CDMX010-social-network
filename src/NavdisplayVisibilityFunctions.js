@@ -7,9 +7,16 @@ let perfilLink = document.getElementById('per');
 
 //Cuando el usuario se logea y entra al home esto es lo que ve://
 export const navLinkVisibilityLogin = () => {
-    logoutLink.style.display = "block";
+    logoutLink.style.display= "block";
+    homeLink.style.display= 'block';
+    perfilLink.style.display='block';
     loginLink.style.display = "none";
     accountLink.style.display = "none";  
-    homeLink.style.display = "block";
-    perfilLink.style.display = "block";  
+}
+export const navLinkVisibilityWithoutLogin= ()=>{
+    logoutLink.style.display="none";
+    homeLink.style.display='none';
+    perfilLink.style.display='none';
+    loginLink.style.display = "block";
+    accountLink.style.display = "block";
 }

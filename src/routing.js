@@ -2,6 +2,7 @@ import { home } from './home.js';
 import { login, loginWithMail } from './login.js';
 import { perfil } from './perfil.js';
 import { account, createAccount } from './account.js';
+import { navLinkVisibilityLogin, navLinkVisibilityWithoutLogin } from './NavdisplayVisibilityFunctions.js';
 
 //OBJETO QUE TIENE LOS PATHNAMES DE LAS SECCIONES//
 export const routes = {
@@ -32,10 +33,19 @@ export const onNavigate = (pathname) => {
     if (routes[pathname]== login) {
         console.log('Ingresar')
         loginWithMail();
+        navLinkVisibilityWithoutLogin();
     } else if (routes[pathname] == account) {
         console.log('Registrarse');
         createAccount();
-    } else {
-        console.log('Es diferente');
+        navLinkVisibilityWithoutLogin();
+    } else if(routes[pathname] == home) {
+        navLinkVisibilityLogin();
+        console.log('Home');
+        
+    }else if(routes[pathname] == perfil) {
+        console.log('Perfil');
+        navLinkVisibilityLogin();
     }
 };
+
+navLinkVisibilityLogin()
