@@ -15,7 +15,7 @@ export const loginFacebook = () => {
             .then(result => {
             console.log(result);
             alert('¡Hola de nuevo! BIENVENIDA');
-            navLinkVisibilityLogin();
+            //navLinkVisibilityLogin();
             onNavigate('/home');
             })
             .catch(err => {

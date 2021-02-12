@@ -12,7 +12,7 @@ export const loginGoogle = () => {
       .then(result =>{
           console.log('inicio de sesión con google');
           //alert('¡Hola de nuevo! BIENVENIDA');
-          navLinkVisibilityLogin();
+          //navLinkVisibilityLogin();
           onNavigate('/home');
       })
       .catch(err =>{

@@ -14,7 +14,7 @@ export const loginGithub = () => {
             .then((result) => {
                 console.log('inicio de sesión con Github');
                 //alert('¡Hola de nuevo! BIENVENIDA');
-                navLinkVisibilityLogin();
+                //navLinkVisibilityLogin();
                 onNavigate('/home');                
             })
             .catch((error) => {
