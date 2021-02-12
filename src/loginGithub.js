@@ -1,4 +1,3 @@
-import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { onNavigate } from "./routing.js";
 import { ErrorLoginGithub } from "./modalError.js"
 import { openModal} from "./modal.js"

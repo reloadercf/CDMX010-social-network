@@ -47,5 +47,3 @@ export const onNavigate = (pathname) => {
         navLinkVisibilityLogin();
     }
 };
-
-navLinkVisibilityLogin()
