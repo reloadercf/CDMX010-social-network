@@ -1,20 +1,24 @@
-body{
-    background-image: url("./images/fondo.jpg") ;
+
+body{ 
+    width: 100%;
+    height: 100%;   
+    background-image: url("./images/fondo.jpg") ; 
     background-size:cover;
-    background-repeat:no-repeat;  
+    background-repeat:no-repeat; 
     font-family: 'Roboto', sans-serif;
+    margin: 0%;
 }
 
-.logo-login{
-    /* margin-top: 5px; */
-    display: flex;
-    justify-content: center;
-    padding: 5px 0px 30px 0;
-}
-.logo-login img{
+#A-logo{
     width: 15%;
     height: 15%;
+    margin-top: 30px;
 }
+#A-logo-container{
+    display: flex;
+    justify-content: center;    
+}
+
 .input-section{
     margin-top: 5px;
 }
@@ -132,31 +136,31 @@ body{
 .flex-menu{
     display: flex;
     flex-direction: column;
-    width: 30%;       
+    width: 25%;   
+    height: 40%;      
 }
 .subject{
+    width: 100%;
     background-color: #F4AD22;
-    width: 200px;
-    
 }
 .menu1{
     color: black;
-    margin-left: 15px;
-    padding: 7px;
+    padding: 10px 0px 10px 10px;
     font-weight: bold;
-    width: 150px;
+    width: 100%;
+    margin: 0%;
 }
 
-.Flex-perfil{
+.flex-perfil{
     display: flex;
     flex-direction: column;
-    width: 30%;   
+    width: 60%;   
 }
 .flex-noticias{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    width: 30%;    
+    width: 20%;    
     margin-left: 50px;
 }
 .title{
@@ -168,7 +172,7 @@ body{
 }
 
 .container{
-    background-color: transparent;
+    background-color: red;
 	border-radius: 20px;	
 	margin-top: 10px;	
 	text-align: center;
@@ -191,9 +195,6 @@ body{
 }
 .imgContainer-home{
     display: flex;
-    margin-right: 150px;
-    /* flex-direction: row; */
-    justify-content: center;
 }
 .info-home{
     margin-top: 13px;
@@ -207,8 +208,8 @@ body{
     outline: none; 
     font-size: 15px; 
     padding-left: 13px;  
-    width: 500px; 
-    margin-left: 40px;
+    width: 90%; 
+    align-self: center;
    
 }
 
@@ -219,7 +220,6 @@ body{
 }
 
 .image{
-    margin-left: 230px;
     border-radius: 60%;
     display: flex;
     width: 25%;
@@ -236,19 +236,19 @@ body{
 
 .userName{
     margin-top: 5px;    
-    font-size: 23px;
+    font-size:1em;
     font-weight: bold; 
 }
 
 .about{
     margin-top: 5px;    
-    font-size: 14px;
+    font-size: 1em;
     color: #828282;
 }
 
 .post{
     display: flex;
-    flex-direction: column;    
+    flex-direction: column; 
 }
 .content{
     display: flex;
@@ -265,8 +265,7 @@ body{
     outline: none; 
     font-size: 15px; 
     padding-left: 13px;  
-    width: 500px; 
-    margin-left: 40px;
+    width: 90%;
    
 }
 
@@ -274,16 +273,16 @@ body{
     margin-top: 15px;
     background-color: #F3A623;
     border-color: #F3A623;
+     color: white;
     outline: none; 
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     height: 20px;
     font-size: 12px;
-    width: 110px;
+    width: 20%;
     height: 30px;
-    color: white;
-    margin-left: 447px;
-    margin-bottom: 50px;
+    align-self: flex-end;
+    margin: 3%;
 }
 
 .enter:hover{
@@ -291,18 +290,18 @@ body{
 }
 
 .activity{   
-    width: 510px;
+    width: 90%;
     background-color:white;
 	border-radius: 4px;
 	box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-	margin-left: 43px;
+	align-self: center;
 	text-align: center;   
 }
 
 .point{
-    margin-left: 450px;
+    margin-left:90%;
     margin-top: 20px;
-    width: 23px;
+    width: 5%;
     height: 7px;     
 }
 
@@ -319,32 +318,26 @@ body{
 .interaction{
     display: flex;
     font-size: 10px;
-    margin-top: 40px;
-    /* justify-content: space-between; */
+    margin-top: 10%;
+    justify-content: space-between;
 }
 .picture{
     width: 4%;
     height: 4%;
-    margin-left: 15px;
-    margin-bottom: 20px;
 }
 .coment{
     width: 4%;
     height: 4%;
-    margin-left: 200px;
 }
 .coment-num{
-    margin-top: 3px;
-    margin-left: 4px;
+   display: flex;
 }
 .like{
     width: 4%;
     height: 4%;
-    margin-left: 30px;
 }
 .like-num{
-    margin-top: 4px;
-    margin-left: 4px;
+    display: flex;
 }
 .next{
     display: flex;
@@ -361,8 +354,8 @@ body{
     outline: none; 
     font-size: 12px; 
     padding-left: 9px;  
-    width: 496px; 
-    margin-left: 45px;
+    width: 90%; 
+    align-self: center;
 }
 
 /* MODAL */
@@ -430,27 +423,10 @@ body{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 }
-@media (max-width: 800px) {
-    #A-root{
-        display: block;
-    }
-}
+
 .A-account-container{
     grid-column-start: 2;
     padding: 20%;
-}
-
-#A-logo{
-    /* max-width: 55%; */
-    width: 15%;
-    height: 15%;
-    margin-top: 30px;
-}
-
-#A-logo-container{
-    display: flex;
-    justify-content: center;
-    
 }
 
 #A-form-container{
@@ -559,18 +535,16 @@ body{
 /* NAVBAR */
 
 header{
-    display: inline-block;
+    display: flex;
     width: 100%;
-    height: 50px;   
-    /* margin: 0px;  */
-    /* padding: 0px 20px; */
+    height: 50px; 
     background-color: #F3A623;
-    position: relative;   
+    justify-content: flex-end;
+       
 }
 nav{
-    float: right;
+    display: flex;    
     font-family: 'Barlow', sans-serif;
-    /* font-weight: bold;  */
 }
 
 nav ul li{
@@ -604,13 +578,24 @@ nav ul li a{
 }
 
 @media(max-width: 800px){
+     #A-root{
+        display: block;
+    }
+    #A-logo{
+    width: 30%;
+    height: 30%;
+    margin-top: 30px;
+    }
+    .socialNet-login img {
+        width: 5%;
+        height: 5%; 
+    }
     .toogle-btn{
         display: block;
     }
     nav{
         display: none;
         width: 100%;
-        /* border-top: 1px solid #000; */
         padding-top: 20px;
         margin-top: 30px;
     }
@@ -624,120 +609,7 @@ nav ul li a{
     nav ul li a{
         color: black;
     }
-    .container{
-        background-color: transparent;
-        border-radius: 20px;
-        /* box-shadow: 0 3px 10px rgba(100, 100, 100, 0.5); */
-        margin: 10px;
-        padding: 20px;
-        text-align: center;
-    }
-    .imgContainer{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
     
-    .image{
-        border-radius: 60%;
-        display: flex;
-        width: 30%;
-        height: 30%;
-    }
-    .info{
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-    }
-    
-    .userName{
-        padding-left: 25px;
-        font-size: 23px;
-        font-weight: bold;
-    }
-    
-    .about{
-        padding-left: 11px;
-        font-size: 14px;
-        color: #828282;
-    }
-    
-    .post{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .newPost{
-        margin-top: 40px;
-        height: 70px;    
-        border-radius: 4px;
-        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-        border:1px #C3BEBE solid;
-        outline: none; 
-        font-size: 15px; 
-        padding-left: 13px;    
-    }
-    
-    .enter{    
-        margin-top: 15px;
-        background-color: #F3A623;
-        border-color: #F3A623;
-        outline: none; 
-        border-radius: 4px;
-        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-        height: 20px;
-        font-size: 10px;
-        width: 80px;
-        color: white;
-        margin-left: 328px;
-        margin-bottom: 25px;
-    }
-    
-    .enter:hover{
-        cursor: pointer;
-    }
-    
-    .activity{   
-        background-color:white;
-        border-radius: 4px;
-        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);	
-        padding: 20px;
-        text-align: center;
-    }
-    .point{
-        margin-left: 350px;
-        width: 19px;
-        height: 7px;     
-    }
-    
-    .name{
-        display: flex;
-        font-weight: bold;
-    }
-    
-    .publication{
-        margin-top: 30px;
-    }
-    
-    .interaction{
-        display: flex;
-        font-size: 10px;
-        margin-top: 40px;
-        justify-content: space-between;
-    
-    }
-    
-    .nextPost{
-        margin-top: 10px;
-        height: 30px;   
-        width: 96%; 
-        border-radius: 4px;
-        box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-        border:1px #C3BEBE solid;
-        outline: none; 
-        font-size: 15px; 
-        padding-left: 13px;     
-    }
 }
 
 

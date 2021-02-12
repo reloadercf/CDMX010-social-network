@@ -20,6 +20,7 @@ export const perfil =
                     <div class="about">Información sobre el usuario</div>
                 </div>
             </div>
+        </div>
         <div class="content">       
         <div class="post">
             <input type="text" placeholder="Nueva publicación" class="newPost"></input>
@@ -30,11 +31,17 @@ export const perfil =
             <div class="name">Nombre del usuario</div>
             <div class="publication">Publicación</div>
             <div class="interaction">
-            <img src="./images/picture.png" class="picture">            
-            <img src="./images/coment.png" class="coment">
-            <div class="coment-num">Número de comentarios</div>            
-            <img src="./images/like.png" class="like">
-            <div class="like-num">Número de likes</div>  
+                <div>
+                <img src="./images/picture.png"  class="picture" >
+                </div>                   
+                <div class="coment-num">
+                <img src="./images/coment.png" class="coment">
+                <p>3</p>
+                </div>            
+                <div class="like-num">
+                <img src="./images/like.png" class="like">
+                <p>2</p>
+                </div>  
             </div>
         </div>               
         <div class="next">                   
