@@ -6,6 +6,7 @@ import { loginGithub } from "./loginGithub.js";
 import { onNavigate, getRouter } from "./routing.js";
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { ErrorLoginMail } from "./modalError.js"
+import { uploadImage } from "./home.js"
 
 export const login =
 `<div class="container-login">
@@ -70,6 +71,7 @@ export const loginWithMail = () => {
                     console.log('inicio de sesión');                    
                     navLinkVisibilityLogin();
                     onNavigate('/home');
+                    uploadImage()
                 })   
                 .catch(userCredential => {                   
                     openModal(ErrorLoginMail);
