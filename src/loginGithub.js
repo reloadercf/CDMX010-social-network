@@ -1,4 +1,3 @@
-import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { onNavigate } from "./routing.js";
 import { ErrorLoginGithub } from "./modalError.js"
 import { openModal} from "./modal.js"
@@ -14,7 +13,7 @@ export const loginGithub = () => {
             .then((result) => {
                 console.log('inicio de sesión con Github');
                 //alert('¡Hola de nuevo! BIENVENIDA');
-                navLinkVisibilityLogin();
+                //navLinkVisibilityLogin();
                 onNavigate('/home');                
             })
             .catch((error) => {

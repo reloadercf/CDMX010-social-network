@@ -1,13 +1,10 @@
 // Este es el punto de entrada de tu aplicacion
-import { routes, getRouter } from "./routing.js";
+import {getRouter, onNavigate } from "./routing.js";
 import {logoutfunction} from "./logout.js";
-import { loginWithMail } from "./login.js";
 
 //RESNDERIZAR "Login" en el div "root" POR DEFAULT AL INICIAR LA PÁGINA//
-const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
-console.log('Ingresar')
-loginWithMail();
+let currentPathname = window.location.pathname;
+onNavigate(currentPathname);
 
 //ENLACES PARA ACCEDER A LAS SECCIONES//
 let loginLink = document.getElementById('log');
@@ -23,17 +20,11 @@ getRouter(homeLink, '/home');
 getRouter(perfilLink, '/perfil');
 logoutfunction();
 
-//Lo que se ve del navbar al principio de la página.
-logooutLink.style.display="none";
-homeLink.style.display='none';
-perfilLink.style.display='none';
-
 //NAVBAR
 let desplegar = document.getElementById("menu");
 
 desplegar.onclick = function () {
     var navbar = document.getElementById("nav"); 
-         
     navbar.classList.toggle("show");
 };
 //MODAL
