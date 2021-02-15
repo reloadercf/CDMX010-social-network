@@ -1,3 +1,5 @@
+import { templatePost } from "./templatePost.js";
+
 export const perfil =
 `<div class="flex-container">
     <div class="flex-menu">
@@ -23,33 +25,10 @@ export const perfil =
         </div>
         <div class="content">       
         <div class="post">
-            <input type="text" placeholder="Nueva publicación" class="newPost"></input>
-            <button class="enter" type"submit">Publicar</button>
+            <input type="text" placeholder="Nueva publicación" class="newPost" id="newPostPerfil"></input>
+            <button class="enter" type"submit" id="publicar">Publicar</button>
         </div>
-        <div class="activity">        
-            <img src="./images/points.jpg" class="point">
-            <div class="name">Nombre del usuario</div>
-            <div class="publication">Publicación</div>
-            <div class="interaction">
-                <div>
-                <img src="./images/picture.png"  class="picture" >
-                </div>                   
-                <div class="coment-num">
-                <img src="./images/coment.png" class="coment">
-                <p>3</p>
-                </div>            
-                <div class="like-num">
-                <img src="./images/like.png" class="like">
-                <p>2</p>
-                </div>  
-            </div>
-        </div>               
-        <div class="next">                   
-            <input type="text" class="nextPost" placeholder="Escribe un comentario..."></input>
-            <button class="enter" type"submit">Comentar</button>                    
-        </div>           
-            </div>        
-        </div>
+        <div id="postsContainer">
         </div>
         <div class="flex-noticias">
              <p class="title">Noticias</p>
@@ -61,3 +40,45 @@ export const perfil =
              <img src="./images/picture.png" class="notice"> 
         </div>
 </div>`
+
+//ENVIAR LA INFORMACIÓN OBTENIDA AL FIREBASE
+const savePost= (post)=>{
+    firestore.collection('posts').doc().set({
+        post
+    });
+    
+}
+
+//OBTENER LA INFORMACIÓN DESDE FIREBASE
+const getPost=()=> firestore.collection('posts').get();
+//PINTAR LA INFORMACIÓN OBTENIDA, EN LA PANT
+export const reloadPost=()=>{
+    const postContainer= document.getElementById('postsContainer');
+    window.addEventListener('DOMContentLoaded', async(e) =>{
+        const querySnapshot = await getPost();
+        querySnapshot.forEach(doc => {
+            let postsData=doc.data();
+            console.log(doc.data());
+            let postText=postsData.post
+            console.log(postText)
+            postContainer.innerHTML += templatePost(postsData);
+            
+        });
+    })
+}
+
+//OBTENER EL VALOR DE LA PUBLICACIÓN
+export const createPost = ()=>{
+    let btnPublicar = document.getElementById('publicar');
+    let newPostInput= document.getElementById('newPostPerfil');
+    btnPublicar.addEventListener('click', async ()=>{
+        console.log('Publicar');
+        let newPostText=newPostInput.value;
+        console.log(newPostText);
+
+        await savePost(newPostText);
+
+        document.getElementById('newPostPerfil').value='';
+        //newPostInput.reset();
+    })    
+}
