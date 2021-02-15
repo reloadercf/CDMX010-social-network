@@ -45,8 +45,9 @@ export const login =
 </div>`
 
 export const loginWithMail = () => {   
+
     let singupForm = document.getElementById('input-section-login');
-     // Para detener la acción del form//
+   
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });

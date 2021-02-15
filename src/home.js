@@ -24,7 +24,7 @@ export const home =
             <div class="content">       
                 <div class="post">
                     <input type="text" placeholder="Nueva publicación" class="newPost-home"></input>
-                    <button class="enter" type"submit">Publicar</button>
+                    <button class="enter" type="submit" id="enter">Publicar</button>
                 </div>
                 <div class="activity">        
                     <img src="./images/points.jpg" class="point">
@@ -40,7 +40,7 @@ export const home =
             </div>            
             <div class="next">                   
                     <input type="text" class="nextPost" placeholder="Escribe un comentario..."></input>
-                    <button class="enter" type"submit">Comentar</button>                    
+                    <button class="enter" type="submit" id="submit">Comentar</button>                    
             </div>       
         </div>    
     </div>
@@ -73,7 +73,7 @@ export const uploadImage = function () {
         var uploadTask = storageRef.put(file);
         //Activamos la referencia "uploadTask"
         //Dice que cuando exista un cambio de estado, ejecutaremos una función donde captutaremos los cambios
-        uploadTask.on('state_change', function (snapchot){
+        uploadTask.on('state_change', function (snapshot){
             //se ve si existe o no un error
         }, function(error) {
             console.log(error)
@@ -81,9 +81,14 @@ export const uploadImage = function () {
         }, function() {
             console.log('Archivo subido a Firebase')
 
-        })
-        
-    }
-
-    
+        })        
+    }    
 }
+
+//POST//
+
+// let sendPost = document.getElementById('submit');
+
+// sendPost.addEventListener('submit', e => {
+//     console.log("POST PUBLICADO")
+// })

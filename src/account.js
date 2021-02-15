@@ -60,26 +60,26 @@ export const createAccount = () => {
             let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
             let nameUser = document.getElementById('A-input-nameUser');
             let aboutUser = document.getElementById('A-input-aboutme');
+
             document.getElementById('A-error-password').style.display='none';
             document.getElementById('A-error-confirmPassworrd').style.display='none';
-            if(nameUser!='' && createPassword.length>=8){
+
+            if (nameUser!='' && createPassword.length >= 8){
                 if(createPassword == inputConfirmPassword){
                     //Se llama la variable 'auth' para aplicar los métodos de Firebase
-                auth
+                    auth
                     .createUserWithEmailAndPassword(newMail, createPassword)
-                    .then(userCredential => {
-                        // console.log('¡Registro exitoso!')
+                    .then(userCredential => {                        
                         openModal(SuccessAccount)
                         onNavigate('/');
                     })
                     .catch(userCredential => {                    
                         openModal(ErrorAccount);
                     })
-                }else{
-                    //alert('Las contraseñas no coinciden');
+                }else{                    
                     document.getElementById('A-error-confirmPassworrd').style.display='block';
                 } 
-            }else if(createPassword.length<8){
+            }else if (createPassword.length < 8){
                 document.getElementById('A-error-password').style.display='block';
             }           
         });
