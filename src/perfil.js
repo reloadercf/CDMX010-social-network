@@ -4,23 +4,24 @@ export const perfil =
 `<div class="flex-container">
     <div class="flex-menu">
         <div class="subject">
-        <p class="menu1">Perfil</p>
-        <p class="menu1">Amigos</p>
-        <p class="menu1">Favoritos</p>
-        <p class="menu1">Ayuda</p>
-        <p class="menu1">Configuración</p>            
-        <p class="menu1">Sobre GirlTechSOS</p>
-        <p class="menu1">Salir</p>
+        <h3>GirlTechSOS</h3>
+        <p class="menu1"><img class="menuIcons" src="./images/profileIcon.png"> Perfil</p>
+        <p class="menu1"><img class="menuIcons" src="./images/friendsIcon.png"> Amigos</p>
+        <p class="menu1"><img class="menuIcons" src="./images/favFolderIcon.png"> Favoritos</p>
+        <p class="menu1"><img class="menuIcons" src="./images/helpIcon.png"> Ayuda</p>
+        <p class="menu1"><img class="menuIcons" src="./images/configIcon.png"> Configuración</p>            
+        <p class="menu1"><img class="menuIcons" src="./images/avatarProfile.png">Sobre GirlTechSOS</p>
+        <p class="menu1"><img class="menuIcons" src="./images/exitIcon.png"> Salir</p>
         </div>
     </div>
     <div class="flex-perfil">
         <div class="container">
             <div class="imgContainer">
-                <img src="./images/user.png" class="image">
-                <div class="info">
-                    <div class="userName">Nombre de usuario</div>
+                <img src="./images/avatarProfile.png" class="image-perfil">
+            </div>
+            <div class="info-perfil">
+                    <div class="userName-perfil">Nombre de usuario</div>
                     <div class="about">Información sobre el usuario</div>
-                </div>
             </div>
         </div>
         <div class="content">       
@@ -28,23 +29,28 @@ export const perfil =
             <input type="text" placeholder="Nueva publicación" class="newPost" id="newPostPerfil"></input>
             <button class="enter" type"submit" id="publicar">Publicar</button>
         </div>
-        <div id="postsContainer">
+        <div id="postsContainer"></div>
         </div>
-        <div class="flex-noticias">
-             <p class="title">Noticias</p>
-             <p>Noticia 1</p>
-             <img src="./images/picture.png" class="notice"> 
-             <p>Noticia 2</p>
-             <img src="./images/picture.png" class="notice"> 
-             <p>Noticia 3</p>
-             <img src="./images/picture.png" class="notice"> 
-        </div>
+    </div>
+    <div class="flex-noticias">
+        <div class="noticias-section">
+            <p class="title">Noticias</p>
+            <p>Noticia 1</p>
+            <img src="./images/picture.png" class="notice"> 
+            <p>Noticia 2</p>
+            <img src="./images/picture.png" class="notice"> 
+            <p>Noticia 3</p>
+            <img src="./images/picture.png" class="notice"> 
+        </div> 
+    </div>
 </div>`
 
 //ENVIAR LA INFORMACIÓN OBTENIDA AL FIREBASE
-const savePost= (post)=>{
+const savePost= (post, usermail, uid)=>{
     firestore.collection('posts').doc().set({
-        post
+        post,
+        usermail,
+        uid
     });
     
 }
@@ -75,8 +81,8 @@ export const createPost = ()=>{
         console.log('Publicar');
         let newPostText=newPostInput.value;
         console.log(newPostText);
-
-        await savePost(newPostText);
+        let user= auth.currentUser;
+        await savePost(newPostText, user.email, user.uid);
 
         document.getElementById('newPostPerfil').value='';
         //newPostInput.reset();

@@ -3,6 +3,7 @@ import { loginVisibility } from "./loginVisibility.js"
 import { openModal } from "./modal.js";
 import { ErrorAccount} from "./modalError.js"
 import { SuccessAccount } from "./modalError.js"
+import { saveInfoUser } from "./userColection.js";
 
 export const account =
 `<div class="container-login">
@@ -58,8 +59,8 @@ export const createAccount = () => {
             console.log(newMail);
             console.log(createPassword);
             let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
-            let nameUser = document.getElementById('A-input-nameUser');
-            let aboutUser = document.getElementById('A-input-aboutme');
+            let nameUser = document.getElementById('A-input-nameUser').value;
+            let aboutUser = document.getElementById('A-input-aboutme').value;
 
             document.getElementById('A-error-password').style.display='none';
             document.getElementById('A-error-confirmPassworrd').style.display='none';
@@ -69,9 +70,13 @@ export const createAccount = () => {
                     //Se llama la variable 'auth' para aplicar los métodos de Firebase
                     auth
                     .createUserWithEmailAndPassword(newMail, createPassword)
-                    .then(userCredential => {                        
-                        openModal(SuccessAccount)
+                    .then(userCredential => {                    
+                        openModal(SuccessAccount);
                         onNavigate('/');
+                        console.log(userCredential);
+                        let uidUser= userCredential.user.uid;
+                        console.log(uidUser);
+                        saveInfoUser(newMail, uidUser, createPassword, nameUser, aboutUser, 'urlimg');
                     })
                     .catch(userCredential => {                    
                         openModal(ErrorAccount);
