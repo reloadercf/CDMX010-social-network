@@ -1,20 +1,12 @@
 export const templatePost= (postsData) => {
     let postStructur= `<div class="activity">        
     <img src="./images/points.jpg" class="point">
-    <div class="name">Nombre del usuario</div>
+    <div class="name">${postsData.usermail}</div>
     <div class="publication">${postsData.post}</div>
         <div class="interaction">
-            <div>
-            <img src="./images/picture.png"  class="picture">
-            </div>                   
-            <div class="coment-num">
-            <img src="./images/coment.png" class="coment">
-            <p>3</p>
-            </div>            
-            <div class="like-num">
-            <img src="./images/like.png" class="like">
-            <p>2</p>
-            </div>  
+                <label><img class="postIcon" src="./images/picture.png" class="picture"></label>           
+                <label>3 <img class="postIcon" src="./images/coment.png" class="coment"></label>            
+                <label>27 <img class="postIcon" src="./images/like.png" class="like"></label>
         </div>
     </div>               
     <div class="next">                   
