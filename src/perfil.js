@@ -54,7 +54,8 @@ const savePost= (post, usermail, uid)=>{
     });
     
 }
-
+//DA EL ID A FIREBASE PARA ELIMINAR POSTS
+const deletePosts= id=>firestore.collection('posts').doc(id).delete();
 //OBTENER LA INFORMACIÓN DESDE FIREBASE
 const getPost=()=> firestore.collection('posts').get();
 
@@ -103,3 +104,16 @@ export const createPost = ()=>{
         //newPostInput.reset();
     })    
 }
+
+//ELIMINAR POSTS
+ const EliminarPost=()=>{
+   const btnsDelete= document.querySelectorAll('.btn-delete');
+   console.log(btnsDelete);
+   btnsDelete.forEach(btn =>{
+       btn.addEventListener('click',async(e)=>{
+           console.log(e.target.dataset.id);
+          await deletePosts(e.target.dataset.id)
+       })
+   })
+ }
+

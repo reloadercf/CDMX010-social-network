@@ -331,12 +331,14 @@ body{
 	align-self: center;
 	text-align: center;   
 }
-
-.point{
-    margin-left:90%;
-    margin-top: 20px;
-    width: 5%;
-    height: 7px;     
+.edit-post {
+    display: flex;
+    justify-content: flex-end;   
+}
+.edit-post img{
+    justify-content: flex-end;
+    margin:1%;   
+    cursor: pointer; 
 }
 
 .name{
