@@ -1,6 +1,9 @@
-export const templatePost= (postsData) => {
-    let postStructur= `<div class="activity">        
-    <img src="./images/points.jpg" class="point">
+export const templatePost= (postsData,idPost) => {
+    let postStructur= `<div class="activity">
+    <div class="edit-post">           
+    <img src="./images/delete.png" class="btn-delete" data-id="${idPost}">
+    <img src="./images/edit.png">
+    </div> 
     <div class="name">${postsData.usermail}</div>
     <div class="publication">${postsData.post}</div>
         <div class="interaction">
