@@ -54,7 +54,8 @@ const savePost= (post, usermail, uid)=>{
     });
     
 }
-
+//DA EL ID A FIREBASE PARA ELIMINAR POSTS
+const deletePosts= id=>firestore.collection('posts').doc(id).delete();
 //OBTENER LA INFORMACIÓN DESDE FIREBASE
 const getPost=()=> firestore.collection('posts').get();
 //PINTAR LA INFORMACIÓN OBTENIDA, EN LA PANT
@@ -63,13 +64,16 @@ export const reloadPost=()=>{
     window.addEventListener('DOMContentLoaded', async(e) =>{
         const querySnapshot = await getPost();
         querySnapshot.forEach(doc => {
+            console.log(doc.id);
+            let idPost=doc.id;
             let postsData=doc.data();
-            console.log(doc.data());
+            //console.log(doc.data());
             let postText=postsData.post
-            console.log(postText)
-            postContainer.innerHTML += templatePost(postsData);
+            //console.log(postText)
+            postContainer.innerHTML += templatePost(postsData,idPost);
             
         });
+        EliminarPost();
     })
 }
 
@@ -88,3 +92,16 @@ export const createPost = ()=>{
         //newPostInput.reset();
     })    
 }
+
+//ELIMINAR POSTS
+ const EliminarPost=()=>{
+   const btnsDelete= document.querySelectorAll('.btn-delete');
+   console.log(btnsDelete);
+   btnsDelete.forEach(btn =>{
+       btn.addEventListener('click',async(e)=>{
+           console.log(e.target.dataset.id);
+          await deletePosts(e.target.dataset.id)
+       })
+   })
+ }
+
