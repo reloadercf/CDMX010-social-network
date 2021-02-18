@@ -73,16 +73,17 @@ export const reloadPost=()=>{
             postContainer.innerHTML = '';
             //Los cambios se guardaran en un objeto llamadao "querySnapchot" y vamos a recorrer elemento por elemento
             querySnapshot.forEach(doc => {
-               
+                console.log(doc.id);
+                let idPost=doc.id;
                 let postsData=doc.data();                
                 console.log("ADIOSSS", postsData);
 
                 let postText=postsData.post
                 console.log(" HOLAAAAAA", postText)
-                postContainer.innerHTML += templatePost(postsData);
+                postContainer.innerHTML += templatePost(postsData,idPost);
                 
             });
-
+            EliminarPost();
         })
     
 }
