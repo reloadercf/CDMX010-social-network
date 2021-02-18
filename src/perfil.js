@@ -50,27 +50,40 @@ const savePost= (post, usermail, uid)=>{
     firestore.collection('posts').doc().set({
         post,
         usermail,
-        uid
+        uid        
     });
     
 }
 
 //OBTENER LA INFORMACIÓN DESDE FIREBASE
 const getPost=()=> firestore.collection('posts').get();
+
+//Cuando de crea un nuevo post. --> onSnapshot se refiere a que cada vez que algun post se agregue, elimine o cambie se ejecutará la fucnión de "callback"
+const onGetPost = (callback) => firestore.collection('posts').onSnapshot(callback)
+
 //PINTAR LA INFORMACIÓN OBTENIDA, EN LA PANT
 export const reloadPost=()=>{
     const postContainer= document.getElementById('postsContainer');
-    window.addEventListener('DOMContentLoaded', async(e) =>{
-        const querySnapshot = await getPost();
-        querySnapshot.forEach(doc => {
-            let postsData=doc.data();
-            console.log(doc.data());
-            let postText=postsData.post
-            console.log(postText)
-            postContainer.innerHTML += templatePost(postsData);
-            
-        });
-    })
+    postContainer.innerHTML='';    
+
+        //Cada vez que se ejecute algun cambio en los posts, se va a ejecutar en onGetPost que es el "callback" que definimos anteriormente (para obtener los datos a como lucen actualmente)
+        onGetPost((querySnapshot) => {
+            //Para que no se repitan las publicaciones a la hora de visualizarlas, indicamos que el postContainer debe estar vacio
+            postContainer.innerHTML = '';
+            //Los cambios se guardaran en un objeto llamadao "querySnapchot" y vamos a recorrer elemento por elemento
+            querySnapshot.forEach(doc => {
+               
+                let postsData=doc.data();                
+                console.log("ADIOSSS", postsData);
+
+                let postText=postsData.post
+                console.log(" HOLAAAAAA", postText)
+                postContainer.innerHTML += templatePost(postsData);
+                
+            });
+
+        })
+    
 }
 
 //OBTENER EL VALOR DE LA PUBLICACIÓN
@@ -83,6 +96,8 @@ export const createPost = ()=>{
         console.log(newPostText);
         let user= auth.currentUser;
         await savePost(newPostText, user.email, user.uid);
+
+        getPost();
 
         document.getElementById('newPostPerfil').value='';
         //newPostInput.reset();

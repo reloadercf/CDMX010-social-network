@@ -1,5 +1,3 @@
-
-
 export const home =
 `<div class="flex-container">
     <div class="flex-menu">
