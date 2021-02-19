@@ -3,10 +3,11 @@ import { loginVisibility } from "./loginVisibility.js"
 import { openModal } from "./modal.js";
 import { ErrorAccount} from "./modalError.js"
 import { SuccessAccount } from "./modalError.js"
+import { saveInfoUser } from "./userColection.js";
 
 export const account =
 `<div class="container-login">
-    <div class="logo-login">
+    <div id="A-logo-container">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
     </div>
     <form class="input-section" id="input-section-account">
@@ -58,30 +59,34 @@ export const createAccount = () => {
             console.log(newMail);
             console.log(createPassword);
             let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
-            let nameUser = document.getElementById('A-input-nameUser');
-            let aboutUser = document.getElementById('A-input-aboutme');
+            let nameUser = document.getElementById('A-input-nameUser').value;
+            let aboutUser = document.getElementById('A-input-aboutme').value;
+
             document.getElementById('A-error-password').style.display='none';
             document.getElementById('A-error-confirmPassworrd').style.display='none';
-            if(nameUser!='' && createPassword.length>=8){
+
+            if (nameUser!='' && createPassword.length >= 8){
                 if(createPassword == inputConfirmPassword){
                     //Se llama la variable 'auth' para aplicar los métodos de Firebase
-                auth
+                    auth
                     .createUserWithEmailAndPassword(newMail, createPassword)
-                    .then(userCredential => {
-                        // console.log('¡Registro exitoso!')
-                        openModal(SuccessAccount)
+                    .then(userCredential => {                    
+                        openModal(SuccessAccount);
                         onNavigate('/');
+                        console.log(userCredential);
+                        let uidUser= userCredential.user.uid;
+                        console.log(uidUser);
+                        saveInfoUser(newMail, uidUser, createPassword, nameUser, aboutUser, 'urlimg');
                     })
                     .catch(userCredential => {                    
                         // console.log('Usuario sin registro');
                         openModal(ErrorAccount);
                         // onNavigate('/account');
                     })
-                }else{
-                    //alert('Las contraseñas no coinciden');
+                }else{                    
                     document.getElementById('A-error-confirmPassworrd').style.display='block';
                 } 
-            }else if(createPassword.length<8){
+            }else if (createPassword.length < 8){
                 document.getElementById('A-error-password').style.display='block';
             }           
         });

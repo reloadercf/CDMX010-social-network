@@ -25,12 +25,13 @@
     </div>
 
     <nav id="nav">
-      <ul>
-        <li><a href="#" id="log">Ingresar</a></li>
-        <li><a href="#" id="acc">Crear cuenta</a></li>
-        <li><a href="#" id="hom">Home</a></li>
-        <li><a href="#" id="per">Perfil</a></li>
-        <li><a href="#" id="logout">Cerrar sesión</a></li>
+      <ul>        
+        <li><a href="#" id="hom"><img src="./images/home.png" alt="" class="house"></a></li>  
+        <li><img src="images/logoGris.png" alt="" class="gts"></li>     
+        <li class="navLinkEnd"><a href="#" id="log">Ingresar</a></li>
+        <li class="navLinkEnd"><a href="#" id="acc">Crear cuenta</a></li>        
+        <li class="navLinkEnd"><a href="#" id="per">Perfil</a></li>
+        <li class="navLinkEnd"><a href="#" id="logout">Salir</a></li>
       </ul>
     </nav>
     </header>
@@ -54,6 +55,8 @@
 
      <!-- **********SERVICIO PARA AUTENTICAR AL USUARIO, POR MEDIO DE FIREBASE********** -->     
 <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -62,7 +65,7 @@
     apiKey: "AIzaSyB9FstYd5L2kbOV05UXv97ATSHLWSW9msQ",
     authDomain: "red-social-laboratoria-54e70.firebaseapp.com",
     projectId: "red-social-laboratoria-54e70",
-    storageBucket: "red-social-laboratoria-54e70.appspot.com",
+    storageBucket: "gs://red-social-laboratoria-54e70.appspot.com",
     messagingSenderId: "908874787445",
     appId: "1:908874787445:web:b90c920cdc13bb0a2ba63c",
     measurementId: "G-FRYXNB78K0"
@@ -71,6 +74,11 @@
   firebase.initializeApp(firebaseConfig);
   // *****DEFINIMOS UNA CONSTANTE, DONDE ESTAREMOS LLAMANDO EN CADA MOMENTO AL OBJETO "AUTH" AL UTILIZAR EL SERVICIO, PARA QUE EL EMAIL Y LA CONTRASEÑA SEA VALIDADA CON LA BASE DE DATOS*****
   let auth = firebase.auth();
+  //MODULO DE STORAGE DEL FIREBASE
+  var storage = firebase.storage();
+  //MODULO PARA LOS POSTS
+  let firestore = firebase.firestore();
+
 </script>
 
   <script type="module" src="main.js"></script>

@@ -1,56 +1,120 @@
+import { templatePost } from "./templatePost.js";
+
 export const perfil =
 `<div class="flex-container">
     <div class="flex-menu">
         <div class="subject">
-        <p class="menu1">Perfil</p>
-        <p class="menu1">Amigos</p>
-        <p class="menu1">Favoritos</p>
-        <p class="menu1">Ayuda</p>
-        <p class="menu1">Configuración</p>            
-        <p class="menu1">Sobre GirlTechSOS</p>
-        <p class="menu1">Salir</p>
+        <h3>GirlTechSOS</h3>
+        <p class="menu1"><img class="menuIcons" src="./images/profileIcon.png"> Perfil</p>
+        <p class="menu1"><img class="menuIcons" src="./images/friendsIcon.png"> Amigos</p>
+        <p class="menu1"><img class="menuIcons" src="./images/favFolderIcon.png"> Favoritos</p>
+        <p class="menu1"><img class="menuIcons" src="./images/helpIcon.png"> Ayuda</p>
+        <p class="menu1"><img class="menuIcons" src="./images/configIcon.png"> Configuración</p>            
+        <p class="menu1"><img class="menuIcons" src="./images/avatarProfile.png">Sobre GirlTechSOS</p>
+        <p class="menu1"><img class="menuIcons" src="./images/exitIcon.png"> Salir</p>
         </div>
     </div>
     <div class="flex-perfil">
         <div class="container">
             <div class="imgContainer">
-                <img src="./images/user.png" class="image">
-                <div class="info">
-                    <div class="userName">Nombre de usuario</div>
-                    <div class="about">Información sobre el usuario</div>
-                </div>
+                <img src="./images/avatarProfile.png" class="image-perfil">
             </div>
+            <div class="info-perfil">
+                    <div class="userName-perfil">Nombre de usuario</div>
+                    <div class="about">Información sobre el usuario</div>
+            </div>
+        </div>
         <div class="content">       
         <div class="post">
-            <input type="text" placeholder="Nueva publicación" class="newPost"></input>
-            <button class="enter" type"submit">Publicar</button>
+            <input type="text" placeholder="Nueva publicación" class="newPost" id="newPostPerfil"></input>
+            <button class="enter" type"submit" id="publicar">Publicar</button>
         </div>
-        <div class="activity">        
-            <img src="./images/points.jpg" class="point">
-            <div class="name">Nombre del usuario</div>
-            <div class="publication">Publicación</div>
-            <div class="interaction">
-            <img src="./images/picture.png" class="picture">            
-            <img src="./images/coment.png" class="coment">
-            <div class="coment-num">Número de comentarios</div>            
-            <img src="./images/like.png" class="like">
-            <div class="like-num">Número de likes</div>  
-            </div>
-        </div>               
-        <div class="next">                   
-            <input type="text" class="nextPost" placeholder="Escribe un comentario..."></input>
-            <button class="enter" type"submit">Comentar</button>                    
-        </div>           
-            </div>        
+        <div id="postsContainer"></div>
         </div>
-        </div>
-        <div class="flex-noticias">
-             <p class="title">Noticias</p>
-             <p>Noticia 1</p>
-             <img src="./images/picture.png" class="notice"> 
-             <p>Noticia 2</p>
-             <img src="./images/picture.png" class="notice"> 
-             <p>Noticia 3</p>
-             <img src="./images/picture.png" class="notice"> 
-        </div>
+    </div>
+    <div class="flex-noticias">
+        <div class="noticias-section">
+            <p class="title">Noticias</p>
+            <p>Noticia 1</p>
+            <img src="./images/picture.png" class="notice"> 
+            <p>Noticia 2</p>
+            <img src="./images/picture.png" class="notice"> 
+            <p>Noticia 3</p>
+            <img src="./images/picture.png" class="notice"> 
+        </div> 
+    </div>
 </div>`
+
+//ENVIAR LA INFORMACIÓN OBTENIDA AL FIREBASE
+const savePost= (post, usermail, uid)=>{
+    firestore.collection('posts').doc().set({
+        post,
+        usermail,
+        uid        
+    });
+    
+}
+//DA EL ID A FIREBASE PARA ELIMINAR POSTS
+const deletePosts= id=>firestore.collection('posts').doc(id).delete();
+//OBTENER LA INFORMACIÓN DESDE FIREBASE
+const getPost=()=> firestore.collection('posts').get();
+
+//Cuando de crea un nuevo post. --> onSnapshot se refiere a que cada vez que algun post se agregue, elimine o cambie se ejecutará la fucnión de "callback"
+const onGetPost = (callback) => firestore.collection('posts').onSnapshot(callback)
+
+//PINTAR LA INFORMACIÓN OBTENIDA, EN LA PANT
+export const reloadPost=()=>{
+    const postContainer= document.getElementById('postsContainer');
+    postContainer.innerHTML='';    
+
+        //Cada vez que se ejecute algun cambio en los posts, se va a ejecutar en onGetPost que es el "callback" que definimos anteriormente (para obtener los datos a como lucen actualmente)
+        onGetPost((querySnapshot) => {
+            //Para que no se repitan las publicaciones a la hora de visualizarlas, indicamos que el postContainer debe estar vacio
+            postContainer.innerHTML = '';
+            //Los cambios se guardaran en un objeto llamadao "querySnapchot" y vamos a recorrer elemento por elemento
+            querySnapshot.forEach(doc => {
+                console.log(doc.id);
+                let idPost=doc.id;
+                let postsData=doc.data();                
+                console.log("ADIOSSS", postsData);
+
+                let postText=postsData.post
+                console.log(" HOLAAAAAA", postText)
+                postContainer.innerHTML += templatePost(postsData,idPost);
+                
+            });
+            EliminarPost();
+        })
+    
+}
+
+//OBTENER EL VALOR DE LA PUBLICACIÓN
+export const createPost = ()=>{
+    let btnPublicar = document.getElementById('publicar');
+    let newPostInput= document.getElementById('newPostPerfil');
+    btnPublicar.addEventListener('click', async ()=>{
+        console.log('Publicar');
+        let newPostText=newPostInput.value;
+        console.log(newPostText);
+        let user= auth.currentUser;
+        await savePost(newPostText, user.email, user.uid);
+
+        getPost();
+
+        document.getElementById('newPostPerfil').value='';
+        //newPostInput.reset();
+    })    
+}
+
+//ELIMINAR POSTS
+ const EliminarPost=()=>{
+   const btnsDelete= document.querySelectorAll('.btn-delete');
+   console.log(btnsDelete);
+   btnsDelete.forEach(btn =>{
+       btn.addEventListener('click',async(e)=>{
+           console.log(e.target.dataset.id);
+          await deletePosts(e.target.dataset.id)
+       })
+   })
+ }
+

@@ -1,6 +1,6 @@
 import { home } from './home.js';
 import { login, loginWithMail } from './login.js';
-import { perfil } from './perfil.js';
+import { createPost, perfil, reloadPost } from './perfil.js';
 import { account, createAccount } from './account.js';
 import { navLinkVisibilityLogin, navLinkVisibilityWithoutLogin } from './NavdisplayVisibilityFunctions.js';
 
@@ -30,20 +30,24 @@ export const onNavigate = (pathname) => {
         window.location.origin + pathname
     )
     rootDiv.innerHTML= routes[pathname];
-    if (routes[pathname]== login) {
+    if (pathname=='/') {
         console.log('Ingresar')
         loginWithMail();
         navLinkVisibilityWithoutLogin();
-    } else if (routes[pathname] == account) {
+    } else if (pathname=='/account') {
         console.log('Registrarse');
         createAccount();
         navLinkVisibilityWithoutLogin();
-    } else if(routes[pathname] == home) {
+    } else if(pathname=='/home') {
         navLinkVisibilityLogin();
         console.log('Home');
+        createPost();
+        reloadPost();
         
-    }else if(routes[pathname] == perfil) {
+    }else if(pathname=='/perfil') {
         console.log('Perfil');
         navLinkVisibilityLogin();
+        createPost();
+        reloadPost();
     }
 };

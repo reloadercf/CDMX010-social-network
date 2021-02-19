@@ -6,10 +6,11 @@ import { loginGithub } from "./loginGithub.js";
 import { onNavigate, getRouter } from "./routing.js";
 import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
 import { ErrorLoginMail } from "./modalError.js"
+import { uploadImage } from "./home.js"
 
 export const login =
 `<div class="container-login">
-    <div class="logo-login">
+    <div id="A-logo-container">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
     </div>
     <form class="input-section" id="input-section-login">
@@ -44,8 +45,9 @@ export const login =
 </div>`
 
 export const loginWithMail = () => {   
+
     let singupForm = document.getElementById('input-section-login');
-     // Para detener la acción del form//
+   
     singupForm.addEventListener('submit', (e) => {
         e.preventDefault();
     });
@@ -68,12 +70,10 @@ export const loginWithMail = () => {
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential => {
                     console.log('inicio de sesión');                    
-                    //navLinkVisibilityLogin();
                     onNavigate('/home');
                 })   
-                .catch(userCredential => {                   
+                .catch((error)=> {                   
                     openModal(ErrorLoginMail);
-                    closeModal();                    
                 })             
         });
     

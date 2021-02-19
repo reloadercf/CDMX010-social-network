@@ -2,8 +2,6 @@ import { onNavigate } from "./routing.js";
 import { ErrorLoginFacebook } from "./modalError.js"
 import { openModal} from "./modal.js"
 
-
-const errorFb= 'Error al iniciar sesión con Facebook'
 export const loginFacebook = () => {
     const btnFacebook = document.getElementById('facebook-login');
 
