@@ -284,7 +284,8 @@ body{
 
 .post{
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    margin-bottom: 10%; 
 }
 .content{
     display: flex;
@@ -695,4 +696,3 @@ nav ul li a{
         margin: 8%;  
     }
 }
-

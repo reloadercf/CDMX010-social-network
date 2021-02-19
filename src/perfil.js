@@ -57,7 +57,7 @@ const savePost= (post, usermail, uid)=>{
 //DA EL ID A FIREBASE PARA ELIMINAR POSTS
 const deletePosts= id=>firestore.collection('posts').doc(id).delete();
 //OBTENER LA INFORMACIÓN DESDE FIREBASE
-const getPost=()=> firestore.collection('posts').get();
+//const getPost=()=> firestore.collection('posts').get();
 
 //Cuando de crea un nuevo post. --> onSnapshot se refiere a que cada vez que algun post se agregue, elimine o cambie se ejecutará la fucnión de "callback"
 const onGetPost = (callback) => firestore.collection('posts').onSnapshot(callback)
@@ -88,7 +88,7 @@ export const reloadPost=()=>{
     
 }
 
-//OBTENER EL VALOR DE LA PUBLICACIÓN
+//Crear un post en la colección 'posts' en Friebase // 
 export const createPost = ()=>{
     let btnPublicar = document.getElementById('publicar');
     let newPostInput= document.getElementById('newPostPerfil');
@@ -99,22 +99,24 @@ export const createPost = ()=>{
         let user= auth.currentUser;
         await savePost(newPostText, user.email, user.uid);
 
-        getPost();
+        //getPost();
 
         document.getElementById('newPostPerfil').value='';
+        btnPublicar.style.display= 'none';
+        document.querySelectorAll('.post')[0].style.marginBottom= '10%';
         //newPostInput.reset();
     })    
 }
 
 //ELIMINAR POSTS
- const EliminarPost=()=>{
-   const btnsDelete= document.querySelectorAll('.btn-delete');
-   console.log(btnsDelete);
-   btnsDelete.forEach(btn =>{
-       btn.addEventListener('click',async(e)=>{
-           console.log(e.target.dataset.id);
-          await deletePosts(e.target.dataset.id)
-       })
-   })
- }
+const EliminarPost=()=>{
+    const btnsDelete= document.querySelectorAll('.btn-delete');
+    console.log(btnsDelete);
+    btnsDelete.forEach(btn =>{
+        btn.addEventListener('click',async(e)=>{
+            console.log(e.target.dataset.id);
+            await deletePosts(e.target.dataset.id)
+        });
+    });
+}
 

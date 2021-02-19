@@ -1,4 +1,3 @@
-
 export const templatePost= (postsData,idPost) => {
     let postStructur= `<div class="activity">
     <div class="edit-post">           
