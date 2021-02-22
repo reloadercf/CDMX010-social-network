@@ -57,8 +57,11 @@ const savePost= (post, usermail, uid)=>{
 //DA EL ID A FIREBASE PARA ELIMINAR POSTS
 const deletePosts= id=>firestore.collection('posts').doc(id).delete();
 //OBTENER LA INFORMACIÓN DESDE FIREBASE
-//const getPost=()=> firestore.collection('posts').get();
-
+const getPost=()=> firestore.collection('posts').get();
+//OBTIENE EL DATO DEL POST DEPENDIENDO DEL ID QUE SE LE ESTE PASANDO
+const getpost = (id) => firestore.collection('posts').doc(id).get();
+//ACTUALIZA EL POST
+const updatePosts = (id, updatedPost) => firestore.collection('posts').doc(id).update(updatedPost);
 //Cuando de crea un nuevo post. --> onSnapshot se refiere a que cada vez que algun post se agregue, elimine o cambie se ejecutará la fucnión de "callback"
 const onGetPost = (callback) => firestore.collection('posts').onSnapshot(callback)
 
@@ -84,6 +87,8 @@ export const reloadPost=()=>{
                 
             });
             EliminarPost();
+            EditPosts();
+
         })
     
 }
@@ -120,3 +125,33 @@ const EliminarPost=()=>{
     });
 }
 
+let editStatus = true;
+const EditPosts = () => {
+    const btnEdit = document.querySelectorAll('.btn-edit');
+    
+    btnEdit.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            const postEdit = await getpost(e.target.dataset.id);
+            const id = postEdit.id;
+            let enableWrite = document.getElementById('text-post-' + id);
+            let changeIcon = document.getElementById('btn-edit-' + id);
+            console.log(enableWrite);
+            if (editStatus == true) {
+                changeIcon.src = "./images/save.png";
+                enableWrite.removeAttribute('readonly');
+                console.log("dentro de if");
+                editStatus = false;
+            } else if (!editStatus) {
+                await updatePosts(id, {
+                    post: enableWrite.value
+                })
+                changeIcon.src = "./images/edit.png";
+                //enableWrite.setAttribute('readonly',true);
+                enableWrite.readOnly = true;
+                console.log("dentro de else");
+                editStatus = true;
+            }
+
+        })
+    });
+}
