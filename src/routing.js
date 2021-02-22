@@ -54,6 +54,6 @@ export const onNavigate = (pathname) => {
         onAuthDataUser();
         validPost();
         createPost();
-        //reloadPost();
+        reloadPost();
     }
 };
