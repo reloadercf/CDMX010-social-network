@@ -3,6 +3,8 @@ import { login, loginWithMail } from './login.js';
 import { createPost, perfil, reloadPost } from './perfil.js';
 import { account, createAccount } from './account.js';
 import { navLinkVisibilityLogin, navLinkVisibilityWithoutLogin } from './NavdisplayVisibilityFunctions.js';
+import { validPost } from './postValidation.js';
+import { onAuthDataUser } from './userColection.js';
 
 //OBJETO QUE TIENE LOS PATHNAMES DE LAS SECCIONES//
 export const routes = {
@@ -41,15 +43,17 @@ export const onNavigate = (pathname) => {
     } else if(pathname=='/home') {
         navLinkVisibilityLogin();
         console.log('Home');
+        onAuthDataUser();
+        validPost();
         createPost();
         reloadPost();
         
     }else if(pathname=='/perfil') {
         console.log('Perfil');
         navLinkVisibilityLogin();
+        onAuthDataUser();
+        validPost();
         createPost();
-        reloadPost();
+        //reloadPost();
     }
 };
-
-navLinkVisibilityLogin()
