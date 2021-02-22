@@ -624,7 +624,10 @@ nav ul li a{
     color: white;
     /* font-weight: 600; */
 }
-
+textarea{
+    border: none;
+    width: 95%;
+}
 
 .toogle-btn{
     width: 35px;
