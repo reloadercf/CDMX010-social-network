@@ -1,15 +1,18 @@
 // Este es el punto de entrada de tu aplicacion
 import { myFunction, home } from './lib/home.js'
+import { myFunction2, homeLogin } from './lib/home-login.js'
 import { login } from './lib/login.js';
 import { wall } from './lib/wall.js';
 import { profile } from './lib/profile.js';
 
 myFunction();
+myFunction2();
 
 
 
 export const routes = {
-    '/': home, 
+    '/': home(), 
+    '/home-login':homeLogin(),
     '/login':login,
     '/wall' : wall,
     '/profile' : profile
@@ -24,11 +27,10 @@ export const onNavigate = (pathname) => {
     )
     rootDiv.innerHTML = routes[pathname]
 };
-window.onpopstate = () => {
-    rootDiv.innerHTML = routes[window.location.pathname]
-  }
 
 rootDiv.innerHTML =routes[window.location.pathname];
+
+
 
 
 

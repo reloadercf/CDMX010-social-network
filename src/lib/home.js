@@ -3,18 +3,20 @@
 export const myFunction = () => {
   // aqui tu codigo
   console.log('Hola mundo!');
-
 };
 
-
 //the first function
-export const home = (`
+export const home = () => `
   <div class='home'>
-  <img src='assets/logo-jalo.png'>
-  <button id='login'>Crear</button>
-  <button id='old'>Entrar</button>
+    <div class='logo'>
+      <img src='assets/logo-home.png'>
+    </div>
+    <form class='flexCenter'>
+      <button id='newUser' class='buttons'>crear</button>
+      <button id='oldUser' class='buttons'>entrar</button>
+    </form>
   </div>
-  `);
+  `;
 
 
 

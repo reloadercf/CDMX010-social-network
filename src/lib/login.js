@@ -7,26 +7,21 @@ export const myFunction1 = () => {
   
   //This is the loging´page
 export const login= (`
-    <div class='loging'>
-    <div>
-        <img src='assets/logo-jalo.png'>
-        <h2>Bienvenid@, crea tu cuenta</h2>
-    </div>
-    <div>
-        <h3>Registro</h3>
-        <input type="email" id="email" placeholder="e-mail"/>
-        <input type="password" id="password" placeholder="password"/>
-        <button onclick="enviar()">Enviar</button>
-        <h3>Login</h3>
-        <input type="email" id="emailLog" placeholder="e-mail"/>
-        <input type="password" id="passwordLog" placeholder="password"/>
-        <button onclick="acceso()">Entrar</button>
-        <h3 id="login"></h3>
-        <!--verificar PASSWORD-->
-    </div>
-    <div>
-        <button id='newProfile'>Crear</button>
-    </div>    
+    <div class='theLogin'>
+        <div class='logo2'>
+            <img src='assets/logo-login.png'>
+        </div>
+        <h2>Bienvenidx, crea tu cuenta</h2>
+        <div class='formule'>
+            <h3>Registro</h3>
+            <form class='flexCenter2'>
+            <input type="email" id="email" class='formLogin' placeholder="e-mail"/>
+            <input type="password" id="password" class='formLogin' placeholder="password"/>
+            <button onclick="enviar()" class='buttons2'>Enviar</button>
+            </form>
+            
+            <!--verificar PASSWORD-->
+        </div>  
     </div>
     `);
   
