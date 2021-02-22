@@ -92,6 +92,7 @@ export const reloadPost=()=>{
             });
             EliminarPost();
             likeFacebook();
+            EditPosts()
         })
     
 }
