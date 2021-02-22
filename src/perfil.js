@@ -20,7 +20,7 @@ export const perfil =
                 <img src="./images/avatarProfile.png" class="image-perfil">
             </div>
             <div class="info-perfil">
-                    <div class="userName-perfil">Nombre de usuario</div>
+                    <div class="userName-perfil" id="p-userName">Nombre de usuario</div>
                     <div class="about">Información sobre el usuario</div>
             </div>
         </div>

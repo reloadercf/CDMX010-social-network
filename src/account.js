@@ -61,7 +61,7 @@ export const createAccount = () => {
             let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
             let nameUser = document.getElementById('A-input-nameUser').value;
             let aboutUser = document.getElementById('A-input-aboutme').value;
-
+            //console.log(aboutUser);
             document.getElementById('A-error-password').style.display='none';
             document.getElementById('A-error-confirmPassworrd').style.display='none';
 
