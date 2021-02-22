@@ -20,7 +20,7 @@ export const home =
                     <img src="./images/avatarProfile.png" class="image-home">                
                 </div>
                 <div class="info-home">
-                    <div class="userName-home"><p class="pNameUser-home">Nombre de usuario</p></div>
+                    <div class="userName-home"><p class="pNameUser-home" id="p-userName">Nombre de usuario</p></div>
                 </div>
             </div>
             <div class="content">       

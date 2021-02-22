@@ -283,7 +283,8 @@ body{
 
 .post{
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    margin-bottom: 10%; 
 }
 .content{
     display: flex;

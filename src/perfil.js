@@ -21,7 +21,7 @@ export const perfil =
                 <img src="./images/avatarProfile.png" class="image-perfil">
             </div>
             <div class="info-perfil">
-                    <div class="userName-perfil">Nombre de usuario</div>
+                    <div class="userName-perfil" id="p-userName">Nombre de usuario</div>
                     <div class="about">Información sobre el usuario</div>
             </div>
         </div>
@@ -97,7 +97,7 @@ export const reloadPost=()=>{
     
 }
 
-//OBTENER EL VALOR DE LA PUBLICACIÓN
+//Crear un post en la colección 'posts' en Friebase // 
 export const createPost = ()=>{
     let btnPublicar = document.getElementById('publicar');
     let newPostInput= document.getElementById('newPostPerfil');
@@ -109,24 +109,26 @@ export const createPost = ()=>{
         let user= auth.currentUser;
         await savePost(newPostText, user.email, user.uid);
 
-        getPost();
+        //getPost();
 
         document.getElementById('newPostPerfil').value='';
+        btnPublicar.style.display= 'none';
+        document.querySelectorAll('.post')[0].style.marginBottom= '10%';
         //newPostInput.reset();
     })    
 }
 
 //ELIMINAR POSTS
- const EliminarPost=()=>{
-   const btnsDelete= document.querySelectorAll('.btn-delete');
-   console.log(btnsDelete);
-   btnsDelete.forEach(btn =>{
-       btn.addEventListener('click',async(e)=>{
-           console.log(e.target.dataset.id);
-          await deletePosts(e.target.dataset.id)
-       })
-   })
- }
+const EliminarPost=()=>{
+    const btnsDelete= document.querySelectorAll('.btn-delete');
+    console.log(btnsDelete);
+    btnsDelete.forEach(btn =>{
+        btn.addEventListener('click',async(e)=>{
+            console.log(e.target.dataset.id);
+            await deletePosts(e.target.dataset.id)
+        });
+    });
+}
 
 let editStatus = true;
 const EditPosts = () => {
