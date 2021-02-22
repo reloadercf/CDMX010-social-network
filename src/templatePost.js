@@ -2,7 +2,7 @@ export const templatePost = (postsData, idPost) => {
     let postStructur = `<div class="activity">
     <div class="edit-post">           
     <img src="./images/delete.png" class="btn-delete" data-id="${idPost}">
-    <img src="./images/edit.png" class="btn-edit" id="btn-edit" data-id="${idPost}" >
+    <img src="./images/edit.png" class="btn-edit" id="btn-edit-${idPost}" data-id="${idPost}" >
     </div> 
     <div class="name">${postsData.usermail}</div>
     <div class="publication">

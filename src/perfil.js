@@ -87,6 +87,8 @@ export const reloadPost=()=>{
                 
             });
             EliminarPost();
+            EditPosts();
+
         })
     
 }
@@ -124,12 +126,13 @@ export const createPost = ()=>{
 let editStatus = true;
 const EditPosts = () => {
     const btnEdit = document.querySelectorAll('.btn-edit');
-    let changeIcon = document.getElementById('btn-edit');
+    
     btnEdit.forEach(btn => {
         btn.addEventListener('click', async (e) => {
             const postEdit = await getpost(e.target.dataset.id);
             const id = postEdit.id;
             let enableWrite = document.getElementById('text-post-' + id);
+            let changeIcon = document.getElementById('btn-edit-' + id);
             console.log(enableWrite);
             if (editStatus == true) {
                 changeIcon.src = "./images/save.png";
