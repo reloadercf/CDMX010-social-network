@@ -1,3 +1,4 @@
+import { likeFacebook } from "./like.js";
 import { templatePost } from "./templatePost.js";
 
 export const perfil =
@@ -46,11 +47,13 @@ export const perfil =
 </div>`
 
 //ENVIAR LA INFORMACIÓN OBTENIDA AL FIREBASE
-const savePost= (post, usermail, uid)=>{
+const savePost= (post, usermail, uid, like, coment)=>{
     firestore.collection('posts').doc().set({
         post,
         usermail,
-        uid        
+        uid,
+        like,
+        coment        
     });
     
 }
@@ -74,7 +77,8 @@ export const reloadPost=()=>{
             //Los cambios se guardaran en un objeto llamadao "querySnapchot" y vamos a recorrer elemento por elemento
             querySnapshot.forEach(doc => {
                 console.log(doc.id);
-                let idPost=doc.id;
+                let idPost=doc.id;                
+                
                 let postsData=doc.data();                
                 console.log("ADIOSSS", postsData);
 
@@ -84,6 +88,7 @@ export const reloadPost=()=>{
                 
             });
             EliminarPost();
+            likeFacebook();
         })
     
 }
@@ -93,6 +98,7 @@ export const createPost = ()=>{
     let btnPublicar = document.getElementById('publicar');
     let newPostInput= document.getElementById('newPostPerfil');
     btnPublicar.addEventListener('click', async ()=>{
+        
         console.log('Publicar');
         let newPostText=newPostInput.value;
         console.log(newPostText);

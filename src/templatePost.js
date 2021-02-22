@@ -10,7 +10,8 @@ export const templatePost= (postsData,idPost) => {
         <div class="interaction">
                 <label><img class="postIcon" src="./images/picture.png" class="picture"></label>           
                 <label>3 <img class="postIcon" src="./images/coment.png" class="coment"></label>            
-                <label>27 <img class="postIcon" src="./images/like.png" class="like"></label>
+                <label id="likeNumber">27</label>
+                <img class="postIcon" src="./images/like.png" class="like" id="imgLikes">
         </div>
     </div>               
     <div class="next">                   
@@ -19,3 +20,4 @@ export const templatePost= (postsData,idPost) => {
     </div>`
     return postStructur;
 }
+
