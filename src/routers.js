@@ -26,6 +26,15 @@ export const onNavigate = (pathname) => {
         window.location.origin + pathname
     )
     rootDiv.innerHTML = routes[pathname]
+
+   
+        const buttonLogin = document.getElementById('registrarse')
+      
+        buttonLogin?.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('lo que sea');
+        })
+    
 };
 
 rootDiv.innerHTML =routes[window.location.pathname];

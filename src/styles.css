@@ -162,8 +162,8 @@ element.style {}
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0% 10% 26% 3%;
-    margin: 0% 5% 0% 0%;
+    padding: 0% 2% 26% 4%;
+    margin: 0% 5% 0% 3%;
 };
 
 element.style {}
@@ -203,4 +203,14 @@ element.style {}
     justify-content: center;
     width: 168px;
     height: 115px;
+}
+
+element.style {}
+.google {
+    padding: 13% 40%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    width: 54px;
+    height: 40px;
 }

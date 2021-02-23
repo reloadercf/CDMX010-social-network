@@ -12,6 +12,9 @@ export const homeLogin = () => `
     </div>
     <form class='flexCenter3'>
         <h3>Login</h3>
+        <div class='google'>
+        <img src='assets/Logo-google.png'>
+        </div>
         <form class='flexCenter3'>
         <input type="email" id="emailLog" class='formLogin2' placeholder="e-mail"/>
         <input type="password" id="passwordLog" class='formLogin2' placeholder="password"/>
