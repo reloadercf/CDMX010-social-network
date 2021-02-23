@@ -8,20 +8,6 @@
 </head>
 <body>
   
-  <h1>Registro</h1>
-    <input type="email" id="email" placeholder="e-mail"/>
-    <input type="password" id="password" placeholder="password"/>
-    <button onclick="registrarse()">Enviar</button>
-  
-  <h1>Login</h1>
-    <input type="email" id="emailLog" placeholder="e-mail"/>
-    <input type="password" id="passwordLog" placeholder="password"/>
-    <button onclick="acceso()">Entrar</button>
-
-  <h1>Google</h1>
-    <button onclick="loginGoogle()">Google</button>
-
-  <h1 id="login"></h1>
 
 <script type="module" src="main.js"></script>
 <div id="root"></div>   
@@ -30,12 +16,10 @@
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-  https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+
  
 </script>
-<script src="model.js"> </script>         
+<script type="module" src="firebase.js"> </script>         
 <script src="lib/login.js"> </script>
 
 
