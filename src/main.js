@@ -1,39 +1,42 @@
 import {registrarse, acceso} from './lib/login.js'
 import { onNavigate } from './routers.js';
+import { myFunction } from './lib/home.js'
+import { myFunction2 } from './lib/home-login.js'
 
+myFunction();
+myFunction1();
+myFunction2();
 
-
-
-
-const theHome1 = () => {
+//Función para mandar llamar el id que se usa para el evento para ir de home a login.
+const createNewUser = () => {
     console.log('HOla');
-    let login = document.getElementById('login');
-    console.log(login);
-    login.addEventListener('click', (e) => {
-        //e.preventDefault();
-        onNavigate('/login')
+    let createUser = document.getElementById('newUser');
+    console.log(createUser);
+    createUser.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/login');
     });
 };
 
- window.addEventListener('click', theHome1());
+window.addEventListener('DOMContentLoaded', () => createNewUser());
 
-const registrarseFuncion = () =>{
-    console.log("funcion registrarse");
-    let registrarse1 = document.getElementById("registrarse");
-    console.log(registrarse1);
-    registrarse1.addEventListener('click', (e) => {
-        //e.preventDefault();
-        onNavigate('/wall')
+
+
+//Función para mandar llamar el id que se usa para el evento para ir de home a home-login.
+const oldUser1 = () => {
+    console.log('HOla');
+    let enter = document.getElementById('oldUser');
+    console.log(enter);
+    enter.addEventListener('click', (e) => {
+        e.preventDefault();
+        onNavigate('/home-login');
     });
 };
-        //e.preventDefault();
-        //onNavigate('/wall')
-        //registrarse();
-   // });
+
+window.addEventListener('DOMContentLoaded', () => oldUser1());
 
 
-window.addEventListener("DOMContentLoaded",registrarseFuncion());
-/*export const theLogin = (user) => {
-let two  = login(user)
-return two
-}; */
+
+
+
+

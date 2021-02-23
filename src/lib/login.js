@@ -1,38 +1,43 @@
 import {registrarse, acceso, loginGoogle} from './firebase.js';
 
-
-
-
-export const login= `
-    <div class='loging'>
-    <div>
-        <img src='assets/logo-jalo.png'>
-        <h2>Bienvenid@, crea tu cuenta</h2>
+//formulario para crear tu cuenta.
+export const login = (`
+    <div class='theLogin'>
+        <div class='logo2'>
+            <img src='assets/logo-login.png'>
+        </div>
+        <h2>Bienvenidx, crea tu cuenta</h2>
+        <div class='formule'>
+            <h3>Registro</h3>
+            <form class='flexCenter2'>
+              <input type="email" id="email" class='formLogin' placeholder="e-mail"/>
+              <input type="password" id="password" class='formLogin' placeholder="password"/>
+              <button id='CheckIn' class='buttons2'>Enviar</button>
+            </form>
+            
+            <!--verificar PASSWORD-->
+        </div>  
     </div>
-    <div>
-        <h3>Registro</h3>
-            <input type="email" id="email" placeholder="e-mail"/>
-            <input type="password" id="password" placeholder="password"/>
-            <button id="registrarse">Registrarse</button>
-            <h1 id="login"></h1>
-    </div>
-    </div>
-    `;
+    `);
 
-let rootLogin = document.getElementById("root");
-rootLogin.innerHTML = login;
-window.addEventListener("DOMContentLoaded",()=>{
-    let botonLogin = document.getElementById("registrarse");
-    console.log(botonLogin);
-}
-)
+
+const buttonLogin = document.getElementById('CheckIn')
+      
+buttonLogin?.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('lo que sea');
+    });
 
 
 
 
-  //This is the loging´page
-/*
+export const myFunction1 = () => {
+  // aqui tu codigo
+  console.log('Hola mundote!');
+};
+
   
-*/
+  
+  
 
-
+//faltan las promesas
