@@ -8,21 +8,19 @@ export const profile = () => {
         </div>
         <div>
             <form>
-            <input type='text' placeholder='Escribe...'></input>
-            </form>
-            <form>
-            <button id='hold'>Publicar</button>
+                <input type='text' placeholder='Escribe...'></input>
+                <button id='hold'>Publicar</button>
             </form>
         </div>
         <div>
             <form>
-            <section id='theText'></section>
+                <section id='theText'></section>
             </form>
             <img src='src/assets/me-enviaja.png'>
         </div>  
         <div>
             <form>
-            <section id='theText'></section>
+                <section id='theText'></section>
             </form>
             <img src='src/assets/me-enviaja.png'>
         </div>    

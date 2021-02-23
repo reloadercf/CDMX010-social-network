@@ -4,7 +4,7 @@ export const myFunction2 = () => {
   console.log('Hola mundotito!');
 };
 
-//the first function
+//Vista que te da acceso cuando ya te encuentras logueada.
 export const homeLogin = () => `
   <div class='homeLogin'>
     <div class='logo2'>

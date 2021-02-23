@@ -9,16 +9,12 @@ export const wall = () => {
         <div>
             <form>
                 <input type='text' placeholder='Escribe...'></input>
-            </form>
-            <form>
                 <button id='hold'>Publicar</button>
             </form>
         </div>
         <div>
             <form>
                 <input type='text' placeholder='Escribe...'></input>
-            </form>
-            <form>
                 <button id='hold'>Publicar</button>
             </form>
         </div>

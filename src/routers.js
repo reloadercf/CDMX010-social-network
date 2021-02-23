@@ -28,7 +28,7 @@ export const onNavigate = (pathname) => {
     rootDiv.innerHTML = routes[pathname]
 
    
-        const buttonLogin = document.getElementById('registrarse')
+        const buttonLogin = document.getElementById('CheckIn')
       
         buttonLogin?.addEventListener('click', (e) => {
             e.preventDefault();

@@ -1,5 +1,4 @@
-
-import {myFunction1} from './lib/login.js'
+import {registrarse, acceso} from './lib/login.js'
 import { onNavigate } from './routers.js';
 import { myFunction } from './lib/home.js'
 import { myFunction2 } from './lib/home-login.js'
@@ -8,7 +7,7 @@ myFunction();
 myFunction1();
 myFunction2();
 
-//home to login
+//Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
     console.log('HOla');
     let createUser = document.getElementById('newUser');
@@ -22,7 +21,8 @@ const createNewUser = () => {
 window.addEventListener('DOMContentLoaded', () => createNewUser());
 
 
-//home to home-login
+
+//Función para mandar llamar el id que se usa para el evento para ir de home a home-login.
 const oldUser1 = () => {
     console.log('HOla');
     let enter = document.getElementById('oldUser');
@@ -37,6 +37,6 @@ window.addEventListener('DOMContentLoaded', () => oldUser1());
 
 
 
-//home to home-login
+
 
 

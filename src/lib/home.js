@@ -1,11 +1,10 @@
-// aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
   // aqui tu codigo
   console.log('Hola mundo!');
 };
 
-//the first function
+//Primera página donde te muestra los botones para acceder a logearte u otro botón para entrar si ya estas logueada.
 export const home = () => `
   <div class='home'>
     <div class='logo'>
@@ -21,14 +20,3 @@ export const home = () => `
 
 
 
-//this is insert with one promisse
-/*const newDiv = () => {
-  let html1 =`
-    <div class='newDiv'>
-    <img src='src/assets/logo-google.png'></img>
-    <input type='name' placeholder='Usuario o e-mail'></input>
-    <input type='password' placeholder='Contraseña'></input>
-    <button id='in'>Jalö</button>
-    </div>
-    `
-};*/
