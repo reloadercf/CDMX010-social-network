@@ -1,9 +1,8 @@
-
-import {myFunction1} from './lib/login.js'
+import {registrarse, acceso} from './lib/login.js'
 import { onNavigate } from './routers.js';
 
 
-myFunction1();
+
 
 
 const theHome1 = () => {
@@ -18,8 +17,22 @@ const theHome1 = () => {
 
  window.addEventListener('click', theHome1());
 
+const registrarseFuncion = () =>{
+    console.log("funcion registrarse");
+    let registrarse1 = document.getElementById("registrarse");
+    console.log(registrarse1);
+    registrarse1.addEventListener('click', (e) => {
+        //e.preventDefault();
+        onNavigate('/wall')
+    });
+};
+        //e.preventDefault();
+        //onNavigate('/wall')
+        //registrarse();
+   // });
 
 
+window.addEventListener("DOMContentLoaded",registrarseFuncion());
 /*export const theLogin = (user) => {
 let two  = login(user)
 return two
