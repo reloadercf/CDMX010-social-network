@@ -46,18 +46,17 @@ export const perfil =
 </div>`
 
 //ENVIAR LA INFORMACIÓN OBTENIDA AL FIREBASE
-const savePost= (post, usermail, uid)=>{
+const savePost= (post, usermail, uid, likes)=>{
     firestore.collection('posts').doc().set({
         post,
         usermail,
-        uid        
+        uid,
+        likes        
     });
     
 }
 //DA EL ID A FIREBASE PARA ELIMINAR POSTS
 const deletePosts= id=>firestore.collection('posts').doc(id).delete();
-//OBTENER LA INFORMACIÓN DESDE FIREBASE
-const getPost=()=> firestore.collection('posts').get();
 //OBTIENE EL DATO DEL POST DEPENDIENDO DEL ID QUE SE LE ESTE PASANDO
 const getpost = (id) => firestore.collection('posts').doc(id).get();
 //ACTUALIZA EL POST
@@ -76,18 +75,30 @@ export const reloadPost=()=>{
             postContainer.innerHTML = '';
             //Los cambios se guardaran en un objeto llamadao "querySnapchot" y vamos a recorrer elemento por elemento
             querySnapshot.forEach(doc => {
-                console.log(doc.id);
+                //console.log(doc.id);
                 let idPost=doc.id;
-                let postsData=doc.data();                
-                console.log("ADIOSSS", postsData);
+                let postsData=doc.data();
+                let likesArray= postsData.likes;
+                let likesCounter= likesArray.length;
+                let user= auth.currentUser;
+                let mailUser= user.email;
+                let likeUser= likesArray.indexOf(mailUser);
+                let srcLike= "./images/like.png"
+                if(likeUser==-1){
+                    srcLike= "./images/like.png"
+                }else{
+                    srcLike="./images/likeAzul.png";
+                }                 
+                //console.log("ADIOSSS", postsData);
 
                 let postText=postsData.post
-                console.log(" HOLAAAAAA", postText)
-                postContainer.innerHTML += templatePost(postsData,idPost);
+                //console.log(" HOLAAAAAA", postText)
+                postContainer.innerHTML += templatePost(postsData,idPost,likesCounter,srcLike);
                 
             });
             EliminarPost();
             EditPosts();
+            likesInteraction();
 
         })
     
@@ -102,7 +113,8 @@ export const createPost = ()=>{
         let newPostText=newPostInput.value;
         console.log(newPostText);
         let user= auth.currentUser;
-        await savePost(newPostText, user.email, user.uid);
+        let likes= [];
+        await savePost(newPostText, user.email, user.uid, likes);
 
         //getPost();
 
@@ -131,6 +143,7 @@ const EditPosts = () => {
     
     btnEdit.forEach(btn => {
         btn.addEventListener('click', async (e) => {
+            //define los ids indivisuales
             const postEdit = await getpost(e.target.dataset.id);
             const id = postEdit.id;
             let enableWrite = document.getElementById('text-post-' + id);
@@ -154,4 +167,55 @@ const EditPosts = () => {
 
         })
     });
+}
+
+
+ const likesInteraction= ()=>{
+    const imgLike = document.querySelectorAll('.like');
+    console.log(imgLike);
+    //let counter = 0;
+    //let numerOfLikes = document.getElementById('likeNumber');
+    // let statusLike = false;
+    imgLike.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+        //define los ids indivisuales
+        const postData = await getpost(e.target.dataset.id);
+        console.log(postData.data());
+        const id = postData.id;
+        let changeIcon = document.getElementById('btn-like-' + id);
+        console.log('Le di like', id );        
+        let user= auth.currentUser;
+        let mailUser= user.email; 
+        let dataPost=postData.data();
+        let likesArray= dataPost.likes;
+        console.log(likesArray);
+        //let likesNumber= likesArray.length;
+        let likeUser='';
+        likesArray.forEach(mailU=>{
+            if(mailU==mailUser){
+                likeUser=mailU;
+                console.log(likeUser, 'estoyfuncionando')
+            }
+        }) 
+        if(likeUser==''){
+            likesArray.push(mailUser);
+            console.log('no estoy')
+        }else{
+            let positionMail= likesArray.indexOf(likeUser);
+            console.log(positionMail);
+            likesArray.splice(positionMail, 1);
+            console.log('estoy');
+        }
+        console.log(likesArray);
+        await updatePosts(id, {
+            likes: likesArray
+        })
+        let numberLikesLabel = document.getElementById("countLikes-" +id);
+        let likesCounter = likesArray.length;
+        //numberLikesLabel.innerHTML= likesCounter;
+            
+    
+            } )
+        })
+
 }
