@@ -1,7 +1,8 @@
-import {registrarse, acceso} from './lib/login.js'
+import { myFunction1 } from './lib/login.js';
 import { onNavigate } from './routers.js';
-import { myFunction } from './lib/home.js'
-import { myFunction2 } from './lib/home-login.js'
+import { myFunction } from './lib/home.js';
+import { myFunction2 } from './lib/home-login.js';
+import { registrarse } from './firebase.js';
 
 myFunction();
 myFunction1();
@@ -36,7 +37,16 @@ const oldUser1 = () => {
 window.addEventListener('DOMContentLoaded', () => oldUser1());
 
 
+//login a wall
+const buttonLogin = () => {
+    console.log('again');
+    let youLogin = document.getElementById('checkIn');
+    console.log(youLogin);
+    youLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('lo que sea');
+        registrarse();
+    });
+};
 
-
-
-
+window.addEventListener('DOMContentLoaded', () => buttonLogin());

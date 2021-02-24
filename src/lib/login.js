@@ -1,7 +1,7 @@
-import {registrarse, acceso, loginGoogle} from './firebase.js';
+//import {registrarse, acceso, loginGoogle} from './firebase.js';
 
 //formulario para crear tu cuenta.
-export const login = (`
+export const login = `
     <div class='theLogin'>
         <div class='logo2'>
             <img src='assets/logo-login.png'>
@@ -12,21 +12,16 @@ export const login = (`
             <form class='flexCenter2'>
               <input type="email" id="email" class='formLogin' placeholder="e-mail"/>
               <input type="password" id="password" class='formLogin' placeholder="password"/>
-              <button id='CheckIn' class='buttons2'>Enviar</button>
+              <button id='checkIn' class='buttons2'>Enviar</button>
             </form>
             
             <!--verificar PASSWORD-->
         </div>  
     </div>
-    `);
+    `;
 
 
-const buttonLogin = document.getElementById('CheckIn')
-      
-buttonLogin?.addEventListener('click', (e) => {
-  e.preventDefault();
-  console.log('lo que sea');
-    });
+
 
 
 

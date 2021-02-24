@@ -28,12 +28,12 @@ export const onNavigate = (pathname) => {
     rootDiv.innerHTML = routes[pathname]
 
    
-        const buttonLogin = document.getElementById('CheckIn')
+        // const buttonLogin = document.getElementById('checkIn')
       
-        buttonLogin?.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('lo que sea');
-        })
+        // buttonLogin?.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     console.log('lo que sea');
+        // })
     
 };
 

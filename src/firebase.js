@@ -1,3 +1,4 @@
+import { onNavigate } from './routers.js';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
@@ -10,23 +11,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    var uid = user.uid;
-    // ...
-    document.getElementById("loginStatus").innerHTML="Logeado "+user.email;
-    console.log(user);
-  } else {
-    // User is signed out
-    // ...
-    document.getElementById("login").innerHTML="No logeado "+user.email;
-  }
-});
 
 
 export function registrarse (){
@@ -35,58 +19,82 @@ export function registrarse (){
   //alert("email="+email+" password="+password);
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((user) => {
-      // Signed in 
-      //onNavigate('/wall')
-      // 
+    .then((result) => {
+      //Signed in 
+      
+          onNavigate('/wall');
+      
+    // } else {
+    //     showModals(noVerification);
+
+    //     firebase.auth().signOut();
     })
     .catch((error) => {
-      var errorCode = error.code;
+        console.log(error);
       var errorMessage = error.message;
       // ..
-      alert(errorMessage);
-    });
-};
-
-export function acceso (){
-  var emailLog = document.getElementById('emailLog').value;
-  var passwordLog = document.getElementById('passwordLog').value;
-  //alert("email="+email+" password="+password);
-  firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
-    .then((user) => {
-      // Signed in
-      // ...
+      alert(errorMessage, 4000);
     })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorMessage);
-    });
-}
+  };
+    
 
-function loginGoogle (){
-  const provider = new firebase.auth.GoogleAuthProvider()
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     var uid = user.uid;
+//     // ...
+//     document.getElementById("loginStatus").innerHTML="Logeado "+user.email;
+//     console.log(user);
+//   } else {
+//     // User is signed out
+//     // ...
+//     document.getElementById("login").innerHTML="No logeado "+user.email;
+//   }
+// });
 
-  firebase.auth()
-.signInWithPopup(provider)
-.then((result) => {
-  /** @type {firebase.auth.OAuthCredential} */
-  var credential = result.credential;
 
-  // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  // ...
-}).catch((error) => {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
 
-}
+
+// export function acceso (){
+//   var emailLog = document.getElementById('emailLog').value;
+//   var passwordLog = document.getElementById('passwordLog').value;
+//   //alert("email="+email+" password="+password);
+//   firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
+//     .then((user) => {
+//       // Signed in
+//       // ...
+//     })
+//     .catch((error) => {
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       alert(errorMessage);
+//     });
+// }
+
+// function loginGoogle (){
+//   const provider = new firebase.auth.GoogleAuthProvider()
+
+//   firebase.auth()
+// .signInWithPopup(provider)
+// .then((result) => {
+//   /** @type {firebase.auth.OAuthCredential} */
+//   var credential = result.credential;
+
+//   // This gives you a Google Access Token. You can use it to access the Google API.
+//   var token = credential.accessToken;
+//   // The signed-in user info.
+//   var user = result.user;
+//   // ...
+// }).catch((error) => {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // The email of the user's account used.
+//   var email = error.email;
+//   // The firebase.auth.AuthCredential type that was used.
+//   var credential = error.credential;
+//   // ...
+// });
+
+// }
