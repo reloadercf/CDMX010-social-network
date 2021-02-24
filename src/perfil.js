@@ -1,3 +1,4 @@
+import { cancelEditPost, validEditedPost } from "./postValidation.js";
 import { templatePost } from "./templatePost.js";
 
 export const perfil =
@@ -89,12 +90,14 @@ export const reloadPost=()=>{
                 }else{
                     srcLike="./images/likeAzul.png";
                 }                 
-                //console.log("ADIOSSS", postsData);
-
-                let postText=postsData.post
-                //console.log(" HOLAAAAAA", postText)
                 postContainer.innerHTML += templatePost(postsData,idPost,likesCounter,srcLike);
-                
+                let postOwner= postsData.usermail;
+                console.log(postOwner);
+                if(postOwner!= mailUser){
+                    document.getElementById("btn-delete-" + idPost).style.display='none';
+                    document.getElementById("btn-edit-" + idPost).style.display='none';
+                    document.getElementById('namePostOwner-container-'+ idPost).style.paddingTop= '5%';
+                } 
             });
             EliminarPost();
             EditPosts();
@@ -115,9 +118,6 @@ export const createPost = ()=>{
         let user= auth.currentUser;
         let likes= [];
         await savePost(newPostText, user.email, user.uid, likes);
-
-        //getPost();
-
         document.getElementById('newPostPerfil').value='';
         btnPublicar.style.display= 'none';
         document.querySelectorAll('.post')[0].style.marginBottom= '10%';
@@ -140,7 +140,6 @@ const EliminarPost=()=>{
 let editStatus = true;
 const EditPosts = () => {
     const btnEdit = document.querySelectorAll('.btn-edit');
-    
     btnEdit.forEach(btn => {
         btn.addEventListener('click', async (e) => {
             //define los ids indivisuales
@@ -148,10 +147,16 @@ const EditPosts = () => {
             const id = postEdit.id;
             let enableWrite = document.getElementById('text-post-' + id);
             let changeIcon = document.getElementById('btn-edit-' + id);
+            let interactionContainer= document.getElementById('interaction-container-' + id);
+            let cancelEditContainer=document.getElementById("cancelEdit-container-" + id);
             console.log(enableWrite);
+            
             if (editStatus == true) {
                 changeIcon.src = "./images/save.png";
                 enableWrite.removeAttribute('readonly');
+                validEditedPost(changeIcon, enableWrite);
+                interactionContainer.style.display='none';
+                cancelEditContainer.style.display='flex';
                 console.log("dentro de if");
                 editStatus = false;
             } else if (!editStatus) {
@@ -163,59 +168,54 @@ const EditPosts = () => {
                 enableWrite.readOnly = true;
                 console.log("dentro de else");
                 editStatus = true;
+                interactionContainer.style.display='flex';
+                cancelEditContainer.style.display='none';
             }
-
-        })
+            const dataPost=postEdit.data();
+            const textPost= dataPost.post;
+            cancelEditPost(id, textPost);
+        });
     });
 }
 
 
  const likesInteraction= ()=>{
     const imgLike = document.querySelectorAll('.like');
-    console.log(imgLike);
-    //let counter = 0;
-    //let numerOfLikes = document.getElementById('likeNumber');
-    // let statusLike = false;
     imgLike.forEach(btn => {
         btn.addEventListener('click', async (e) => {
-        //define los ids indivisuales
-        const postData = await getpost(e.target.dataset.id);
-        console.log(postData.data());
-        const id = postData.id;
-        let changeIcon = document.getElementById('btn-like-' + id);
-        console.log('Le di like', id );        
-        let user= auth.currentUser;
-        let mailUser= user.email; 
-        let dataPost=postData.data();
-        let likesArray= dataPost.likes;
-        console.log(likesArray);
-        //let likesNumber= likesArray.length;
-        let likeUser='';
-        likesArray.forEach(mailU=>{
-            if(mailU==mailUser){
-                likeUser=mailU;
-                console.log(likeUser, 'estoyfuncionando')
-            }
-        }) 
-        if(likeUser==''){
-            likesArray.push(mailUser);
-            console.log('no estoy')
-        }else{
-            let positionMail= likesArray.indexOf(likeUser);
-            console.log(positionMail);
-            likesArray.splice(positionMail, 1);
-            console.log('estoy');
-        }
-        console.log(likesArray);
-        await updatePosts(id, {
-            likes: likesArray
-        })
-        let numberLikesLabel = document.getElementById("countLikes-" +id);
-        let likesCounter = likesArray.length;
-        //numberLikesLabel.innerHTML= likesCounter;
+            //define los ids indivisuales
+            const postData = await getpost(e.target.dataset.id);
+            console.log(postData.data());
+            const id = postData.id;
+            console.log('Le di like', id );        
+            let user= auth.currentUser;
+            let mailUser= user.email; 
+            let dataPost=postData.data();
+            let likesArray= dataPost.likes;
+            console.log(likesArray);
+            let likeUser='';
+            likesArray.forEach(mailU=>{
+                if(mailU==mailUser){
+                    likeUser=mailU;
+                    console.log(likeUser, 'estoy funcionando');
+                }
+            });
             
-    
-            } )
-        })
+            if(likeUser==''){
+                likesArray.push(mailUser);
+                console.log('no estoy')
+            }else{
+            let positionMail= likesArray.indexOf(likeUser);
+                console.log(positionMail);
+                likesArray.splice(positionMail, 1);
+                console.log('estoy');
+            }
+            console.log(likesArray);
+            await updatePosts(id, {
+                likes: likesArray
+            });
+
+        });
+    })
 
 }
