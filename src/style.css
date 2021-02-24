@@ -349,13 +349,30 @@ body{
 
 .publication{
     margin-top: 30px;
+    padding-bottom: 5%;
+}
+
+.cancelEdit-container{
+    padding: 5%;
+    display: none;
+    justify-content: flex-end;
+}
+.cancelEdit-button{
+    background-color: transparent;
+    border-color: transparent;
+    color: black;
+   
+}
+.cancelEdit-button:hover{
+    border-radius: 10%;
+    color: blue; 
+    text-decoration: underline blue;
 }
 
 .interaction{
     padding: 3%;
     display: flex;
     font-size: 10px;
-    margin-top: 10%;
     justify-content: space-between;
 }
 .picture{
@@ -623,6 +640,11 @@ nav ul li a{
     color: white;
     /* font-weight: 600; */
 }
+nav ul li a:hover{
+    text-decoration: underline white;
+}
+
+
 textarea{
     border: none;
     width: 95%;
