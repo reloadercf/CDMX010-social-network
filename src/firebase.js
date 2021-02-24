@@ -1,17 +1,41 @@
 
-// var firebaseConfig = {
-//   apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
-//   authDomain: "jaloredsocial.firebaseapp.com",
-//   projectId: "jaloredsocial",
-//   storageBucket: "jaloredsocial.appspot.com",
-//   messagingSenderId: "438968128013",
-//   appId: "1:438968128013:web:9d1b47242a6f58c825bb44",
-//   measurementId: "G-8FRZGM62BF"
-// };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+var firebaseConfig = {
+  apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
+  authDomain: "jaloredsocial.firebaseapp.com",
+  projectId: "jaloredsocial",
+  storageBucket: "jaloredsocial.appspot.com",
+  messagingSenderId: "438968128013",
+  appId: "1:438968128013:web:9d1b47242a6f58c825bb44",
+  measurementId: "G-8FRZGM62BF"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
+
+export function registrarse (){
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  //alert("email="+email+" password="+password);
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+      // Signed in 
+    //   if (result.user.emailVerified) {
+    //       onNavigate('/wall');
+      
+    // } else {
+    //     showModals(noVerification);
+
+    //     firebase.auth().signOut();
+    })
+    .catch((error) => {
+        console.log(error);
+      var errorMessage = error.message;
+      // ..
+      alert(errorMessage, 4000);
+    })
+};
+    
 
 // firebase.auth().onAuthStateChanged((user) => {
 //   if (user) {
@@ -29,24 +53,7 @@
 // });
 
 
-// export function registrarse (){
-//   var email = document.getElementById('email').value;
-//   var password = document.getElementById('password').value;
-//   //alert("email="+email+" password="+password);
 
-//   firebase.auth().createUserWithEmailAndPassword(email, password)
-//     .then((user) => {
-//       // Signed in 
-//       //onNavigate('/wall')
-//       // 
-//     })
-//     .catch((error) => {
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-//       // ..
-//       alert(errorMessage);
-//     });
-// };
 
 // export function acceso (){
 //   var emailLog = document.getElementById('emailLog').value;

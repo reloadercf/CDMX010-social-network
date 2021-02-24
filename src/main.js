@@ -1,7 +1,8 @@
-import { myFunction1 } from './lib/login.js'
+import { myFunction1 } from './lib/login.js';
 import { onNavigate } from './routers.js';
-import { myFunction } from './lib/home.js'
-import { myFunction2 } from './lib/home-login.js'
+import { myFunction } from './lib/home.js';
+import { myFunction2 } from './lib/home-login.js';
+import { registrarse } from './firebase.js';
 
 myFunction();
 myFunction1();
@@ -44,6 +45,8 @@ const buttonLogin = () => {
     youLogin.addEventListener('click', (e) => {
         e.preventDefault();
         console.log('lo que sea');
+        registrarse();
+        onNavigate('/wall');
     });
 };
 

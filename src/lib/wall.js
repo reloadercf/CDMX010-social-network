@@ -1,10 +1,9 @@
 //This is the wall
-export const wall = () => {
-    let html3 =`
+export const wall =`
     <div class='wall'>
         <div>
-            <img src='src/assets/logo-jalo.png'>
-            <img src='src/assets/logo-jalo.png'>
+            <img src='assets/logo-white.png'>
+            <img src='assets/avatar.png'>
         </div>
         <div>
             <form>
@@ -25,8 +24,6 @@ export const wall = () => {
             <img src='src/assets/me-enviaja.png'>
         </div>    
     </div>
-    `
-    return html3
-} 
+    `;
 
 //faltan las promesas

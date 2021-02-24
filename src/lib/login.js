@@ -21,12 +21,7 @@ export const login = `
     `;
 
 
-// const buttonLogin = document.getElementById('checkIn')
-      
-// buttonLogin.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   console.log('lo que sea');
-//     });
+
 
 
 
