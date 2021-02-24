@@ -154,6 +154,7 @@ const EditPosts = () => {
             if (editStatus == true) {
                 changeIcon.src = "./images/save.png";
                 enableWrite.removeAttribute('readonly');
+                enableWrite.focus();
                 validEditedPost(changeIcon, enableWrite);
                 interactionContainer.style.display='none';
                 cancelEditContainer.style.display='flex';
@@ -179,7 +180,7 @@ const EditPosts = () => {
 }
 
 
- const likesInteraction= ()=>{
+const likesInteraction= ()=>{
     const imgLike = document.querySelectorAll('.like');
     imgLike.forEach(btn => {
         btn.addEventListener('click', async (e) => {
