@@ -1,10 +1,10 @@
 export const templatePost = (postsData, idPost,likesCounter, srcLike) => {
     let postStructur = `<div class="activity">
     <div class="edit-post">           
-    <img src="./images/delete.png" class="btn-delete" data-id="${idPost}">
+    <img src="./images/delete.png" class="btn-delete" id="btn-delete-${idPost}" data-id="${idPost}">
     <img src="./images/edit.png" class="btn-edit" id="btn-edit-${idPost}" data-id="${idPost}" >
     </div> 
-    <div class="name">${postsData.usermail}</div>
+    <div class="namePostOwner" id="namePostOwner-container-${idPost}">${postsData.usermail}</div>
     <div class="publication">
     <textarea id="text-post-${idPost}" readonly > ${postsData.post}</textarea>
     </div>

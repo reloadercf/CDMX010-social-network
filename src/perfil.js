@@ -90,12 +90,14 @@ export const reloadPost=()=>{
                 }else{
                     srcLike="./images/likeAzul.png";
                 }                 
-                //console.log("ADIOSSS", postsData);
-
-                let postText=postsData.post
-                //console.log(" HOLAAAAAA", postText)
                 postContainer.innerHTML += templatePost(postsData,idPost,likesCounter,srcLike);
-                
+                let postOwner= postsData.usermail;
+                console.log(postOwner);
+                if(postOwner!= mailUser){
+                    document.getElementById("btn-delete-" + idPost).style.display='none';
+                    document.getElementById("btn-edit-" + idPost).style.display='none';
+                    document.getElementById('namePostOwner-container-'+ idPost).style.paddingTop= '5%';
+                } 
             });
             EliminarPost();
             EditPosts();
