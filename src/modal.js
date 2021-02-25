@@ -1,4 +1,3 @@
-import { onNavigate } from "./routing.js";
 import { ErrorAccount, ErrorLoginMail } from "./modalError.js"
 // Tache para cerrar el modal
 let modal = document.querySelectorAll(".modal")[0];
@@ -18,16 +17,19 @@ export const openModal = (mensajeError) => {
     if(mensajeError == ErrorLoginMail){
         let otherUserLogin = document.getElementById('otherUser');
         otherUserLogin.addEventListener('click', () => {
-            onNavigate('/account'); 
+            let accountLink = document.getElementById('acc');
+            accountLink.click(); 
             closeModalLink();
         }); 
     }else if(mensajeError == ErrorAccount){
         document.getElementById('modalErrorLogin-link').addEventListener('click', ()=>{
-            onNavigate('/');
+            let loginLink = document.getElementById('log');
+            loginLink.click();
             closeModalLink();
         });
         document.getElementById('modalErrorAccount-link').addEventListener('click', ()=>{
-            onNavigate('/account');
+            let accountLink = document.getElementById('acc');
+            accountLink.click();
             closeModalLink();
         });  
     }    

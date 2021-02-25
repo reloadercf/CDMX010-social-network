@@ -1,12 +1,4 @@
-import { onNavigate } from "./routing.js";
-import { loginVisibility } from "./loginVisibility.js"
-import { openModal } from "./modal.js";
-import { ErrorAccount} from "./modalError.js"
-import { SuccessAccount } from "./modalError.js"
-import { saveInfoUser } from "./userColection.js";
-
-export const account =
-`<div class="container-login">
+export const account = `<div class="container-login">
     <div id="A-logo-container">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
     </div>
@@ -38,64 +30,4 @@ export const account =
             <button class="account-button" id="A-createAcount-button" type"submit">Crear cuenta</button>
         </div>
     </form>
-</div>`
-
-//FUNCIÓN PARA REGISTRARSE CON CORREO ELECTRÓNICO Y CONTRASEÑA//
-export const createAccount = () => {    
-
-    let accountForm = document.getElementById('input-section-account');
-    // Para detener la acción del fotm///
-    accountForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-    });
-
-    //Se asigna el evento "Click" al botón de registro///
-    let submitAccountButton= document.getElementById('A-createAcount-button');
-
-        submitAccountButton.addEventListener('click', () => {
-            //Se obtienen los valores de los inputs/
-            let newMail = document.getElementById('A-input-mail').value;
-            let createPassword = document.getElementById('A-input-password').value;
-            console.log(newMail);
-            console.log(createPassword);
-            let inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
-            let nameUser = document.getElementById('A-input-nameUser').value;
-            let aboutUser = document.getElementById('A-input-aboutme').value;
-            //console.log(aboutUser);
-            document.getElementById('A-error-password').style.display='none';
-            document.getElementById('A-error-confirmPassworrd').style.display='none';
-
-            if (nameUser!='' && createPassword.length >= 8){
-                if(createPassword == inputConfirmPassword){
-                    //Se llama la variable 'auth' para aplicar los métodos de Firebase
-                    auth
-                    .createUserWithEmailAndPassword(newMail, createPassword)
-                    .then(userCredential => {                    
-                        openModal(SuccessAccount);
-                        onNavigate('/');
-                        console.log(userCredential);
-                        let uidUser= userCredential.user.uid;
-                        console.log(uidUser);
-                        saveInfoUser(newMail, uidUser, createPassword, nameUser, aboutUser, 'urlimg');
-                    })
-                    .catch(userCredential => {                    
-                        // console.log('Usuario sin registro');
-                        openModal(ErrorAccount);
-                        // onNavigate('/account');
-                    })
-                }else{                    
-                    document.getElementById('A-error-confirmPassworrd').style.display='block';
-                } 
-            }else if (createPassword.length < 8){
-                document.getElementById('A-error-password').style.display='block';
-            }           
-        });
-        
-        const showAccountPassword = document.getElementById('visibility-account-password');
-        const accountPasswordInput = document.getElementById('A-input-password')
-        const showConfirmPassword = document.getElementById('visibility-confirm-password');
-        const confirmPasswordInput = document.getElementById('A-input-password-confirm')
-        //Se ejecuta la función de visibility//
-        loginVisibility(showAccountPassword, accountPasswordInput);
-        loginVisibility(showConfirmPassword, confirmPasswordInput);
-};
+</div>`;

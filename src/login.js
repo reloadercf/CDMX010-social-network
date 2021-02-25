@@ -1,15 +1,12 @@
-import { loginFacebook } from "./loginFacebook.js"
-import { loginGoogle } from "./loginGoogle.js"
-import { loginVisibility } from "./loginVisibility.js"
-import { openModal, closeModal } from "./modal.js"
-import { loginGithub } from "./loginGithub.js";
-import { onNavigate, getRouter } from "./routing.js";
-import { navLinkVisibilityLogin } from "./NavdisplayVisibilityFunctions.js";
-import { ErrorLoginMail } from "./modalError.js"
-import { uploadImage } from "./home.js"
+import { loginFacebook } from './loginFacebook.js';
+import { loginGoogle } from './loginGoogle.js';
+import { loginVisibility } from './loginVisibility.js';
+import { openModal } from './modal.js';
+import { loginGithub } from './loginGithub.js';
+import { getRouter } from './routing.js';
+import { ErrorLoginMail } from './modalError.js';
 
-export const login =
-`<div class="container-login">
+export const login = `<div class="container-login">
     <div id="A-logo-container">
         <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
     </div>
@@ -42,7 +39,7 @@ export const login =
     <div class="register-login">
         <p>¿No tienes cuenta? <a href="#" id="accountLink" class="beUser">Regístrate</a></p>
     </div>
-</div>`
+</div>`;
 
 export const loginWithMail = () => {   
 
@@ -63,14 +60,14 @@ export const loginWithMail = () => {
             //se obtienen los valores de los INPUTS//
             let loginMail=document.getElementById('login-mail-input').value;
             let loginPassword= document.getElementById('login-password-input').value;
-            console.log(loginMail);
-            console.log(loginPassword);
+            //console.log(loginMail);
+            //console.log(loginPassword);
             //Se llama la variable 'auth' para aplicar los métodos de Firebase//
             auth
                 .signInWithEmailAndPassword(loginMail, loginPassword)
                 .then(userCredential => {
-                    console.log('inicio de sesión');                    
-                    onNavigate('/home');
+                    let homeLink = document.getElementById('hom');
+                    homeLink.click();
                 })   
                 .catch((error)=> {                   
                     openModal(ErrorLoginMail);

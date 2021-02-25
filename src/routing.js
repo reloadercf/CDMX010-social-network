@@ -1,7 +1,8 @@
 import { home } from './home.js';
 import { login, loginWithMail } from './login.js';
 import { createPost, perfil, reloadPost } from './perfil.js';
-import { account, createAccount } from './account.js';
+import { account } from './account.js';
+import { createAccount } from './createAccount.js';
 import { navLinkVisibilityLogin, navLinkVisibilityWithoutLogin } from './NavdisplayVisibilityFunctions.js';
 import { validPost } from './postValidation.js';
 import { onAuthDataUser } from './userColection.js';

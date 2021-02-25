@@ -18,19 +18,6 @@ export const saveInfoUser= (usermail, uid, password, name, aboutUser, imgUser)=>
     //console.log(objetoUsuario);
 }
 
-/*export const renderInfoUser=(user)=>{
-    const nameContainer= document.getElementById('infoContainer');
-    window.addEventListener('DOMContentLoaded', async(e) =>{
-        const doc = await getInfoUser(user.email);
-            let postsData=doc.data();
-            console.log(doc.data());
-            
-        });
-    }*/
-
-
-    //const getNameUserColecction =(id)=> firestore.collection('procfile').doc(id).get();
-
 export const onAuthDataUser= ()=>{
     auth.onAuthStateChanged(async (userAuth) =>{
         if(userAuth){
