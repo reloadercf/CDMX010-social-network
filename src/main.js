@@ -4,43 +4,29 @@ import { myFunction } from './lib/home.js';
 import { myFunction2 } from './lib/home-login.js';
 import { registrarse } from './firebase.js';
 
-myFunction();
-myFunction1();
-myFunction2();
+// myFunction();
+// myFunction1();
+// myFunction2();
 
-// Función para mandar llamar el id que se usa para el evento para ir de home a login.
-const createNewUser = () => {
-  const createUser = document.getElementById('newUser');
+const enter = document.getElementById('oldUser');
+const createUser = document.getElementById('newUser');
 
-  createUser.addEventListener('click', (e) => {
+
+enter?.addEventListener('click', (e) => {
+  e.preventDefault();
+  onNavigate('/home-login');
+  console.log("Click en entrar")
+  const youLogin = document.getElementById('botonEntrar');
+  youLogin?.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/login');
-  });
-};
-
-window.addEventListener('DOMContentLoaded', () => createNewUser());
-
-// Función para mandar llamar el id que se usa para el evento para ir de home a home-login.
-const oldUser1 = () => {
-  const enter = document.getElementById('oldUser');
-
-  enter.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/home-login');
-  });
-};
-
-window.addEventListener('DOMContentLoaded', () => oldUser1());
-
-// login a wall
-const buttonLogin = () => {
-  const youLogin = document.getElementById('checkIn');
-
-  youLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-
+    console.log("Click en login")
     registrarse();
   });
-};
 
-window.addEventListener('DOMContentLoaded', () => buttonLogin());
+});
+
+createUser?.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log("click en crear cuenta")
+  onNavigate('/login');
+});
