@@ -1,22 +1,21 @@
-import { openModal } from "./modal.js";
-import { ErrorLoginGoogle } from "./modalError.js";
-import { onNavigate } from "./routing.js";
+import { openModal } from './modal.js';
+import { ErrorLoginGoogle } from './modalError.js';
+import { onNavigate } from './routing.js';
 
-export const loginGoogle = () => {  
-  const btnGoogle=document.getElementById('google-login');
-
-  btnGoogle.addEventListener('click', e => {
+export const loginGoogle = () => {
+  const btnGoogle = document.getElementById('google-login');
+  btnGoogle.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
-      .then(result =>{
-          console.log('inicio de sesión con google');
-          //alert('¡Hola de nuevo! BIENVENIDA');
-          //navLinkVisibilityLogin();
-          onNavigate('/home');
+      .then((result) => {
+        // console.log('inicio de sesión con google');
+        // alert('¡Hola de nuevo! BIENVENIDA');
+        // navLinkVisibilityLogin();
+        onNavigate('/home');
       })
-      .catch(err =>{
-          console.log(err);
-          openModal(ErrorLoginGoogle);
-      })
+      .catch((err) => {
+        // console.log(err);
+        openModal(ErrorLoginGoogle);
+      });
   });
 };

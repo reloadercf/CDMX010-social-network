@@ -8,7 +8,7 @@ import { ErrorLoginMail } from './modalError.js';
 
 export const login = `<div class="container-login">
     <div id="A-logo-container">
-        <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
+        <img id="A-logo" src="./images/logoGris.png" alt="Logo">
     </div>
     <form class="input-section" id="input-section-login">
         <div class="input-login">
@@ -34,54 +34,49 @@ export const login = `<div class="container-login">
             <img src="./images/fb.png" class="users" id="facebook-login">
             <img src="./images/github.png" class="users" id="github-login">
             <img src="./images/google.png" class="users" id="google-login">
-        </div> 
+        </div>
     </div>
     <div class="register-login">
         <p>¿No tienes cuenta? <a href="#" id="accountLink" class="beUser">Regístrate</a></p>
     </div>
 </div>`;
 
-export const loginWithMail = () => {   
+export const loginWithMail = () => {
+  const singupForm = document.getElementById('input-section-login');
+  singupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
+  // Enlace de 'REGISTRO' que lleva a la sección 'ACCOUNT´para el registro//
+  const accountLinkLogin = document.getElementById('accountLink');
+  getRouter(accountLinkLogin, '/account');
+  // Se asigna el evento 'click' al botón de LOGIN//
+  const submitAccountButton = document.getElementById('login-mail-button');
+  submitAccountButton.addEventListener ('click', () => {
+    // se obtienen los valores de los INPUTS//
+    const loginMail = document.getElementById('login-mail-input').value;
+    const loginPassword = document.getElementById('login-password-input').value;
+    // console.log(loginMail);
+    // console.log(loginPassword);
+    // Se llama la variable 'auth' para aplicar los métodos de Firebase//
+    auth
+      .signInWithEmailAndPassword(loginMail, loginPassword)
+      .then((userCredential) => {
+        const homeLink = document.getElementById('hom');
+        homeLink.click();
+      })
+      .catch((error) => {
+        openModal(ErrorLoginMail);
+      });
+  });
 
-    let singupForm = document.getElementById('input-section-login');
-   
-    singupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-    });
-
-    //Enlace de 'REGISTRO' que lleva a la sección 'ACCOUNT´para el registro//
-    let accountLinkLogin = document.getElementById('accountLink');
-    getRouter(accountLinkLogin, '/account');
-
-    //Se asigna el evento 'click' al botón de LOGIN//
-    let submitAccountButton = document.getElementById('login-mail-button');
-
-        submitAccountButton.addEventListener ('click', () => {
-            //se obtienen los valores de los INPUTS//
-            let loginMail=document.getElementById('login-mail-input').value;
-            let loginPassword= document.getElementById('login-password-input').value;
-            //console.log(loginMail);
-            //console.log(loginPassword);
-            //Se llama la variable 'auth' para aplicar los métodos de Firebase//
-            auth
-                .signInWithEmailAndPassword(loginMail, loginPassword)
-                .then(userCredential => {
-                    let homeLink = document.getElementById('hom');
-                    homeLink.click();
-                })   
-                .catch((error)=> {                   
-                    openModal(ErrorLoginMail);
-                })             
-        });
-    
-    const showLoginPassword = document.getElementById('visibility-login-password');
-    const loginPasswordInput = document.getElementById('login-password-input')
-    //Ejecutar visibility//
-    loginVisibility(showLoginPassword, loginPasswordInput);
-    //GOOGLE LOGIN
-    loginGoogle();   
-    //FACEBOOK LOGIN
-    loginFacebook();
-    //GITHUB LOGIN
-    loginGithub();
+  const showLoginPassword = document.getElementById('visibility-login-password');
+  const loginPasswordInput = document.getElementById('login-password-input');
+  // Ejecutar visibility//
+  loginVisibility(showLoginPassword, loginPasswordInput);
+  // GOOGLE LOGIN
+  loginGoogle();
+  // FACEBOOK LOGIN
+  loginFacebook();
+  // GITHUB LOGIN
+  loginGithub();
 };
