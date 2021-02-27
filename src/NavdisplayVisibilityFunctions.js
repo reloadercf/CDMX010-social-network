@@ -1,9 +1,9 @@
+// LINKS DEL NAV//
 const logoutLink = document.getElementById('logout');
 const loginLink = document.getElementById('log');
 const accountLink = document.getElementById('acc');
 const homeLink = document.getElementById('hom');
 const perfilLink = document.getElementById('per');
-// Lo anterior son los links del navbar//
 
 // Cuando el usuario se logea y entra al home esto es lo que ve://
 export const navLinkVisibilityLogin = () => {
@@ -13,7 +13,6 @@ export const navLinkVisibilityLogin = () => {
   loginLink.style.display = 'none';
   accountLink.style.display = 'none';
 };
-
 export const navLinkVisibilityWithoutLogin = () => {
   logoutLink.style.display = 'none';
   homeLink.style.display = 'none';

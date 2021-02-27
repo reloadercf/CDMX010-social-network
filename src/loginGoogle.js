@@ -1,22 +1,21 @@
-import { openModal } from "./modal.js";
-import { ErrorLoginGoogle } from "./modalError.js";
-import { onNavigate } from "./routing.js";
+import { openModal } from './modal.js';
+import { ErrorLoginGoogle } from './modalError.js';
 
-export const loginGoogle = () => {  
-  const btnGoogle=document.getElementById('google-login');
-
-  btnGoogle.addEventListener('click', e => {
+export const loginGoogle = () => {
+  const btnGoogle = document.getElementById('google-login');
+  btnGoogle.addEventListener('click', () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
-      .then(result =>{
-          console.log('inicio de sesión con google');
-          //alert('¡Hola de nuevo! BIENVENIDA');
-          //navLinkVisibilityLogin();
-          onNavigate('/home');
+      // El parámetro dentro de .then es "result"
+      .then(() => {
+        // console.log('inicio de sesión con google');
+        const homelink = document.getElementById('hom');
+        homelink.click();
       })
-      .catch(err =>{
-          console.log(err);
-          openModal(ErrorLoginGoogle);
-      })
+      // El parámetro dentro de .catch es "error"
+      .catch(() => {
+        // console.log(err);
+        openModal(ErrorLoginGoogle);
+      });
   });
 };

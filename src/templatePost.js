@@ -1,5 +1,5 @@
-export const templatePost = (postsData, idPost,likesCounter, srcLike) => {
-    let postStructur = `<div class="activity">
+export const templatePost = (postsData, idPost, likesCounter, srcLike) => {
+  const postStructur = `<div class="activity">
     <div class="edit-post">           
     <img src="./images/delete.png" class="btn-delete" id="btn-delete-${idPost}" data-id="${idPost}">
     <img src="./images/edit.png" class="btn-edit" id="btn-edit-${idPost}" data-id="${idPost}" >
@@ -18,6 +18,6 @@ export const templatePost = (postsData, idPost,likesCounter, srcLike) => {
     <div class="next">                   
     <input type="text" class="nextPost" placeholder="Escribe un comentario..."></input>
     <button class="enter" type"submit">Comentar</button>                    
-    </div>`
-    return postStructur;
-}
+    </div>`;
+  return postStructur;
+};
