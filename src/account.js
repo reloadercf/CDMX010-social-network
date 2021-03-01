@@ -39,6 +39,7 @@ export const account = `<div class="container-login">
 
 // FUNCIÓN PARA REGISTRARSE CON CORREO ELECTRÓNICO Y CONTRASEÑA//
 export const createAccount = () => {
+  // Definimos un "e.preventDefault" para que no se renderice en automático el formulario
   const accountForm = document.getElementById('input-section-account');
   // Para detener la acción del fotm///
   accountForm.addEventListener('submit', (e) => {
@@ -54,30 +55,43 @@ export const createAccount = () => {
     const inputConfirmPassword = document.getElementById('A-input-password-confirm').value;
     const nameUser = document.getElementById('A-input-nameUser').value;
     const aboutUser = document.getElementById('A-input-aboutme').value;
+    // Esconemos las notas en rojo, por si alguna información esta mal o incompleta
     document.getElementById('A-error-password').style.display = 'none';
     document.getElementById('A-error-confirmPassworrd').style.display = 'none';
+    // Si el nombre del usuario no esta vacío y la longitud del password es mayor o igual a 8:
     if (nameUser !== '' && createPassword.length >= 8) {
+      // Si al definir la contraseña y al confirmarla son iguales, entonces:
       if (createPassword === inputConfirmPassword) {
         // Se llama la variable 'auth' para aplicar los métodos de Firebase
         auth
+          // Creamos un nuevo usuario con el e-mail y contraseña que definió
           .createUserWithEmailAndPassword(newMail, createPassword)
+          // Los campos de correo y contraseña, los definiremos como "userCredential"
           .then((userCredential) => {
             openModal(SuccessAccount);
+            // Después de crear el usuario, nos redireccionaremos a la página de "LOGIN"
             const loginlink = document.getElementById('log');
             loginlink.click();
+            // Obtenemos el uid que definio Firebase, al crear el usuario
             const uidUser = userCredential.user.uid;
+            // console.log("Aqui", uidUser)
+            // Obtenemos la información que declaramos anteriormente en "userColection",
+            // que es la que se guarda en FIREBASE por cada usuari
             saveInfoUser(newMail, uidUser, createPassword, nameUser, aboutUser, 'urlimg');
           })
           .catch(() => {
             openModal(ErrorAccount);
           });
       } else {
+        // Se muestran las líneas de los mensajes de error en rojo.
         document.getElementById('A-error-confirmPassworrd').style.display = 'block';
       }
     } else if (createPassword.length < 8) {
+      // Se muestran las líneas de los mensajes de error en rojo.
       document.getElementById('A-error-password').style.display = 'block';
     }
   });
+  // Agregamos lo necesario para que se pueda ver u ocultar las contraseñas.
   const showAccountPassword = document.getElementById('visibility-account-password');
   const accountPasswordInput = document.getElementById('A-input-password');
   const showConfirmPassword = document.getElementById('visibility-confirm-password');

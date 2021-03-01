@@ -5,7 +5,7 @@ const accountLink = document.getElementById('acc');
 const homeLink = document.getElementById('hom');
 const perfilLink = document.getElementById('per');
 
-// Cuando el usuario se logea y entra al home esto es lo que ve://
+// Cuando el usuario se logea y entra al home esto es lo que ve:
 export const navLinkVisibilityLogin = () => {
   logoutLink.style.display = 'block';
   homeLink.style.display = 'block';
@@ -13,6 +13,8 @@ export const navLinkVisibilityLogin = () => {
   loginLink.style.display = 'none';
   accountLink.style.display = 'none';
 };
+
+// Cuando el usuario sale del home esto es lo que se ve
 export const navLinkVisibilityWithoutLogin = () => {
   logoutLink.style.display = 'none';
   homeLink.style.display = 'none';

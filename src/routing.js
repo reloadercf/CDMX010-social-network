@@ -6,7 +6,7 @@ import { navLinkVisibilityLogin, navLinkVisibilityWithoutLogin } from './Navdisp
 import { validPost } from './postValidation.js';
 import { onAuthDataUser } from './userColection.js';
 
-// OBJETO QUE TIENE LOS PATHNAMES DE LAS SECCIONES
+// OBJETO QUE CONTIENE LOS PATHNAMES DE LAS SECCIONES
 export const routes = {
   '/home': home,
   '/': login,
@@ -14,16 +14,24 @@ export const routes = {
   '/perfil': perfil,
 };
 
-// DIV DE HTML DONDE SE RENDARIZAN TODAS LAS SECCIONES
+// AQUI INDICAMOS QUE EN EL DIV DEL HTML, SE VAN A RENDARIZAN TODAS LAS SECCIONES
 const rootDiv = document.getElementById('root');
 
 // FUNCIÓN QUE RENDERIZA EL PATHNAME INDICADO
+// El pathname nos muestra la "route" en la que nos encontramos actualmente
 export const onNavigate = (pathname) => {
+  // Con "history.pushState()", vamos a poder navegar entre secciones.
+  // Cuenta con 3 parámetros: 1.Estado ({}): Es el objeto con el nuevo
+  // registro del historial, 2.Titulo (pathname): El nombre que le vamos
+  // a dar, 3. Ruta (window.location.origin + pathname): Ruta que vamos a
+  // empujar, para poder navegar en ella.
   window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
   );
+  // Definimos que en el Div del HTML, se van a mostrar las páginas
+  // en donde vamos a estar navegando.
   rootDiv.innerHTML = routes[pathname];
   if (pathname === '/') {
     // console.log('Ingresar')
@@ -50,7 +58,7 @@ export const onNavigate = (pathname) => {
   }
 };
 
-// EVENTO CLICK QUE DEFINE EL PATHNAME QUE SE RENDERIZARÁ //
+// EVENTO CLICK, DONDE SE DEFINE SE RENDERIZARÁ EL PATHNAME AL QUE QUEREMOS ACCEDER
 export function getRouter(linkId, PathName) {
   linkId.addEventListener('click', () => {
     onNavigate(PathName);

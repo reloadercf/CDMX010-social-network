@@ -1,3 +1,4 @@
+// DEFINIMOS LOS TEMPLATES DE LOS MODALES QUE VAMOS A NECESITAR
 export const ErrorLoginMail = `<p class="close" id="close">X</p>
       <img src="./images/denided.svg" alt="">
       <div class="modal-textos" >
@@ -41,6 +42,6 @@ export const SuccessAccount = `<p class="close" id="close">X</p>
 export const confirmDelete = `<p class="close" id="close">X</p>
 <img src="./images/confirmchanges.svg" alt="">
 <div class="modal-textos" >
-			<h2>¿Deseas eliminar la publicación?</h2>
-			<p>Bienvenida a GirlTechSOS</p>                
+      <h2>¿Deseas eliminar la publicación?</h2>
+      <button id="btnAcept">Aceptar</button>               
 </div>`;

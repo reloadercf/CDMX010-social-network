@@ -1,5 +1,7 @@
 import { cancelEditPost, validEditedPost } from './postValidation.js';
 import { templatePost } from './templatePost.js';
+import { confirmDelete } from './modalError.js';
+import { openModal, closeModalLink } from './modal.js';
 
 export const perfil = `<div class="flex-container">
     <div class="flex-menu">
@@ -71,8 +73,14 @@ const EliminarPost = () => {
   // console.log(btnsDelete);
   btnsDelete.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
-      // console.log(e.target.dataset.id);			 
-      await deletePosts(e.target.dataset.id);			
+      openModal(confirmDelete);
+      const btnAcept = document.getElementById('btnAcept');
+
+      btnAcept.addEventListener('click', () => {
+        // console.log(e.target.dataset.id);
+        deletePosts(e.target.dataset.id);
+        closeModalLink();
+      });
     });
   });
 };
@@ -112,8 +120,7 @@ const EditPosts = () => {
       }
       const dataPost = postEdit.data();
       const textPost = dataPost.post;
-      
-			cancelEditPost(id, textPost);
+      cancelEditPost(id, textPost);
     });
   });
 };

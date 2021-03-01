@@ -4,17 +4,20 @@ const modal = document.querySelectorAll('.modal')[0];
 const modalContainer = document.getElementById('modal-container');
 const modalAlert = document.getElementById('modal-alert');
 
-function closeModalLink() {
+// EFECTO QUE VA A TENER EL MODAL CUANDO LE DEMOS CLICK PARA QUE SE CIERREN
+export function closeModalLink() {
   modal.classList.toggle('modal-close');
   modalContainer.style.opacity = '0';
   modalContainer.style.visibility = 'hidden';
 }
 
+// FUNCION PARA QUE SE PUEDAN CERRAR LOS MODALES
 export function closeModal() {
   const close = document.getElementById('close');
   close.addEventListener('click', closeModalLink);
 }
 
+// QUE APAREZCAN LOS MODALES, SEGUN LAS REGLAS QUE LES DEFINIMOS
 export const openModal = (mensajeError) => {
   // visibilidad de la transparencia del modal
   modalContainer.style.opacity = '1';

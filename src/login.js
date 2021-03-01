@@ -43,25 +43,29 @@ export const login = `<div class="container-login">
 export const loginWithMail = () => {
   const singupForm = document.getElementById('input-section-login');
   singupForm.addEventListener('submit', (e) => {
+    // Con el "e.preventDefault" evitamos que se renderice la página en automático
     e.preventDefault();
   });
-  // Enlace de 'REGISTRO' que lleva a la sección 'ACCOUNT´para el registro//
+  // Enlace para registrarse, en caso de que no se cuente con alguna Cuenta.
   const accountLinkLogin = document.getElementById('accountLink-login');
   accountLinkLogin.addEventListener('click', () => {
     const accountLink = document.getElementById('acc');
+    // Al darle click, nos lleva a la sección de "Crear cuenta"
     accountLink.click();
   });
-  // Se asigna el evento 'click' al botón de LOGIN//
+  // Se asigna el evento 'click' al botón de LOGIN
   const submitAccountButton = document.getElementById('login-mail-button');
   submitAccountButton.addEventListener('click', () => {
     // se obtienen los valores de los INPUTS//
     const loginMail = document.getElementById('login-mail-input').value;
     const loginPassword = document.getElementById('login-password-input').value;
-    // Se llama la variable 'auth' para aplicar los métodos de Firebase//
+    // Se llama la variable 'auth' para aplicar los métodos de Firebase
     auth
       .signInWithEmailAndPassword(loginMail, loginPassword)
       // En el parametro del .then definimos el "userCredential"
       .then(() => {
+        // Si contamos con las credenciales del usuario que esta intentando ingresar,
+        // nos lleva a la página de "Home"
         const homelink = document.getElementById('hom');
         homelink.click();
       })
@@ -70,6 +74,7 @@ export const loginWithMail = () => {
         openModal(ErrorLoginMail);
       });
   });
+  // El primero es el imput del password y el segundo el ojito para mostrar u ocultar la contraseña
   const showLoginPassword = document.getElementById('visibility-login-password');
   const loginPasswordInput = document.getElementById('login-password-input');
   // Ejecutar visibility//

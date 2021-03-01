@@ -20,7 +20,7 @@ getRouter(homeLink, '/home');
 getRouter(perfilLink, '/perfil');
 logoutfunction();
 
-// NAVBAR
+// PARA MOSTRAR EL NAVBAR CUANDO LO HAGAMOS RESPONSIVE Y SE DESPLIEGUE EL MENÚ
 const desplegar = document.getElementById('menu');
 desplegar.onclick = () => {
   const navbar = document.getElementById('nav');
