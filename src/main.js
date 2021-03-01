@@ -11,7 +11,7 @@ const loginLink = document.getElementById('log');
 const accountLink = document.getElementById('acc');
 const homeLink = document.getElementById('hom');
 const perfilLink = document.getElementById('per');
-// const logooutLink = document.getElementById('logout');
+const logooutLink = document.getElementById('logout');
 
 // FUNCIONES QUE RENDERIZAR CADA SECCIÓN//
 getRouter(loginLink, '/');
@@ -20,9 +20,9 @@ getRouter(homeLink, '/home');
 getRouter(perfilLink, '/perfil');
 logoutfunction();
 
-// PARA MOSTRAR EL NAVBAR CUANDO LO HAGAMOS RESPONSIVE Y SE DESPLIEGUE EL MENÚ
+// NAVBAR
 const desplegar = document.getElementById('menu');
-desplegar.onclick = () => {
+desplegar.onclick = function () {
   const navbar = document.getElementById('nav');
   navbar.classList.toggle('show');
 };

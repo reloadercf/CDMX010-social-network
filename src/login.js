@@ -7,7 +7,7 @@ import { ErrorLoginMail } from './modalError.js';
 
 export const login = `<div class="container-login">
     <div id="A-logo-container">
-        <img id="A-logo" src="./images/logoGris.png" alt="Logo"> 
+        <img id="A-logo" src="./images/logoGris.png" alt="Logo">
     </div>
     <form class="input-section" id="input-section-login">
         <div class="input-login">
@@ -33,7 +33,7 @@ export const login = `<div class="container-login">
             <img src="./images/fb.png" class="users" id="facebook-login">
             <img src="./images/github.png" class="users" id="github-login">
             <img src="./images/google.png" class="users" id="google-login">
-        </div> 
+        </div>
     </div>
     <div class="register-login">
         <p>¿No tienes cuenta? <a href="#" id="accountLink-login" class="beUser">Regístrate</a></p>
@@ -43,38 +43,31 @@ export const login = `<div class="container-login">
 export const loginWithMail = () => {
   const singupForm = document.getElementById('input-section-login');
   singupForm.addEventListener('submit', (e) => {
-    // Con el "e.preventDefault" evitamos que se renderice la página en automático
     e.preventDefault();
   });
-  // Enlace para registrarse, en caso de que no se cuente con alguna Cuenta.
-  const accountLinkLogin = document.getElementById('accountLink-login');
-  accountLinkLogin.addEventListener('click', () => {
-    const accountLink = document.getElementById('acc');
-    // Al darle click, nos lleva a la sección de "Crear cuenta"
-    accountLink.click();
-  });
-  // Se asigna el evento 'click' al botón de LOGIN
+  // Enlace de 'REGISTRO' que lleva a la sección 'ACCOUNT´para el registro//
+  const accountLinkLogin = document.getElementById('accountLink');
+  getRouter(accountLinkLogin, '/account');
+  // Se asigna el evento 'click' al botón de LOGIN//
   const submitAccountButton = document.getElementById('login-mail-button');
-  submitAccountButton.addEventListener('click', () => {
+  submitAccountButton.addEventListener ('click', () => {
     // se obtienen los valores de los INPUTS//
     const loginMail = document.getElementById('login-mail-input').value;
     const loginPassword = document.getElementById('login-password-input').value;
-    // Se llama la variable 'auth' para aplicar los métodos de Firebase
+    // console.log(loginMail);
+    // console.log(loginPassword);
+    // Se llama la variable 'auth' para aplicar los métodos de Firebase//
     auth
       .signInWithEmailAndPassword(loginMail, loginPassword)
-      // En el parametro del .then definimos el "userCredential"
-      .then(() => {
-        // Si contamos con las credenciales del usuario que esta intentando ingresar,
-        // nos lleva a la página de "Home"
-        const homelink = document.getElementById('hom');
-        homelink.click();
+      .then((userCredential) => {
+        const homeLink = document.getElementById('hom');
+        homeLink.click();
       })
-      // El parámetro del .catch es el "error"
-      .catch(() => {
+      .catch((error) => {
         openModal(ErrorLoginMail);
       });
   });
-  // El primero es el imput del password y el segundo el ojito para mostrar u ocultar la contraseña
+
   const showLoginPassword = document.getElementById('visibility-login-password');
   const loginPasswordInput = document.getElementById('login-password-input');
   // Ejecutar visibility//
