@@ -11,8 +11,8 @@ export const templatePost = (postsData, idPost, likesCounter, srcLike) => {
     <div class="cancelEdit-container" id="cancelEdit-container-${idPost}"><button class="cancelEdit-button" id="cancelEdit-button-${idPost}">Cancelar</button></div>
         <div class="interaction" id="interaction-container-${idPost}">
                 <label><img class="postIcon" src="./images/picture.png" class="picture"></label>           
-                <label>3 <img class="postIcon" src="./images/coment.png" class="coment"></label>            
-                <label><label id="countLikes-${idPost}">${likesCounter}</label> <img class="postIcon like" src=${srcLike} id="btn-like-${idPost}" data-id="${idPost}"></label>
+                <label class="countLike"> 3 <img class="postIcon" src="./images/coment.png" class="coment"></label>            
+                <label><label id="countLikes-${idPost}" class="countLike">${likesCounter}</label> <img class="postIcon like" src=${srcLike} id="btn-like-${idPost}" data-id="${idPost}"></label>
         </div>
     </div>               
     <div class="next">                   

@@ -1,5 +1,6 @@
 import { openModal } from './modal.js';
 import { ErrorLoginGoogle } from './modalError.js';
+import { auth } from './firebase.js';
 
 export const loginGoogle = () => {
   // Cuando se haga click en la imagen de google, se ejecutará lo sigueinte:

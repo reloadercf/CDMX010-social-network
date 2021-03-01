@@ -163,13 +163,19 @@ body{
 }
 .menu1{
     color: black;
+		font-size: 16px;
     padding: 10px 0px 10px 10px;
-    font-weight: bold;
+    font-weight: bold;		
     width: 100%;
     margin: 0%;
 }
 
-.flex-perfil{
+.countLike{
+	font-size: 14px;
+}
+
+.flex-perfil{		
+		margin-right: 4%;
     margin-top: 3%;
     display: flex;
     flex-direction: column;
@@ -191,7 +197,7 @@ body{
     font-size: 18px;
 }
 .notice{
-    width: 30%;    
+    width: 90%;    
 }
 
 .container{

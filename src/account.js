@@ -2,6 +2,7 @@ import { loginVisibility } from './loginVisibility.js';
 import { openModal } from './modal.js';
 import { ErrorAccount, SuccessAccount } from './modalError.js';
 import { saveInfoUser } from './userColection.js';
+import { auth } from './firebase.js';
 
 export const account = `<div class="container-login">
     <div id="A-logo-container">
