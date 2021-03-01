@@ -1,11 +1,11 @@
-body{    
-    background-image: url("./images/fondo.jpg") ; 
+body{
+    background-image: url("./images/fondo.jpg") ;
     background-position: center;
     background-repeat:no-repeat;
     background-size: cover;
     background-attachment: fixed;
     margin:0%;
-    padding: 0%; 
+    padding: 0%;
     font-family: 'Roboto', sans-serif;
 }
 #root{
@@ -23,30 +23,30 @@ body{
 #A-logo-container{
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;    
+    margin-bottom: 5%;
 }
 
 
 .input-section{
     margin-top: 5px;
 }
-.input-login{    
+.input-login{
     display: flex;
-    align-items: center;    
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     padding: 10px 0px 10px 0;
 }
 .input-login input{
     Width:300px;
     Height:30px;
-    border-radius: .10px; 
+    border-radius: .10px;
 }
 .check-login{
     margin-top: 6px;
     margin-right: 193px;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 }
 .checkin{
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
@@ -60,26 +60,26 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     padding: 20px 0px 20px 0;
 }
 .account-button:hover{
     cursor: pointer;
 }
-.button-login button{      
+.button-login button{
     Width:300px;
-    Height:30px; 
+    Height:30px;
 }
 .button-login a{
     font-size: small;
 }
-.socialNet-login{    
+.socialNet-login{
     justify-content: center;
 }
 .singin{
     display: flex;
     justify-content: center;
-    margin-top: 10px;    
+    margin-top: 10px;
 }
 .users{
     margin-left: 10px;
@@ -143,12 +143,12 @@ body{
 }
 .flex-menu{
     display: flex;
-    margin-top: 0%;    
+    margin-top: 0%;
     flex-direction: column;
-    width: 25%;   
-    height: 40%;   
+    width: 25%;
+    height: 40%;
     padding-top: 5%;
-    padding-left: 3%;   
+    padding-left: 3%;
 }
 
 .menuIcons{
@@ -159,7 +159,7 @@ body{
     width: 20%;
     background-color: transparent;
     font-size: small;
-    
+
 }
 .menu1{
     color: black;
@@ -179,13 +179,13 @@ body{
     margin-top: 3%;
     display: flex;
     flex-direction: column;
-    width: 50%;   
+    width: 50%;
 }
 .flex-noticias{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    width: 20%;    
+    width: 20%;
     margin-left: 50px;
     align-items: center;
 }
@@ -202,21 +202,21 @@ body{
 
 .container{
     background-color: transparent;
-	border-radius: 20px;	
-	margin-top: 10px;	
+	border-radius: 20px;
+	margin-top: 10px;
 	text-align: center;
     justify-content: center;
 }
 .container-home{
     background-color: transparent;
-	border-radius: 20px;	
-	margin-top: 10px;   
+	border-radius: 20px;
+	margin-top: 10px;
 	/* text-align: center;
     justify-content: center; */
 }
 .image-home{
     margin-right: 20px;
-    border-radius: 60%;   
+    border-radius: 60%;
     width: 80%;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
@@ -227,7 +227,7 @@ body{
 .imgContainer-home{
     width: 100%;
     grid-column-start:1 ;
-    
+
 }
 
 .info-home{
@@ -238,14 +238,14 @@ body{
 }
 .newPost-home{
     margin-top: 30px;
-    height: 80px;    
+    height: 80px;
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     border:1px #C3BEBE solid;
-    outline: none; 
-    font-size: 15px; 
-    padding-left: 13px;  
-    width: 90%; 
+    outline: none;
+    font-size: 15px;
+    padding-left: 13px;
+    width: 90%;
     align-self: center;
 }
 
@@ -271,18 +271,18 @@ body{
 }
 
 .userName-home{
-    margin-top: 5px;    
+    margin-top: 5px;
     font-size:1.5em;
-    font-weight: bold; 
+    font-weight: bold;
 }
 .userName-perfil{
-    margin-top: 5px;    
+    margin-top: 5px;
     font-size:1em;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 .about{
-    margin-top: 5px;    
+    margin-top: 5px;
     font-size: 1em;
     color: #828282;
 }
@@ -290,31 +290,31 @@ body{
 .post{
     display: flex;
     flex-direction: column;
-    margin-bottom: 10%; 
+    margin-bottom: 10%;
 }
 .content{
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     justify-content: center;
 }
 
 .newPost{
     margin-top: 45px;
-    height: 80px;    
+    height: 80px;
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     border:1px #C3BEBE solid;
-    outline: none; 
-    font-size: 15px;  
+    outline: none;
+    font-size: 15px;
     width: 100%;
 }
 
-.enter{    
+.enter{
     margin-top: 15px;
     background-color: #F3A623;
     border-color: #F3A623;
     color: white;
-    outline: none; 
+    outline: none;
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
     height: 20px;
@@ -329,13 +329,13 @@ body{
 	background-color: #F3A623;
     border-color: #F3A623;
     color: white;
-    outline: none; 
+    outline: none;
     border-radius: 4px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
 		height: 20px;
     font-size: 12px;
     width: 20%;
-    height: 30px;    
+    height: 30px;
     margin: 3%;
 }
 
@@ -347,22 +347,22 @@ body{
     cursor: pointer;
 }
 
-.activity{   
+.activity{
     width: 100%;
     background-color:white;
 	border-radius: 4px;
 	box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
 	align-self: center;
-	text-align: center;   
+	text-align: center;
 }
 .edit-post {
     display: flex;
-    justify-content: flex-end;   
+    justify-content: flex-end;
 }
 .edit-post img{
     justify-content: flex-end;
-    margin:1%;   
-    cursor: pointer; 
+    margin:1%;
+    cursor: pointer;
 }
 
 .namePostOwner{
@@ -388,7 +388,7 @@ body{
 }
 .cancelEdit-button:hover{
     border-radius: 10%;
-    color: blue; 
+    color: blue;
     text-decoration: underline blue;
 }
 
@@ -419,7 +419,7 @@ body{
     justify-content: center;
 }
 
-.house{    
+.house{
     width: 25px;
 
 }
@@ -440,10 +440,10 @@ body{
 	align-self: center;
 	text-align: center;
     margin-top: 9px;
-    height: 40px;    
+    height: 40px;
     border:1px #C3BEBE solid;
-    outline: none; 
-    font-size: 12px;   
+    outline: none;
+    font-size: 12px;
     align-self: center;
 }
 #my-file{
@@ -473,7 +473,7 @@ body{
 
 .modal{
     margin-top: 25px;
-    width: 40%;
+    width: 45%;
     height: 50%;
     background: white;
     /* overflow: hidden; */
@@ -537,7 +537,7 @@ body{
     width: 100%;
     height: 34px;
     border-color: #F3A623;
-    outline: none;    
+    outline: none;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .new-password{
@@ -557,10 +557,10 @@ body{
     box-shadow: 0px 1px #88888879;
     font-size: 12px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    outline: none; 
+    outline: none;
     background-image: url(./images/userIcon.png);
     background-repeat: no-repeat;
-    text-align: center; 
+    text-align: center;
 }
 
 .A-input-mail{
@@ -571,7 +571,7 @@ body{
     box-shadow: 0px 1px #88888879;
     font-size: 12px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    outline: none; 
+    outline: none;
     background-image: url(./images/mailIcon.png);
     background-repeat: no-repeat;
     text-align: center;
@@ -585,7 +585,7 @@ body{
     box-shadow: 0px 1px #88888879;
     font-size: 12px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    outline: none; 
+    outline: none;
     background-image: url(./images/passwordIcon.png);
     background-repeat: no-repeat;
     text-align: center;
@@ -598,7 +598,7 @@ body{
     box-shadow: 0px 1px #88888879;
     font-size: 12px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    outline: none; 
+    outline: none;
     background-image: url(./images/passwordIcon.png);
     background-repeat: no-repeat;
     text-align: center;
@@ -612,7 +612,7 @@ body{
     box-shadow: 0px 1px #88888879;
     font-size: 12px;
     box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    outline: none;  
+    outline: none;
 }
 
 .aboutUser{
@@ -631,19 +631,19 @@ body{
 /* NAVBAR */
 
 header{
-    margin: 0%; 
+    margin: 0%;
     position: fixed;
     display: flex;
     width: 100%;
-    height: 50px; 
+    height: 50px;
     background-color: #F3A623;
     justify-content: flex-end;
 
 }
 nav{
-    width: 27%;    
+    width: 27%;
     font-family: 'Barlow', sans-serif;
-    
+
 }
 nav ul{
     width: 100%;
@@ -652,7 +652,7 @@ nav ul{
 nav ul li{
     display: inline-block;
     padding-top: 2px;
-    margin-left: 5%; 
+    margin-left: 5%;
     margin-right: 5%;
 
 }
@@ -677,7 +677,7 @@ textarea{
     width: 35px;
     position: absolute;
     right: 25px;
-    top: 25px;    
+    top: 25px;
     display: none;
 }
 
@@ -686,7 +686,7 @@ textarea{
     width: 100%;
     height: 2px;
     background-color: white;
-    float: right;  
+    float: right;
     margin-bottom: 8px;
 }
 
@@ -704,7 +704,7 @@ textarea{
     }
     .socialNet-login img {
         width: 5%;
-        height: 5%; 
+        height: 5%;
     }
     .toogle-btn{
         display: block;
@@ -714,10 +714,10 @@ textarea{
         width: 100%;
         padding-top: 20px;
         margin-top: 30px;
-        
+
     }
     nav.show{
-        display: block; 
+        display: block;
     }
     nav ul{
         background-color: #F3A623
@@ -738,6 +738,11 @@ textarea{
     }
     .flex-perfil{
         width: 100%;
-        margin: 8%;  
+        margin: 8%;
     }
+		.modal{
+    width: 90%;
+    height: 45%;
+
+		}
 }
