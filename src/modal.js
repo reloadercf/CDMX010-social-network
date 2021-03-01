@@ -22,15 +22,6 @@ export const openModal = (mensajeError) => {
     });
   } else if (mensajeError === ErrorAccount) {
     document.getElementById('modalErrorLogin-link').addEventListener('click', () => {
-<<<<<<< HEAD
-      const loginlink = document.getElementById('log');
-      loginlink.click();
-      closeModalLink();
-    });
-    document.getElementById('modalErrorAccount-link').addEventListener('click', () => {
-      const accountlink = document.getElementById('acc');
-      accountlink.click();
-=======
       const loginLink = document.getElementById('log');
       loginLink.click();
       closeModalLink();
@@ -38,13 +29,10 @@ export const openModal = (mensajeError) => {
     document.getElementById('modalErrorAccount-link').addEventListener('click', () => {
       const accountLink = document.getElementById('acc');
       accountLink.click();
->>>>>>> 18a5469 (archivos modificados deacuerdo a ESLint)
       closeModalLink();
     });
   }
 };
-<<<<<<< HEAD
-=======
 
 export function closeModal() {
   const close = document.getElementById('close');
@@ -56,4 +44,3 @@ function closeModalLink() {
   modalContainer.style.opacity = '0';
   modalContainer.style.visibility = 'hidden';
 };
->>>>>>> 18a5469 (archivos modificados deacuerdo a ESLint)
