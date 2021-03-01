@@ -1,3 +1,5 @@
+// VALIDAMOS QUE EL POST QUE QUEREMOS PONER ES VÁLIDO O NO,
+// PARA QUE SE DESPLIEGUE EL BOTÓN DE PIBLICAR
 export const validPost = () => {
   const btnPublicar = document.getElementById('publicar');
   const newPostInput = document.getElementById('newPostPerfil');
@@ -21,6 +23,7 @@ export const validPost = () => {
   });
 };
 
+// FUNCIÓN PARA EDITAR EL POST
 export const validEditedPost = (changeIcon, enableWrite) => {
   changeIcon.style.display = 'block';
   enableWrite.addEventListener('keyup', () => {
@@ -36,16 +39,17 @@ export const validEditedPost = (changeIcon, enableWrite) => {
   });
 };
 
+// FUNCIÓN PARA CANCELAR LA EDICIÓN DEL POST
 export const cancelEditPost = (id, textPost) => {
-  const enableWrite = document.getElementById('text-post-' + id);
-  const changeIcon = document.getElementById('btn-edit-' + id);
-  const interactionContainer = document.getElementById('interaction-container-' + id);
-  const cancelEditContainer = document.getElementById('cancelEdit-container-' + id);
-  const cancelEditbutton = document.getElementById('cancelEdit-button-' + id);
+  const enableWrite = document.getElementById(`text-post-${id}`);
+  const changeIcon = document.getElementById(`btn-edit-${id}`);
+  const interactionContainer = document.getElementById(`interaction-container-${id}`);
+  const cancelEditContainer = document.getElementById(`cancelEdit-container-${id}`);
+  const cancelEditbutton = document.getElementById(`cancelEdit-button-${id}`);
   cancelEditbutton.addEventListener('click', () => {
     enableWrite.value = textPost;
     changeIcon.src = './images/edit.png';
-    // enableWrite.setAttribute('readonly',true); también sirve
+    // enableWrite.setAttribute('readonly',true); // también sirve
     enableWrite.readOnly = true;
     interactionContainer.style.display = 'flex';
     cancelEditContainer.style.display = 'none';
