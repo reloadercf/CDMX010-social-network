@@ -37,11 +37,11 @@ export const perfil = `<div class="flex-container">
     </div>
     <div class="flex-noticias">
         <div class="noticias-section">
-				<p class="title">Noticias</p>
-				<p>Junto con <strong>Citibanamex</strong> hemos recaudado <strong>$24.6 MDP</strong> para la educación el Laboratoria...</p>
-				<img src="./images/Laboratoria1.jpg" class="notice"> 
-				<p>¡Bienvenidas a la generación <strong>MX010!</strong></p>
-				<img src="./images/Dia1.png" class="notice"> 
+          <p class="title">Noticias</p>
+          <p>Junto con <strong>Citibanamex</strong> hemos recaudado <strong>$24.6 MDP</strong> para la educación el Laboratoria...</p>
+          <img src="./images/Laboratoria1.jpg" class="notice"> 
+          <p>¡Bienvenidas a la generación <strong>MX010!</strong></p>
+          <img src="./images/Dia1.png" class="notice"> 
         </div> 
     </div>
 </div>`;
