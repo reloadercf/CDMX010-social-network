@@ -4,6 +4,7 @@ import { loginVisibility } from './loginVisibility.js';
 import { openModal } from './modal.js';
 import { loginGithub } from './loginGithub.js';
 import { ErrorLoginMail } from './modalError.js';
+import { auth } from './firebase.js';
 
 export const login = `<div class="container-login">
     <div id="A-logo-container">

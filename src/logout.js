@@ -1,4 +1,5 @@
 import { onNavigate } from './routing.js';
+import { auth } from './firebase.js';
 
 export const logoutfunction = () => {
   const btnlogout = document.getElementById('logout');

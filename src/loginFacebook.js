@@ -1,5 +1,6 @@
 import { ErrorLoginFacebook } from './modalError.js';
 import { openModal } from './modal.js';
+import { auth } from './firebase.js';
 
 export const loginFacebook = () => {
   // Se va a ejecutar al momento de hacerle click a la imagen de FB

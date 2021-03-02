@@ -1,5 +1,6 @@
 import { ErrorLoginGithub } from './modalError.js';
 import { openModal } from './modal.js';
+import { auth } from './firebase.js';
 
 export const loginGithub = () => {
   // Se ejecuta al darle click a la imagen de Github.

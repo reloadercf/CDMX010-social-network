@@ -1,3 +1,5 @@
+import { auth, firestore } from './firebase.js';
+
 // Obtenemos la información del "usermail" de la colección de procfile
 // desde Firebase (Segunda columna de Firebase)
 export const getInfoUser = (usermail) => {

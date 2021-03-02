@@ -2,18 +2,17 @@ import { cancelEditPost, validEditedPost } from './postValidation.js';
 import { templatePost } from './templatePost.js';
 import { confirmDelete } from './modalError.js';
 import { openModal, closeModalLink } from './modal.js';
+import { auth, firestore } from './firebase.js';
 
 export const perfil = `<div class="flex-container">
     <div class="flex-menu">
         <div class="subject">
-        <h3>GirlTechSOS</h3>
-        <p class="menu1"><img class="menuIcons" src="./images/profileIcon.png"> Perfil</p>
-        <p class="menu1"><img class="menuIcons" src="./images/friendsIcon.png"> Amigos</p>
-        <p class="menu1"><img class="menuIcons" src="./images/favFolderIcon.png"> Favoritos</p>
-        <p class="menu1"><img class="menuIcons" src="./images/helpIcon.png"> Ayuda</p>
-        <p class="menu1"><img class="menuIcons" src="./images/configIcon.png"> Configuración</p>            
-        <p class="menu1"><img class="menuIcons" src="./images/avatarProfile.png">Sobre GirlTechSOS</p>
-        <p class="menu1"><img class="menuIcons" src="./images/exitIcon.png"> Salir</p>
+        <h3 class="title">GirlTechSOS</h3>
+        <p class="menu1"><img class="menuIcons" src="./images/friendsIcon.png">&nbsp;&nbsp; Amigos</p>
+        <p class="menu1"><img class="menuIcons" src="./images/favFolderIcon.png">&nbsp;&nbsp; Favoritos</p>
+        <p class="menu1"><img class="menuIcons" src="./images/helpIcon.png">&nbsp;&nbsp; Ayuda</p>
+        <p class="menu1"><img class="menuIcons" src="./images/configIcon.png">&nbsp;&nbsp; Configuración</p>            
+        <p class="menu1"><img class="menuIcons" src="./images/woman.png">&nbsp;&nbsp;GirlTechSOS</p>
         </div>
     </div>
     <div class="flex-perfil">
@@ -36,13 +35,11 @@ export const perfil = `<div class="flex-container">
     </div>
     <div class="flex-noticias">
         <div class="noticias-section">
-            <p class="title">Noticias</p>
-            <p>Noticia 1</p>
-            <img src="./images/picture.png" class="notice"> 
-            <p>Noticia 2</p>
-            <img src="./images/picture.png" class="notice"> 
-            <p>Noticia 3</p>
-            <img src="./images/picture.png" class="notice"> 
+          <p class="title">Noticias</p>
+          <p>Junto con <strong>Citibanamex</strong> hemos recaudado <strong>$24.6 MDP</strong> para la educación en Laboratoria...</p>
+          <img src="./images/Laboratoria1.jpg" class="notice"> 
+          <p>¡Bienvenidas a la generación <strong>MX010!</strong></p>
+          <img src="./images/Dia1.png" class="notice"> 
         </div> 
     </div>
 </div>`;
