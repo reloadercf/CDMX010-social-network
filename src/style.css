@@ -16,7 +16,7 @@ body{
 #A-logo{
     width: 15%;
     height: 15%;
-    margin-top: 30px;
+    margin-top: 5%;
 
 }
 
@@ -629,32 +629,46 @@ header{
     position: fixed;
     display: flex;
     width: 100%;
-    height: 50px; 
+    height: 35px; 
     background-color: #F3A623;
     justify-content: flex-end;
+		padding: 1%;
 
 }
 nav{
-    width: 27%;    
+    width: 80%;    
     font-family: 'Barlow', sans-serif;
+		display: flex;
+		justify-content: flex-end;
+		justify-self: flex-end;
+
     
 }
-nav ul{
-    width: 100%;
+.linkHome-container{
+    width: 20%;
+		position: fixed;
+		left: 3%;
+		top: 3%;
+		display: none;
+}
+.ul2{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+
 }
 
 nav ul li{
-    display: inline-block;
-    padding-top: 2px;
+    display: inline;
     margin-left: 5%; 
     margin-right: 5%;
-
 }
 
 nav ul li a{
-    text-decoration: none;
-    display: inline-block;
-    color: white;
+	display: none;
+  text-decoration: none;
+  color: white;
+	position: relative;
     /* font-weight: 600; */
 }
 nav ul li a:hover{
@@ -670,8 +684,8 @@ textarea{
 .toogle-btn{
     width: 35px;
     position: absolute;
-    right: 25px;
-    top: 25px;    
+    right: 7%;
+    top: 30%;    
     display: none;
 }
 
@@ -686,7 +700,7 @@ textarea{
 
 @media(max-width: 800px){
     #root{
-        padding-top: 15%;
+        padding-top: 10%;
     }
     #A-root{
         display: block;
@@ -694,8 +708,14 @@ textarea{
     #A-logo{
     width: 30%;
     height: 30%;
-    margin-top: 30px;
     }
+		#A-logo-container{
+			margin-bottom: 10%; 
+			margin-top: 15%;   
+	}
+		.info-home{
+			font-size: x-small;
+		}
     .socialNet-login img {
         width: 5%;
         height: 5%; 
@@ -705,25 +725,45 @@ textarea{
     }
     nav{
         display: none;
-        width: 100%;
-        padding-top: 20px;
-        margin-top: 30px;
-        
+  
     }
     nav.show{
         display: block; 
+				width: 100%;
+				padding: 20px;
+        margin-top: 10%;
+				margin-right: 15%;
+				margin-bottom: 80%;
     }
-    nav ul{
-        background-color: #F3A623
+    .ul2{
+			background-color: #f3a723e7;
+				margin: 5%;
+				padding: 5%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
     };
     nav ul li{
-        padding: 15px 0px;
+				
         width: 100%;
+				padding: 10%;
     }
     nav ul li a{
-        color: black;
+			
+        color: white;
+				margin: 20%;
+        width: 100%;
     }
-
+		.linkHome-container{
+			width: 20%;
+			position: fixed;
+			left: 5%;
+			top: 2%;
+	}
+		header{
+			padding: 2%;
+		}
     .flex-menu{
         display: none;
     }
