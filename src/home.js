@@ -2,13 +2,11 @@ export const home = `<div class="flex-container">
     <div class="flex-menu">
         <div class="subject">
             <h3 class="title">GirlTechSOS</h3>
-            <p class="menu1"><img class="menuIcons" src="./images/profileIcon.png">&nbsp;&nbsp; Perfil</p>
             <p class="menu1"><img class="menuIcons" src="./images/friendsIcon.png">&nbsp;&nbsp; Amigos</p>
             <p class="menu1"><img class="menuIcons" src="./images/favFolderIcon.png">&nbsp;&nbsp; Favoritos</p>
             <p class="menu1"><img class="menuIcons" src="./images/helpIcon.png">&nbsp;&nbsp; Ayuda</p>
             <p class="menu1"><img class="menuIcons" src="./images/configIcon.png">&nbsp;&nbsp; Configuración</p>            
-            <p class="menu1"><img class="menuIcons" src="./images/woman.png">&nbsp;&nbsp; Sobre GirlTechSOS</p>
-            <p class="menu1"><img class="menuIcons" src="./images/exitIcon.png">&nbsp;&nbsp; Salir</p>
+            <p class="menu1"><img class="menuIcons" src="./images/woman.png">&nbsp;&nbsp;GirlTechSOS</p>
         </div>
     </div>
     <div class="flex-perfil">
@@ -34,7 +32,7 @@ export const home = `<div class="flex-container">
         <div class="flex-noticias">
             <div class="noticias-section">
                 <p class="title">Noticias</p>
-                <p>Junto con <strong>Citibanamex</strong> hemos recaudado <strong>$24.6 MDP</strong> para la educación el Laboratoria...</p>
+                <p>Junto con <strong>Citibanamex</strong> hemos recaudado <strong>$24.6 MDP</strong> para la educación en Laboratoria...</p>
                 <img src="./images/Laboratoria1.jpg" class="notice"> 
                 <p>¡Bienvenidas a la generación <strong>MX010!</strong></p>
                 <img src="./images/Dia1.png" class="notice">                
