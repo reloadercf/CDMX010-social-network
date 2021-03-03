@@ -3,10 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+  <title>GirlTechSOS</title>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+<!-- ESTRUCTURA GENERAL -->
+  <header>
+    <div class="toogle-btn" id="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+		<div class="linkHome-container"><a href="#" id="hom" class="linkHome" ><img src="./images/home.png" alt="" class="house"></a></div>
+    <nav id="nav">
+      <ul>          
+        <li><img src="images/logoGris.png" alt="" class="gts"></li>     
+        <li class="LiNavbarLink" id="loginLinkLi"><a href="#" class="navbarLink" id="log">Ingresar</a></li>
+        <li class="LiNavbarLink" id="accountLinkLi"><a href="#" class="navbarLink" id="acc">Crear cuenta</a></li>        
+        <li class="LiNavbarLink" id="perfilLinkLi"><a href="#" class="navbarLink" id="per">Perfil</a></li>
+        <li class="LiNavbarLink" id="logoutLinkLi"><a href="#" class="navbarLink" id="logout">Salir</a></li>
+      </ul>
+    </nav>
+    </header>
+	<!-- Div, donde se renderizaran la SINGLE PAGE APLICATION (Del "routing.js") -->	
+  <div id="root"></div>
+  <!-- ESQUELETO DEL MODAL -->
+  <div class="modal-container" id="modal-container">
+    <div class="modal modal-close" id= "modal-alert">      
+    </div>
+  </div>
+  <!-- SDKs DE FIREBASE -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase.js"></script>   
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+<script type="module" src="main.js"></script>
+<script type="module" src="firebase.js"></script>
 </body>
 </html>
