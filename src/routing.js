@@ -19,6 +19,10 @@ const rootDiv = document.getElementById('root');
 
 // FUNCIÓN QUE RENDERIZA EL PATHNAME INDICADO
 // El pathname nos muestra la "route" en la que nos encontramos actualmente
+export const renderRoutes= (pathname) => {
+  rootDiv.innerHTML = routes[pathname];
+}
+
 export const onNavigate = (pathname) => {
   // Con "history.pushState()", vamos a poder navegar entre secciones.
   // Cuenta con 3 parámetros: 1.Estado ({}): Es el objeto con el nuevo
@@ -32,7 +36,8 @@ export const onNavigate = (pathname) => {
   );
   // Definimos que en el Div del HTML, se van a mostrar las páginas
   // en donde vamos a estar navegando.
-  rootDiv.innerHTML = routes[pathname];
+  //rootDiv.innerHTML = routes[pathname];
+  renderRoutes(pathname);
   if (pathname === '/') {
     // console.log('Ingresar')
     loginWithMail();

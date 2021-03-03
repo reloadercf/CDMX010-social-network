@@ -13,6 +13,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+export default firebase;
 // *****DEFINIMOS UNA CONSTANTE, DONDE ESTAREMOS LLAMANDO EN CADA MOMENTO
 // AL OBJETO "AUTH" AL UTILIZAR EL SERVICIO, PARA QUE EL EMAIL Y LA CONTRASEÑA
 // SEA VALIDADA CON LA BASE DE DATOS*****
