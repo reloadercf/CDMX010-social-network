@@ -3,23 +3,26 @@ import {bienvenida} from './components/welcome.js'
 import {posts} from './components/posts.js'
 import {createPosts} from './components/createposts.js'
 
-let nodoDom=document.getElementById('app')
+const appElement =document.getElementById('app')
 const sesion=document.getElementById('sesion')
+const form= document.getElementById('form')
+const useremail= document.getElementById('useremail')
+const password= document.getElementById('password')
 const postDom=document.getElementById('createBtn')
 
 // router
-let welcome=bienvenida();
-let post= posts();
-let muro=createPosts();
-
+//let welcome=bienvenida();
+//let post= posts();
+//let muro=createPosts();
 
 const routes = {
-    '/' : welcome,
-    '/posts' : post,
-    '/createPosts' : muro,
+    '/' : bienvenida,
+    '/posts' : posts,
+    '/createPosts' : createPosts,
   };
 
-  nodoDom.innerHTML = routes[window.location.pathname];
+const welcomeComponent = routes[window.location.pathname];
+welcomeComponent(appElement)
 
   function onNavigate(pathname){
     window.history.pushState(
@@ -27,8 +30,9 @@ const routes = {
       pathname,
       window.location.origin + pathname
     )
-    nodoDom.innerHTML=routes[pathname]
-  //   btnCreate();
+
+    const component = routes[pathname] 
+    component(appElement)
   }
 
 sesion.addEventListener('click',()=>{
@@ -38,15 +42,3 @@ sesion.addEventListener('click',()=>{
   // borras con un remove child
   // creas elementos con appenChild
 })
-
-// window.onload= function(){
-// postDom.addEventListener('click',()=>{
-//    onNavigate('/muro')
-//  });
-// }
-postDom.addEventListener('click', function(){
-  // e.preventDefault();
-  onNavigate('/createPosts')
-})
-
-

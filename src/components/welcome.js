@@ -1,15 +1,31 @@
 // aqui exportaras las funciones que necesites
 
-export function bienvenida(){
-  return `<h1>Cultura de Belleza</h1>
+export function bienvenida(target){
+  const html=  `<h1>Beauty Culture</h1>
           <div id="dates">
-          <h2>¿Aún no tienes una cuenta con nosotrxs?</h2>
-          <p>¿Qué esperas para sumarte a nuestro grupo?.<br>
-             Aquí encontrarás tips, tutoriales, venta y mucho más.</p>
-          <h3>¡Registrate ahora mismo!</h3><br>
-          <input type="email" name="direccionemail" required placeholder="Ej: usuario@servidor.com">
-          <br><br><input type="password" required placeholder="Escribe una contraseña">
-          <br><br><input type="submit" value="Registrate">
-          </p>
+          <h2>Iniciar sesión</h2>
+          <form class="form" id="form">
+          <h4>Correo electrónico</h4>
+          <input type="email" class="form-control" id="useremail" placeholder="Ej: usuario@servidor.com" required>
+          <h4>Contraseña</h4>
+          <input type="password" class="form-control" id="password" placeholder="Ingrese contraseña:" required>
+          <button type="submit" class="btn btn-outline-success">Iniciar</button>
           </div>`
+
+        target.innerHTML= html
 };
+
+// const form= document.getElementById('form')
+// const useremail= document.getElementById('useremail')
+// const password= document.getElementById('password')
+
+// form.addEventListener('submit', function (event){
+//  event.preventDefault();
+// //  let users= Array[
+// //     {
+// //        correo: useremail.value,
+// //        contraseña: password.value
+// //     }
+// //  ];
+//  console.log('click');
+// });
